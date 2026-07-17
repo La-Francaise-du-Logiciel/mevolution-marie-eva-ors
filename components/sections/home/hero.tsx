@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";

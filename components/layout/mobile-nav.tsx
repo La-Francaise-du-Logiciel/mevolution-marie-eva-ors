@@ -6,7 +6,8 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { Link, usePathname } from "@/i18n/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 import { cn } from "@/lib/utils";

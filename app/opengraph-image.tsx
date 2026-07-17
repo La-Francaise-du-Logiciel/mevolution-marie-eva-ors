@@ -1,20 +1,10 @@
 import { ImageResponse } from "next/og";
 
-import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Mévolution — Consulting & Coaching";
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-const TAGLINE: Record<string, string> = {
-  fr: "Coaching emploi & bilan de compétences",
-  en: "Job coaching & skills assessment",
-};
 
 function Leaf({ size: s, color, rotate = 45 }: { size: number; color: string; rotate?: number }) {
   return (
@@ -30,9 +20,8 @@ function Leaf({ size: s, color, rotate = 45 }: { size: number; color: string; ro
   );
 }
 
-export default async function OpengraphImage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  const tagline = TAGLINE[locale] ?? TAGLINE.fr;
+export default function OpengraphImage() {
+  const tagline = "Coaching emploi & bilan de compétences";
 
   return new ImageResponse(
     <div

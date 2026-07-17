@@ -5,7 +5,8 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { Link, usePathname } from "@/i18n/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/brand/container";
 import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/brand/calendly-link";
@@ -69,8 +70,6 @@ export function Header() {
         </nav>
 
         <div className="flex flex-none items-center gap-2 lg:gap-3">
-          {/* Sélecteur FR/EN désactivé (site en français). Pour le réactiver :
-              réimporter LocaleSwitcher (./locale-switcher) et remettre <LocaleSwitcher /> ici. */}
           <Button asChild variant="primary" size="sm" className="hidden lg:inline-flex">
             <CalendlyLink location="header" aria-label={t("cta")}>
               {t("cta")}

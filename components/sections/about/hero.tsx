@@ -34,7 +34,11 @@ export function AboutHero() {
             className="absolute -top-6 -left-6 z-0"
             style={{ background: "rgba(136,72,154,0.18)" }}
           />
-          <PhotoPlaceholder tone="violet" label={common("photoPortraitAlt")} className="mv-appear" />
+          <PhotoPlaceholder
+            tone="violet"
+            label={common("photoPortraitAlt")}
+            className="mv-appear"
+          />
         </Reveal>
       </Container>
     </section>

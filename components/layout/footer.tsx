@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { Container } from "@/components/brand/container";
 import { siteConfig } from "@/lib/site";
 import { NAV } from "./nav-items";

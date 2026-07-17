@@ -12,7 +12,7 @@ Le site présente l'offre, la personne, et convertit vers un **entretien découv
 - [Variables d'environnement](#variables-denvironnement)
 - [Scripts](#scripts)
 - [Structure du projet](#structure-du-projet)
-- [Internationalisation (i18n)](#internationalisation-i18n)
+- [Langue](#langue)
 - [SEO](#seo)
 - [Intégrations](#intégrations)
 - [Déploiement](#déploiement)
@@ -20,18 +20,18 @@ Le site présente l'offre, la personne, et convertit vers un **entretien découv
 
 ## Stack technique
 
-| Rôle          | Techno                                    |
-| ------------- | ----------------------------------------- |
-| Framework     | Next.js 16 (App Router, SSG)              |
-| Langage       | TypeScript (strict)                       |
-| Styles        | Tailwind CSS v4 (design tokens CSS-first) |
-| Composants UI | Primitives type shadcn/ui (Radix + CVA)   |
-| i18n          | next-intl (FR/EN)                         |
-| Formulaires   | React Hook Form + Zod                     |
-| Email         | Resend                                    |
-| Analytics     | PostHog                                   |
-| Animations    | IntersectionObserver + CSS (reveal robuste) |
-| Icônes        | lucide-react                              |
+| Rôle          | Techno                                       |
+| ------------- | -------------------------------------------- |
+| Framework     | Next.js 16 (App Router, SSG)                 |
+| Langage       | TypeScript (strict)                          |
+| Styles        | Tailwind CSS v4 (design tokens CSS-first)    |
+| Composants UI | Primitives type shadcn/ui (Radix + CVA)      |
+| Textes        | next-intl (français, sans routing de langue) |
+| Formulaires   | React Hook Form + Zod                        |
+| Email         | Resend                                       |
+| Analytics     | PostHog                                      |
+| Animations    | IntersectionObserver + CSS (reveal robuste)  |
+| Icônes        | lucide-react                                 |
 
 ## Prérequis
 
@@ -52,7 +52,7 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Le site est disponible sur <http://localhost:3000> (redirige vers `/fr`).
+Le site est disponible sur <http://localhost:3000>.
 
 > **Le formulaire de contact fonctionne sans clé Resend en développement** : le message n'est pas envoyé mais l'UI affiche l'état de succès (le message est loggé côté serveur).
 
@@ -84,14 +84,13 @@ Copier `.env.example` → `.env.local`.
 
 ```
 app/
-├── [locale]/                 # Routes localisées (/fr, /en)
-│   ├── layout.tsx            # <html>, polices, providers, header/footer, JSON-LD
-│   ├── page.tsx              # Accueil
-│   ├── prestations/page.tsx
-│   ├── a-propos/page.tsx
-│   ├── contact/page.tsx
-│   ├── not-found.tsx
-│   └── opengraph-image.tsx   # Image OG dynamique (1200×630)
+├── layout.tsx                # <html lang="fr">, polices, providers, header/footer, JSON-LD
+├── page.tsx                  # Accueil
+├── prestations/page.tsx
+├── a-propos/page.tsx
+├── contact/page.tsx
+├── not-found.tsx
+├── opengraph-image.tsx       # Image OG (1200×630)
 ├── api/contact/route.ts      # Endpoint formulaire (Resend + rate limiting)
 ├── globals.css               # Tokens Tailwind v4 + base + animations
 ├── manifest.ts / robots.ts / sitemap.ts
@@ -99,29 +98,28 @@ app/
 components/
 ├── ui/                       # Primitives (button, input, form, checkbox…)
 ├── brand/                    # Leaf, Eyebrow, Reveal, CtaBand, Container…
-├── layout/                   # Header, Footer, MobileNav, LocaleSwitcher
+├── layout/                   # Header, Footer, MobileNav
 └── sections/                 # Sections par page (home/, prestations/, about/, contact/)
-i18n/                         # routing, navigation, request (next-intl)
+i18n/                         # request.ts (config next-intl, français)
 lib/                          # utils, site, seo, json-ld, schemas, analytics, rate-limit, fonts
-messages/                     # fr.json, en.json (toute la copie)
+messages/                     # fr.json (toute la copie)
 public/                       # logo, favicon, assets de marque
 ```
 
-## Internationalisation (i18n)
+## Langue
 
-- Deux locales : **`fr`** (défaut) et **`en`**, préfixe toujours présent (`/fr/…`, `/en/…`).
-- Toute la copie vit dans `messages/fr.json` et `messages/en.json`.
-- Le sélecteur de langue (header) conserve la page courante.
-- Liens `hreflang` (FR / EN / `x-default`) générés par page.
-- Les slugs de route restent stables entre les langues (`/prestations`, `/a-propos`, `/contact`).
+Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/prestations`, `/a-propos`, `/contact` (aucun préfixe `/fr`).
+
+- Toute la copie vit dans `messages/fr.json`, gérée via next-intl en mode « sans i18n routing » (pratique pour centraliser et éditer les textes).
+- Pour rajouter une langue plus tard : réintroduire le routing i18n de next-intl (segment `[locale]` + middleware) et un fichier `messages/en.json`.
 
 ## SEO
 
 - `generateMetadata` par page : title, description, canonical, OG, Twitter cards.
 - **JSON-LD** : `ProfessionalService`, `WebSite`, `Person` (à propos), `FAQPage` (accueil), `BreadcrumbList`.
-- `sitemap.xml` localisé, `robots.txt`, `manifest.webmanifest`, favicon SVG.
+- `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, favicon SVG.
 - Image Open Graph générée dynamiquement (`opengraph-image.tsx`).
-- Rendu statique (SSG) via `generateStaticParams` + `setRequestLocale`.
+- Rendu statique (SSG) : toutes les pages sont pré-générées en HTML.
 
 ## Intégrations
 
@@ -155,7 +153,6 @@ Le design est haute-fidélité mais certains contenus sont des **placeholders** 
 - [ ] **Pages légales** : Mentions légales & Politique de confidentialité (liens `#` dans le footer).
 - [ ] **Liens réseaux** : confirmer LinkedIn / Instagram (`orsmareva`) ; ajouter Facebook (`#`).
 - [ ] **Images OG 1200×630** définitives (sinon l'image générée par défaut est utilisée).
-- [ ] **Traductions EN** : relire la copie anglaise (`messages/en.json`).
 - [ ] **`NEXT_PUBLIC_SITE_URL`** : domaine de production réel.
 
 ---

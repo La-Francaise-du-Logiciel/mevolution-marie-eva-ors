@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { notFound } from "next/navigation";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 
-import { routing } from "@/i18n/routing";
 import { mulish, newsreader } from "@/lib/fonts";
 import { getSiteUrl, siteConfig } from "@/lib/site";
 import { JsonLd, organizationSchema, webSiteSchema } from "@/lib/json-ld";
@@ -13,26 +11,15 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { PostHogProvider } from "@/app/providers";
 
-import "../globals.css";
-
-export const dynamicParams = false;
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+import "./globals.css";
 
 export const viewport: Viewport = {
   themeColor: "#f7f4ee",
   colorScheme: "light",
 };
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "home.meta" });
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("home.meta");
 
   return {
     metadataBase: new URL(getSiteUrl()),
@@ -45,23 +32,19 @@ export async function generateMetadata({
     authors: [{ name: siteConfig.founder }],
     creator: siteConfig.founder,
     publisher: siteConfig.name,
-    keywords:
-      locale === "fr"
-        ? [
-            "coaching emploi",
-            "bilan de compétences",
-            "reconversion professionnelle",
-            "conseillère en évolution professionnelle",
-            "Maréva Ors",
-            "Orientaction",
-          ]
-        : ["job coaching", "skills assessment", "career change", "career counsellor", "Maréva Ors"],
+    keywords: [
+      "coaching emploi",
+      "bilan de compétences",
+      "reconversion professionnelle",
+      "conseillère en évolution professionnelle",
+      "Maréva Ors",
+      "Orientaction",
+    ],
     formatDetection: { telephone: true, email: true, address: false },
     openGraph: {
       type: "website",
       siteName: siteConfig.name,
-      locale: locale === "fr" ? "fr_FR" : "en_US",
-      alternateLocale: locale === "fr" ? "en_US" : "fr_FR",
+      locale: "fr_FR",
     },
     twitter: { card: "summary_large_image" },
     icons: {
@@ -78,26 +61,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  if (!hasLocale(routing.locales, locale)) {
-    notFound();
-  }
-  setRequestLocale(locale);
-
+export default async function RootLayout({ children }: { children: ReactNode }) {
   const messages = await getMessages();
-  const t = await getTranslations({ locale, namespace: "home.meta" });
-  const nav = await getTranslations({ locale, namespace: "nav" });
+  const t = await getTranslations("home.meta");
+  const nav = await getTranslations("nav");
 
   return (
     <html
-      lang={locale}
+      lang="fr"
       className={`${mulish.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
@@ -109,7 +80,7 @@ export default async function LocaleLayout({
           {nav("skipToContent")}
         </a>
 
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale="fr" messages={messages}>
           <PostHogProvider>
             <div className="flex min-h-dvh flex-col">
               <Header />
@@ -122,8 +93,8 @@ export default async function LocaleLayout({
           </PostHogProvider>
         </NextIntlClientProvider>
 
-        <JsonLd data={organizationSchema(locale, t("description"))} />
-        <JsonLd data={webSiteSchema(locale)} />
+        <JsonLd data={organizationSchema(t("description"))} />
+        <JsonLd data={webSiteSchema()} />
       </body>
     </html>
   );

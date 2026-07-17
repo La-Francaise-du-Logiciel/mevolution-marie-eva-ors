@@ -1,6 +1,5 @@
-import { routing } from "@/i18n/routing";
 import { getSiteUrl, siteConfig } from "./site";
-import { localizedPath } from "./seo";
+import { absoluteUrl } from "./seo";
 
 /** Rend un bloc JSON-LD (données structurées) de façon sûre. */
 export function JsonLd({ data }: { data: object }) {
@@ -14,7 +13,7 @@ export function JsonLd({ data }: { data: object }) {
   );
 }
 
-export function organizationSchema(locale: string, description: string) {
+export function organizationSchema(description: string) {
   const site = getSiteUrl();
   return {
     "@context": "https://schema.org",
@@ -22,7 +21,7 @@ export function organizationSchema(locale: string, description: string) {
     "@id": `${site}/#organization`,
     name: siteConfig.name,
     alternateName: siteConfig.shortName,
-    url: site + localizedPath("/", locale),
+    url: `${site}/`,
     logo: `${site}/assets/logo-dark.svg`,
     image: `${site}/assets/logo-dark.svg`,
     email: siteConfig.email,
@@ -31,7 +30,7 @@ export function organizationSchema(locale: string, description: string) {
     priceRange: "€€",
     founder: { "@type": "Person", name: siteConfig.founder },
     areaServed: { "@type": "Country", name: "France" },
-    availableLanguage: [...routing.locales],
+    availableLanguage: ["fr"],
     knowsAbout: [
       "Coaching emploi",
       "Bilan de compétences",
@@ -42,10 +41,7 @@ export function organizationSchema(locale: string, description: string) {
   };
 }
 
-export function personSchema(
-  locale: string,
-  opts: { name: string; jobTitle: string; description: string }
-) {
+export function personSchema(opts: { name: string; jobTitle: string; description: string }) {
   const site = getSiteUrl();
   return {
     "@context": "https://schema.org",
@@ -53,21 +49,21 @@ export function personSchema(
     name: opts.name,
     jobTitle: opts.jobTitle,
     description: opts.description,
-    url: site + localizedPath("/a-propos", locale),
+    url: `${site}/a-propos`,
     worksFor: { "@id": `${site}/#organization` },
     sameAs: [siteConfig.social.linkedin, siteConfig.social.instagram],
   };
 }
 
-export function webSiteSchema(locale: string) {
+export function webSiteSchema() {
   const site = getSiteUrl();
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${site}/#website`,
     name: siteConfig.name,
-    url: site + localizedPath("/", locale),
-    inLanguage: locale,
+    url: `${site}/`,
+    inLanguage: "fr",
     publisher: { "@id": `${site}/#organization` },
   };
 }
@@ -84,8 +80,7 @@ export function faqSchema(items: { q: string; a: string }[]) {
   };
 }
 
-export function breadcrumbSchema(locale: string, trail: { name: string; path: string }[]) {
-  const site = getSiteUrl();
+export function breadcrumbSchema(trail: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -93,7 +88,7 @@ export function breadcrumbSchema(locale: string, trail: { name: string; path: st
       "@type": "ListItem",
       position: index + 1,
       name: crumb.name,
-      item: site + localizedPath(crumb.path, locale),
+      item: absoluteUrl(crumb.path),
     })),
   };
 }
