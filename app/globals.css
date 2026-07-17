@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   Mévolution — design tokens (Tailwind v4, CSS-first)
+   Palette, typographie, rayons issus du handoff design.
+   Utilitaires générés : bg-mv-grape, text-mv-forest, bg-mv-lime, etc.
+   ========================================================================= */
+@theme {
+  /* Polices (variables injectées par next/font) */
+  --font-sans: var(--font-mulish), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Couleurs de marque (préfixe mv- pour éviter toute collision) */
+  --color-mv-cream: #f7f4ee;
+  --color-mv-cream-soft: #faf8f3;
+  --color-mv-forest: #005b52;
+  --color-mv-forest-deep: #0c332e;
+  --color-mv-grape: #88489a;
+  --color-mv-grape-dark: #743e86;
+  --color-mv-lime: #dbf226;
+  --color-mv-ink: #1f2d29;
+  --color-mv-ink-soft: #3a4642;
+  --color-mv-stone: #55625d; /* texte secondaire / lead */
+  --color-mv-stone-2: #7a857f; /* texte tertiaire */
+  --color-mv-stone-3: #8a938e; /* légendes / placeholders */
+  --color-mv-line: #ece6db; /* bordure carte */
+  --color-mv-line-strong: #dcd3c4; /* bordure carte hover */
+  --color-mv-input: #ddd4c6; /* bordure input */
+  --color-mv-pastel-violet: #f3ecf6; /* fond icône violette */
+  --color-mv-pastel-green: #eaf1ee; /* fond icône verte */
+
+  /* Container centré */
+  --breakpoint-xs: 30rem;
+}
+
+/* -------------------------------------------------------------------------
+   Tokens sémantiques (compat. primitives type shadcn/ui) mappés sur la marque
+   ------------------------------------------------------------------------- */
+:root {
+  --radius: 0.75rem;
+
+  --background: #f7f4ee;
+  --foreground: #1f2d29;
+  --card: #ffffff;
+  --card-foreground: #1f2d29;
+  --popover: #ffffff;
+  --popover-foreground: #1f2d29;
+  --primary: #88489a;
+  --primary-foreground: #ffffff;
+  --secondary: #eaf1ee;
+  --secondary-foreground: #005b52;
+  --muted: #faf8f3;
+  --muted-foreground: #7a857f;
+  --accent: #f3ecf6;
+  --accent-foreground: #88489a;
+  --destructive: #b3261e;
+  --destructive-foreground: #ffffff;
+  --border: #ddd4c6;
+  --input: #ddd4c6;
+  --ring: #88489a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* -------------------------------------------------------------------------
+   Base
+   ------------------------------------------------------------------------- */
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-mv-cream);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(136, 72, 154, 0.06), transparent 38%),
+      radial-gradient(circle at 92% 12%, rgba(0, 91, 82, 0.07), transparent 42%);
+    color: var(--color-mv-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(136, 72, 154, 0.18);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Anneau de focus accessible et sobre */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Motif « feuille » (signature de marque)
+   ------------------------------------------------------------------------- */
+.mv-leaf {
+  border-radius: 0 100% 0 100%;
+  transform: rotate(45deg);
+}
+
+/* -------------------------------------------------------------------------
+   FAQ : le « + » pivote en « × » à l'ouverture
+   ------------------------------------------------------------------------- */
+.faq-sign {
+  transition: transform 0.25s ease;
+}
+details[open] .faq-sign {
+  transform: rotate(45deg);
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* -------------------------------------------------------------------------
+   Animations : feuilles flottantes + overlay menu mobile
+   ------------------------------------------------------------------------- */
+@keyframes mv-leaf-float {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(45deg) translateY(-9px);
+  }
+}
+@keyframes mv-leaf-float-slow {
+  0%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(45deg) translateY(14px);
+  }
+}
+@keyframes mv-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes mv-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes mv-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reveal au scroll (piloté par components/brand/reveal.tsx).
+   VISIBLE PAR DÉFAUT : le contenu ne dépend jamais du JS pour s'afficher.
+   Seuls les blocs sous la ligne de flottaison sont masqués (classe .mv-reveal-armed
+   ajoutée par le JS), puis révélés au scroll. Sans JS / JS bloqué → tout reste visible. */
+.mv-reveal {
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.mv-reveal-armed {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* Animation d'apparition au chargement (CSS pur, sans dépendance au JS).
+   Utilisée sur les visuels au-dessus de la ligne de flottaison (ex. photos hero). */
+@keyframes mv-appear {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.mv-appear {
+  animation: mv-appear 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
+}
+
+.animate-leaf-float {
+  animation: mv-leaf-float 6s ease-in-out infinite;
+}
+.animate-leaf-float-slow {
+  animation: mv-leaf-float-slow 7s ease-in-out infinite;
+}
+
+.mv-menu-overlay[data-state="open"] {
+  animation: mv-fade-in 0.25s ease both;
+}
+.mv-menu-overlay[data-state="closed"] {
+  animation: mv-fade-out 0.2s ease both;
+}
+.mv-menu-panel[data-state="open"] {
+  animation: mv-slide-down 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.mv-menu-panel[data-state="closed"] {
+  animation: mv-fade-out 0.2s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-leaf-float,
+  .animate-leaf-float-slow,
+  .mv-menu-overlay,
+  .mv-menu-panel,
+  .mv-appear {
+    animation: none !important;
+  }
+  .mv-reveal-armed {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

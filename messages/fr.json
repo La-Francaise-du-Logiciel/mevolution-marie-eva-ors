@@ -1,0 +1,255 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "prestations": "Prestations",
+    "about": "À propos",
+    "contact": "Contact",
+    "cta": "Entretien découverte gratuit",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "menuTitle": "Menu",
+    "skipToContent": "Aller au contenu",
+    "logoAlt": "Mévolution — Consulting & Coaching, accueil"
+  },
+  "common": {
+    "cta": "Entretien découverte gratuit",
+    "ctaAria": "Réserver un entretien découverte gratuit sur Calendly (nouvel onglet)",
+    "discoverServices": "Découvrir les accompagnements",
+    "learnMore": "En savoir plus",
+    "reassurance": "Premier entretien téléphonique gratuit de 30 min, sans engagement",
+    "photoPortrait": "PHOTO ↗ portrait de Maréva Ors / séance d'accompagnement",
+    "photoPortraitAlt": "PHOTO ↗ portrait de Maréva Ors"
+  },
+  "localeSwitcher": {
+    "label": "Langue",
+    "fr": "FR",
+    "en": "EN",
+    "frLong": "Français",
+    "enLong": "English"
+  },
+  "home": {
+    "meta": {
+      "title": "Mévolution — Coaching emploi & bilan de compétences",
+      "description": "Maréva Ors, conseillère en évolution professionnelle : coaching emploi et bilan de compétences pour construire un projet qui vous ressemble. Premier entretien gratuit."
+    },
+    "hero": {
+      "eyebrow": "Coaching emploi & bilan de compétences",
+      "title": "Atteignez vos objectifs <em>professionnels</em>.",
+      "lead": "Un accompagnement global et sur-mesure pour construire un projet professionnel qui vous ressemble — et avancer en confiance."
+    },
+    "pourQui": {
+      "eyebrow": "Pour qui ?",
+      "title": "Vous êtes en quête de sens ?",
+      "lead": "J'accompagne les personnes qui veulent donner une direction nouvelle à leur vie professionnelle — à chaque étape.",
+      "cards": [
+        "Vous cherchez un emploi et l'énergie commence à manquer.",
+        "Vous envisagez une reconversion mais l'incertitude vous freine.",
+        "Vous voulez construire un projet qui a vraiment du sens pour vous."
+      ]
+    },
+    "accompagnements": {
+      "eyebrow": "Les accompagnements",
+      "title": "Deux façons d'avancer avec moi",
+      "cards": [
+        {
+          "title": "Coaching emploi",
+          "text": "Un accompagnement étape par étape, « de la galère à l'embauche » : stratégie, candidatures, entretiens et confiance retrouvée."
+        },
+        {
+          "title": "Bilan de compétences",
+          "text": "En partenariat avec Orientaction, pour construire un projet professionnel épanouissant et réaliste."
+        }
+      ]
+    },
+    "methode": {
+      "eyebrow": "La méthode",
+      "title": "Un cheminement en trois temps",
+      "steps": [
+        {
+          "title": "Le bilan — clarifier",
+          "text": "On fait le point sur votre parcours, vos compétences et ce qui compte vraiment pour vous."
+        },
+        {
+          "title": "L'exploration — ouvrir le champ",
+          "text": "On identifie des pistes concrètes et on les confronte au réel du marché de l'emploi."
+        },
+        {
+          "title": "Le plan d'action — avancer",
+          "text": "Candidatures, réseau, formation : on construit un plan concret, étape par étape."
+        }
+      ]
+    },
+    "temoignages": {
+      "eyebrow": "Elles & ils témoignent",
+      "title": "Des parcours qui redémarrent",
+      "placeholder": "Témoignage client à venir — à recueillir auprès d'un·e vrai·e client·e"
+    },
+    "ctaBand": {
+      "title": "Prêt·e à faire le premier pas ?",
+      "text": "Réservez votre premier entretien téléphonique gratuit de 30 min, sans engagement."
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Vos questions, mes réponses",
+      "items": [
+        {
+          "q": "Le premier entretien est-il vraiment gratuit ?",
+          "a": "Oui : un premier entretien téléphonique de 30 minutes, gratuit et sans engagement, pour faire connaissance et cerner votre besoin."
+        },
+        {
+          "q": "Le bilan de compétences est-il finançable ?",
+          "a": "Le bilan est réalisé en partenariat avec Orientaction. Les modalités de financement sont abordées ensemble lors du premier échange."
+        },
+        {
+          "q": "En présentiel ou à distance ?",
+          "a": "Les deux sont possibles, selon ce qui est le plus pratique et le plus confortable pour vous."
+        }
+      ]
+    }
+  },
+  "prestations": {
+    "meta": {
+      "title": "Prestations",
+      "description": "Coaching emploi et bilan de compétences (partenariat Orientaction), en présentiel ou à distance. Deux accompagnements sur-mesure avec Maréva Ors."
+    },
+    "hero": {
+      "eyebrow": "Prestations",
+      "title": "Un accompagnement <em>sur-mesure</em>, à chaque étape.",
+      "lead": "Deux façons de travailler ensemble, selon là où vous en êtes — en présentiel ou à distance."
+    },
+    "labels": {
+      "forWhom": "Pour qui ?",
+      "howItWorks": "Comment ça se déroule"
+    },
+    "services": [
+      {
+        "title": "Coaching emploi",
+        "description": "Un accompagnement étape par étape, « de la galère à l'embauche » : retrouver une stratégie de recherche, valoriser vos candidatures, préparer vos entretiens et regagner en confiance.",
+        "forWhom": "Vous êtes en recherche d'emploi et vous voulez être soutenu·e et outillé·e pour aboutir.",
+        "howItWorks": "Des séances individuelles régulières, avec un suivi personnalisé entre les rendez-vous."
+      },
+      {
+        "title": "Bilan de compétences",
+        "description": "Réalisé en partenariat avec Orientaction, pour faire le point sur vos compétences et construire un projet professionnel épanouissant et réaliste.",
+        "forWhom": "Vous souhaitez faire un point de carrière ou préparer une reconversion réfléchie.",
+        "howItWorks": "Un parcours structuré en plusieurs séances, avec des temps de réflexion personnels entre les rendez-vous."
+      }
+    ],
+    "cadre": {
+      "title": "Un cadre souple",
+      "points": [
+        "Séances individuelles, à votre rythme",
+        "En présentiel et/ou à distance",
+        "Un suivi personnalisé entre les rendez-vous"
+      ]
+    },
+    "ctaBand": {
+      "title": "Pas sûr·e de la bonne formule ?",
+      "text": "On en parle lors du premier entretien, gratuit et sans engagement."
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "À propos",
+      "description": "Maréva Ors, conseillère en évolution professionnelle. De la biotech à l'accompagnement : mon parcours, mes valeurs et ma façon d'accompagner."
+    },
+    "jobTitle": "Conseillère en évolution professionnelle",
+    "hero": {
+      "eyebrow": "À propos",
+      "title": "Accompagner, c'est d'abord <em>écouter</em>.",
+      "lead": "Je suis <strong>Maréva Ors</strong>, conseillère en évolution professionnelle. J'accompagne celles et ceux qui cherchent à donner un nouveau sens à leur vie professionnelle."
+    },
+    "parcours": {
+      "title": "Mon parcours",
+      "text": "De la recherche en biotechnologie à ma propre traversée de la recherche d'emploi, j'ai fait de cette expérience un métier : celui de conseillère en évolution professionnelle. « Chercheuse d'emploi professionnelle » un temps, j'accompagne aujourd'hui les personnes en quête de sens."
+    },
+    "valeurs": {
+      "eyebrow": "Mes valeurs",
+      "title": "Comment j'accompagne",
+      "cards": [
+        {
+          "title": "Bienveillance & humanité",
+          "text": "Chaque parcours est respecté, sans jugement."
+        },
+        {
+          "title": "Implication & adaptation",
+          "text": "Un accompagnement adapté à chaque situation."
+        },
+        {
+          "title": "Qualité & efficacité",
+          "text": "Prendre conscience de chaque étape franchie."
+        }
+      ]
+    },
+    "ctaBand": {
+      "title": "Faisons connaissance",
+      "text": "Le meilleur moyen de savoir si nous sommes faits pour travailler ensemble, c'est d'échanger."
+    }
+  },
+  "contact": {
+    "meta": {
+      "title": "Contact",
+      "description": "Réservez un entretien découverte gratuit de 30 min ou écrivez à Maréva Ors. Coaching emploi et bilan de compétences, en présentiel ou à distance."
+    },
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Parlons de <em>votre projet</em>.",
+      "lead": "Le plus simple : réservez un premier entretien téléphonique gratuit de 30 min. Vous pouvez aussi m'écrire directement."
+    },
+    "calendlyCard": {
+      "title": "Entretien découverte gratuit",
+      "subtitle": "30 min par téléphone · sans engagement"
+    },
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone"
+  },
+  "form": {
+    "title": "Envoyez-moi un message",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "vous@email.com",
+    "phone": "Téléphone",
+    "phonePlaceholder": "06 00 00 00 00",
+    "message": "Votre message",
+    "messagePlaceholder": "Où en êtes-vous ? Qu'aimeriez-vous changer ?",
+    "consent": "J'accepte que mes informations soient utilisées pour être recontacté·e. Elles restent confidentielles.",
+    "submit": "Envoyer mon message",
+    "submitting": "Envoi en cours…",
+    "secure": "Envoi sécurisé — vos données ne sont jamais partagées.",
+    "optional": "optionnel",
+    "required": "obligatoire",
+    "success": {
+      "title": "Message envoyé, merci !",
+      "text": "Je reviens vers vous très vite. À bientôt."
+    },
+    "toast": {
+      "success": "Message envoyé. Merci, je reviens vers vous très vite !",
+      "error": "Oups, l'envoi a échoué. Réessayez ou écrivez-moi directement par email."
+    },
+    "errors": {
+      "name": "Merci d'indiquer votre nom.",
+      "email": "Merci d'indiquer une adresse email valide.",
+      "message": "Merci d'écrire quelques mots sur votre projet.",
+      "messageShort": "Votre message est un peu court (10 caractères minimum).",
+      "consent": "Merci de cocher cette case pour être recontacté·e."
+    }
+  },
+  "footer": {
+    "tagline": "Coaching emploi et bilan de compétences, avec Maréva Ors.",
+    "navTitle": "Navigation",
+    "followTitle": "Suivez-moi",
+    "contactTitle": "Contact",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "rights": "© {year} Mévolution — Consulting & Coaching. Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "text": "Cette page n'existe pas ou a été déplacée.",
+    "back": "Retour à l'accueil"
+  }
+}

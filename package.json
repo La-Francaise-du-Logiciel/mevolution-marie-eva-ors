@@ -1,0 +1,51 @@
+{
+  "name": "mevolution-consulting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site vitrine de Mévolution — Consulting & Coaching (Maréva Ors). Next.js + Tailwind CSS + next-intl.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.4.0",
+    "@radix-ui/react-checkbox": "1.3.7",
+    "@radix-ui/react-dialog": "1.1.19",
+    "@radix-ui/react-label": "2.1.11",
+    "@radix-ui/react-slot": "1.3.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "lucide-react": "1.24.0",
+    "next": "16.2.10",
+    "next-intl": "4.13.2",
+    "posthog-js": "1.403.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-hook-form": "7.81.0",
+    "resend": "6.17.2",
+    "sonner": "2.0.7",
+    "tailwind-merge": "3.6.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.2.10",
+    "postcss": "8.5.19",
+    "prettier": "3.9.5",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5.9"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

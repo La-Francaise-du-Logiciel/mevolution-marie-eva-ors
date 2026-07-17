@@ -1,0 +1,8 @@
+.next
+node_modules
+package-lock.json
+pnpm-lock.yaml
+public
+design_handoff_mevolution
+design_handoff_mevolution_mobile
+identite-visuelle_cliente
