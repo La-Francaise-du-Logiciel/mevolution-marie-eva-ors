@@ -3,9 +3,6 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
-import { Leaf } from "@/components/brand/leaf";
-
-const LEAF_COLORS = ["bg-mv-lime", "bg-mv-grape", "bg-mv-forest"];
 
 export function PourQui() {
   const t = useTranslations("home.pourQui");
@@ -28,7 +25,6 @@ export function PourQui() {
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
               <div className="border-mv-line hover:border-mv-line-strong h-full rounded-[20px] border bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)]">
-                <Leaf size={16} className={`mb-5 ${LEAF_COLORS[index % LEAF_COLORS.length]}`} />
                 <p className="text-mv-ink-soft text-[17px] leading-[1.55] font-semibold">{card}</p>
               </div>
             </Reveal>

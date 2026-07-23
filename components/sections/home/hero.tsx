@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
-import { Leaf } from "@/components/brand/leaf";
+import { Glow } from "@/components/brand/glow";
 import { PhotoPlaceholder } from "@/components/brand/photo-placeholder";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
@@ -45,12 +45,12 @@ export function HomeHero() {
         </Reveal>
 
         <Reveal delay={140} className="relative">
-          <Leaf size={120} float="up" className="bg-mv-lime absolute -top-6 right-6 z-0" />
-          <Leaf
-            size={64}
-            float="down"
-            className="absolute -bottom-7 -left-6 z-0"
-            style={{ background: "rgba(136,72,154,0.22)" }}
+          <Glow color="rgba(219,242,38,0.4)" size={260} className="-top-16 right-0 z-0" />
+          <Glow
+            color="rgba(136,72,154,0.3)"
+            size={220}
+            delay={3}
+            className="-bottom-20 -left-10 z-0"
           />
           <PhotoPlaceholder tone="green" label={common("photoPortrait")} className="mv-appear" />
         </Reveal>

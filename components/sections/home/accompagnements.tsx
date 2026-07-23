@@ -8,7 +8,13 @@ import { Reveal } from "@/components/brand/reveal";
 import { Leaf } from "@/components/brand/leaf";
 import { Button } from "@/components/ui/button";
 
-type Card = { title: string; text: string };
+type Card = {
+  title: string;
+  text: string;
+  forWhom: string;
+  howItWorks: string;
+  href: string;
+};
 
 const ICON = [
   { badge: "bg-mv-pastel-violet", leaf: "bg-mv-grape" },
@@ -19,12 +25,14 @@ export function Accompagnements() {
   const t = useTranslations("home.accompagnements");
   const common = useTranslations("common");
   const cards = t.raw("cards") as Card[];
+  const forWhomLabel = t("labels.forWhom");
+  const howItWorksLabel = t("labels.howItWorks");
 
   return (
-    <section className="bg-mv-forest">
+    <section id="accompagnements" className="bg-mv-forest scroll-mt-20">
       <Container className="py-16 md:py-20 lg:py-[88px]">
         <Reveal className="mb-10 lg:mb-12">
-          <Eyebrow tone="lime" withLeaf={false} className="mb-4">
+          <Eyebrow tone="lime" className="mb-4">
             {t("eyebrow")}
           </Eyebrow>
           <h2 className="max-w-[620px] font-serif text-[30px] leading-[1.12] font-medium text-white sm:text-[38px] lg:text-[42px]">
@@ -36,17 +44,30 @@ export function Accompagnements() {
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 110} className="h-full">
               <div className="flex h-full flex-col rounded-[24px] bg-white p-8 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_34px_60px_-34px_rgba(0,0,0,0.5)] lg:p-9">
-                <span
-                  className={`mb-[22px] inline-flex size-[52px] items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}
-                >
-                  <Leaf size={19} className={ICON[index % ICON.length].leaf} />
-                </span>
-                <h3 className="mb-3 font-serif text-[24px] font-medium lg:text-[27px]">
-                  {card.title}
-                </h3>
+                <div className="mb-5 flex items-center gap-4">
+                  <span
+                    className={`inline-flex size-[52px] shrink-0 items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}
+                  >
+                    <Leaf size={19} className={ICON[index % ICON.length].leaf} />
+                  </span>
+                  <h3 className="font-serif text-[24px] font-medium lg:text-[27px]">
+                    {card.title}
+                  </h3>
+                </div>
                 <p className="text-mv-stone mb-6 text-[16px] leading-[1.6]">{card.text}</p>
-                <Button asChild variant="link" size="none" className="mt-auto self-start">
-                  <Link href="/prestations">
+
+                <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                  {forWhomLabel}
+                </div>
+                <p className="text-mv-stone mb-5 text-[15px] leading-[1.6]">{card.forWhom}</p>
+
+                <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                  {howItWorksLabel}
+                </div>
+                <p className="text-mv-stone text-[15px] leading-[1.6]">{card.howItWorks}</p>
+
+                <Button asChild variant="link" size="none" className="mt-auto self-start pt-6">
+                  <Link href={card.href}>
                     {common("learnMore")}
                     <ArrowRight className="size-4" />
                   </Link>
