@@ -9,7 +9,7 @@ export const siteConfig = {
   /** Lien Calendly de l'entretien découverte (ouvrir dans un nouvel onglet). */
   calendlyUrl: "https://calendly.com/orsmareva/entretien-decouverte-gratuit-30min",
   email: "mevolution-consulting@outlook.fr",
-  phoneDisplay: "06.74.08.18.11",
+  phoneDisplay: "+33 6 74 08 18 11",
   phoneHref: "tel:+33674081811",
   phoneE164: "+33674081811",
   social: {
