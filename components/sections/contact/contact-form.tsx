@@ -52,7 +52,8 @@ export function ContactForm() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(schema),
-    mode: "onTouched",
+    mode: "onSubmit",
+    reValidateMode: "onChange",
     defaultValues: {
       name: "",
       email: "",
