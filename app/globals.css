@@ -118,6 +118,38 @@
     background: rgba(136, 72, 154, 0.18);
   }
 
+  /* Sur les sections à fond sombre (vert forêt, violet), la teinte de
+     sélection ci-dessus se voit à peine sur le texte clair — on la
+     remplace par un contraste net (lime sur vert très foncé) pour que
+     la sélection reste visible partout sur le site. */
+  .bg-mv-forest ::selection,
+  .bg-mv-forest-deep ::selection,
+  .bg-mv-grape ::selection {
+    background: rgba(219, 242, 38, 0.4);
+    color: #0c332e;
+  }
+
+  /* Certains navigateurs désactivent par défaut la sélection de texte à
+     l'intérieur d'éléments interactifs (ex. <summary> du FAQ, <button>)
+     — et cette restriction se transmet aux enfants par héritage. On la
+     réautorise explicitement sur tout texte, quel que soit son parent. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  li,
+  blockquote,
+  summary,
+  a {
+    -webkit-user-select: text;
+    user-select: text;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
