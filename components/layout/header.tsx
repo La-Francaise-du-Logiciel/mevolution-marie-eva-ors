@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "./mobile-nav";
+import { NavLink } from "./nav-link";
 import { NAV } from "./nav-items";
 
 /** En-tête sticky : ombre au scroll, nav active, CTA. */
@@ -51,7 +52,7 @@ export function Header() {
           {NAV.map((item) => {
             const active = pathname === item.href;
             return (
-              <Link
+              <NavLink
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
@@ -64,7 +65,7 @@ export function Header() {
                 {active && (
                   <span className="bg-mv-grape absolute inset-x-4 bottom-px h-[2.5px] rounded-full" />
                 )}
-              </Link>
+              </NavLink>
             );
           })}
         </nav>

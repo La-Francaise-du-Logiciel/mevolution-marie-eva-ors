@@ -6,11 +6,11 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 import { cn } from "@/lib/utils";
+import { NavLink } from "./nav-link";
 
 type NavItem = { href: string; key: string };
 
@@ -64,7 +64,7 @@ export function MobileNav({ nav }: { nav: readonly NavItem[] }) {
               const active = pathname === item.href;
               return (
                 <Dialog.Close asChild key={item.href}>
-                  <Link
+                  <NavLink
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
@@ -73,7 +73,7 @@ export function MobileNav({ nav }: { nav: readonly NavItem[] }) {
                     )}
                   >
                     {t(item.key)}
-                  </Link>
+                  </NavLink>
                 </Dialog.Close>
               );
             })}

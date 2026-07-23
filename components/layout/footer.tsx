@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
-import Link from "next/link";
 import { Container } from "@/components/brand/container";
 import { siteConfig } from "@/lib/site";
+import { NavLink } from "./nav-link";
 import { NAV } from "./nav-items";
 
 /** Pied de page commun (vert très foncé), grille 4 colonnes → empilé en mobile. */
@@ -37,13 +37,13 @@ export async function Footer() {
             </h2>
             <nav className="flex flex-col gap-[11px]">
               {NAV.map((item) => (
-                <Link
+                <NavLink
                   key={item.href}
                   href={item.href}
                   className="text-[15px] text-white/80 transition-colors hover:text-white"
                 >
                   {t(`nav.${item.key}`)}
-                </Link>
+                </NavLink>
               ))}
             </nav>
           </div>
