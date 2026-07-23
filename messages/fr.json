@@ -1,8 +1,8 @@
 {
   "nav": {
     "home": "Accueil",
-    "prestations": "Prestations",
-    "about": "À propos",
+    "coaching": "Coaching",
+    "bilanCompetences": "Bilan de compétences",
     "contact": "Contact",
     "cta": "Entretien découverte gratuit",
     "openMenu": "Ouvrir le menu",
@@ -37,6 +37,34 @@
       "title": "Atteignez vos objectifs <em>professionnels</em>.",
       "lead": "Un accompagnement global et sur-mesure pour construire un projet professionnel qui vous ressemble — et avancer en confiance."
     },
+    "about": {
+      "eyebrow": "À propos",
+      "title": "Accompagner, c'est d'abord <em>écouter</em>.",
+      "lead": "Je suis <strong>Maréva Ors</strong>, conseillère en évolution professionnelle. J'accompagne celles et ceux qui cherchent à donner un nouveau sens à leur vie professionnelle.",
+      "jobTitle": "Conseillère en évolution professionnelle",
+      "parcours": {
+        "title": "Mon parcours",
+        "text": "De la recherche en biotechnologie à ma propre traversée de la recherche d'emploi, j'ai fait de cette expérience un métier : celui de conseillère en évolution professionnelle. « Chercheuse d'emploi professionnelle » un temps, j'accompagne aujourd'hui les personnes en quête de sens."
+      },
+      "valeurs": {
+        "eyebrow": "Mes valeurs",
+        "title": "Comment j'accompagne",
+        "cards": [
+          {
+            "title": "Bienveillance & humanité",
+            "text": "Chaque parcours est respecté, sans jugement."
+          },
+          {
+            "title": "Implication & adaptation",
+            "text": "Un accompagnement adapté à chaque situation."
+          },
+          {
+            "title": "Qualité & efficacité",
+            "text": "Prendre conscience de chaque étape franchie."
+          }
+        ]
+      }
+    },
     "pourQui": {
       "eyebrow": "Pour qui ?",
       "title": "Vous êtes en quête de sens ?",
@@ -50,14 +78,24 @@
     "accompagnements": {
       "eyebrow": "Les accompagnements",
       "title": "Deux façons d'avancer avec moi",
+      "labels": {
+        "forWhom": "Pour qui ?",
+        "howItWorks": "Comment ça se déroule"
+      },
       "cards": [
         {
           "title": "Coaching emploi",
-          "text": "Un accompagnement étape par étape, « de la galère à l'embauche » : stratégie, candidatures, entretiens et confiance retrouvée."
+          "text": "Un accompagnement étape par étape, « de la galère à l'embauche » : retrouver une stratégie de recherche, valoriser vos candidatures, préparer vos entretiens et regagner en confiance.",
+          "forWhom": "Vous êtes en recherche d'emploi et vous voulez être soutenu·e et outillé·e pour aboutir.",
+          "howItWorks": "Des séances individuelles régulières, avec un suivi personnalisé entre les rendez-vous.",
+          "href": "/coaching"
         },
         {
           "title": "Bilan de compétences",
-          "text": "En partenariat avec Orientaction, pour construire un projet professionnel épanouissant et réaliste."
+          "text": "Réalisé en partenariat avec Orientaction, pour faire le point sur vos compétences et construire un projet professionnel épanouissant et réaliste.",
+          "forWhom": "Vous souhaitez faire un point de carrière ou préparer une reconversion réfléchie.",
+          "howItWorks": "Un parcours structuré en plusieurs séances, avec des temps de réflexion personnels entre les rendez-vous.",
+          "href": "/bilan-de-competences"
         }
       ]
     },
@@ -98,7 +136,7 @@
         },
         {
           "q": "Le bilan de compétences est-il finançable ?",
-          "a": "Le bilan est réalisé en partenariat avec Orientaction. Les modalités de financement sont abordées ensemble lors du premier échange."
+          "a": "Le bilan est réalisé en partenariat avec Orientaction. Les modalités de financement (personnel, CPF, OPCO, entreprise) sont abordées ensemble lors du premier échange."
         },
         {
           "q": "En présentiel ou à distance ?",
@@ -107,83 +145,165 @@
       ]
     }
   },
-  "prestations": {
+  "coaching": {
     "meta": {
-      "title": "Prestations",
-      "description": "Coaching emploi et bilan de compétences (partenariat Orientaction), en présentiel ou à distance. Deux accompagnements sur-mesure avec Maréva Ors."
+      "title": "Coaching emploi",
+      "description": "Coaching emploi individuel avec Maréva Ors : stratégie de recherche, confiance retrouvée, accompagnement pas à pas, en présentiel ou à distance."
     },
     "hero": {
-      "eyebrow": "Prestations",
-      "title": "Un accompagnement <em>sur-mesure</em>, à chaque étape.",
-      "lead": "Deux façons de travailler ensemble, selon là où vous en êtes — en présentiel ou à distance."
+      "eyebrow": "Coaching emploi",
+      "title": "De la galère à <em>l'embauche</em>.",
+      "lead": "Une période de recherche d'emploi ou de remise en question professionnelle expose souvent à l'épuisement. Être accompagné·e permet d'en réduire les risques — et d'avancer avec une vraie partenaire à vos côtés."
     },
-    "labels": {
-      "forWhom": "Pour qui ?",
-      "howItWorks": "Comment ça se déroule"
+    "promesses": {
+      "eyebrow": "Ce que je vous propose",
+      "title": "Un accompagnement centré sur vous",
+      "items": [
+        "Rompre la solitude et l'isolement : je reste à votre disposition et vous garantis une écoute bienveillante.",
+        "Reprendre confiance en vous : nos entretiens sont centrés sur vous, pour mieux vous connaître et clarifier vos motivations.",
+        "Déterminer vos objectifs professionnels, en fonction de votre personnalité et de vos besoins.",
+        "Rendre vos démarches plus efficaces, grâce à des techniques de recherche d'emploi adaptées à votre situation.",
+        "Un accompagnement sur-mesure : je peux réaliser vos démarches avec vous, pas à pas."
+      ],
+      "quote": "Plus qu'une coach, je suis votre partenaire active."
     },
-    "services": [
-      {
-        "title": "Coaching emploi",
-        "description": "Un accompagnement étape par étape, « de la galère à l'embauche » : retrouver une stratégie de recherche, valoriser vos candidatures, préparer vos entretiens et regagner en confiance.",
-        "forWhom": "Vous êtes en recherche d'emploi et vous voulez être soutenu·e et outillé·e pour aboutir.",
-        "howItWorks": "Des séances individuelles régulières, avec un suivi personnalisé entre les rendez-vous."
-      },
-      {
-        "title": "Bilan de compétences",
-        "description": "Réalisé en partenariat avec Orientaction, pour faire le point sur vos compétences et construire un projet professionnel épanouissant et réaliste.",
-        "forWhom": "Vous souhaitez faire un point de carrière ou préparer une reconversion réfléchie.",
-        "howItWorks": "Un parcours structuré en plusieurs séances, avec des temps de réflexion personnels entre les rendez-vous."
-      }
-    ],
-    "cadre": {
-      "title": "Un cadre souple",
-      "points": [
-        "Séances individuelles, à votre rythme",
-        "En présentiel et/ou à distance",
-        "Un suivi personnalisé entre les rendez-vous"
+    "phases": {
+      "eyebrow": "Le déroulement",
+      "title": "Un parcours en quatre phases",
+      "items": [
+        {
+          "title": "Entretien découverte — gratuit et sans engagement",
+          "text": "Un premier échange pour faire connaissance : vous présentez votre situation et vos attentes, je vous présente mes services, et vous obtenez les premières réponses à vos questions."
+        },
+        {
+          "title": "Entretien de diagnostic",
+          "text": "Un échange approfondi pour identifier vos objectifs, vos besoins, vos atouts et vos freins, afin d'établir ensemble un plan d'action."
+        },
+        {
+          "title": "Mise en action",
+          "text": "Selon le plan d'action : des entretiens réguliers (45 min à 1h30), ou un travail en autonomie avec un suivi téléphonique régulier."
+        },
+        {
+          "title": "Bilan",
+          "text": "Un entretien final pour faire le point sur votre parcours. Vous repartez avec une synthèse écrite de votre accompagnement."
+        }
       ]
     },
+    "modalites": {
+      "title": "Un cadre souple",
+      "items": [
+        {
+          "title": "Présentiel",
+          "text": "Des rencontres en présentiel (lieu à convenir) sur la zone Saverne – Haguenau – Strasbourg, avec possibilité de visite à domicile et d'élargissement selon les situations."
+        },
+        {
+          "title": "Distanciel",
+          "text": "Un accompagnement et un suivi à distance, par téléphone ou en visioconférence."
+        },
+        {
+          "title": "Main dans la main",
+          "text": "Les démarches de recherche d'emploi passent aujourd'hui largement par le numérique — et nous ne sommes pas tous égaux face aux nouvelles technologies. Je peux les réaliser avec vous, à votre domicile et sur votre matériel, pour rétablir l'égalité des chances."
+        }
+      ]
+    },
+    "histoire": {
+      "eyebrow": "Mon histoire",
+      "title": "Mon expérience de chercheuse d'emploi",
+      "paragraphs": [
+        {
+          "text": "En 2015, après un doctorat en phytopathologie (l'étude des interactions entre les plantes et les pathogènes), sûre de moi, j'ai entrepris de chercher un emploi toute seule.",
+          "quote": "Je pensais qu'être diplômée suffirait à trouver un emploi…"
+        },
+        {
+          "text": "La réalité fut tout autre : je me suis perdue dans des démarches infructueuses.",
+          "quote": "Sentiment d'échec et perte de confiance en moi."
+        },
+        {
+          "text": "En parallèle, à force d'entendre des remarques comme « c'est bien beau de faire des études si c'est pour rester au chômage », j'ai commencé à m'isoler.",
+          "quote": "La solitude et l'incompréhension."
+        },
+        {
+          "text": "En 2016, j'ai accepté un poste d'assistante technique pour sortir de cette première galère — et rentrer dans le cadre."
+        },
+        {
+          "text": "En 2018, la simple évocation de mon emploi me faisait fondre en larmes. Le vendredi soir, j'angoissais à l'idée de retourner travailler le lundi.",
+          "quote": "J'ai fait un burn-out (épuisement professionnel) et j'ai quitté mon emploi."
+        },
+        {
+          "text": "Deuxième galère : pendant un an, impossible de me mettre devant un ordinateur, impossible d'imaginer retourner travailler. Je ne savais plus ce que je voulais faire : retourner dans la recherche ? créer mon entreprise ? partir en écovillage ?",
+          "quote": "Angoisse, panique."
+        },
+        {
+          "text": "En 2020, j'ai accepté d'être accompagnée. J'ai appris à me connaître, à identifier mes besoins et mes compétences, et j'ai repris confiance en moi. Un projet professionnel a émergé : devenir conseillère en évolution professionnelle.",
+          "quote": "J'ai perdu énormément de temps en renonçant à être accompagnée !"
+        },
+        {
+          "text": "J'ai rapidement entrepris une reconversion, et décroché un poste de conseillère emploi auprès des entreprises, puis conseillère en insertion professionnelle."
+        }
+      ],
+      "closing": "Aujourd'hui, je m'épanouis dans ce métier — en vous accompagnant pour surmonter ces galères et trouver, vous aussi, votre épanouissement professionnel."
+    },
     "ctaBand": {
-      "title": "Pas sûr·e de la bonne formule ?",
-      "text": "On en parle lors du premier entretien, gratuit et sans engagement."
+      "title": "Prêt·e à passer à l'action ?",
+      "text": "Réservons un premier échange téléphonique, gratuit et sans engagement, pour faire connaissance."
     }
   },
-  "about": {
+  "bilan": {
     "meta": {
-      "title": "À propos",
-      "description": "Maréva Ors, conseillère en évolution professionnelle. De la biotech à l'accompagnement : mon parcours, mes valeurs et ma façon d'accompagner."
+      "title": "Bilan de compétences",
+      "description": "Bilan de compétences avec Maréva Ors, méthode Orientaction : mieux vous connaître pour construire un projet professionnel réaliste et réalisable."
     },
-    "jobTitle": "Conseillère en évolution professionnelle",
     "hero": {
-      "eyebrow": "À propos",
-      "title": "Accompagner, c'est d'abord <em>écouter</em>.",
-      "lead": "Je suis <strong>Maréva Ors</strong>, conseillère en évolution professionnelle. J'accompagne celles et ceux qui cherchent à donner un nouveau sens à leur vie professionnelle."
+      "eyebrow": "Bilan de compétences",
+      "title": "Se connaître, pour mieux <em>avancer</em>.",
+      "lead": "Imaginez une vie professionnelle épanouissante, une vie qui résonne avec qui vous êtes vraiment. Ensemble, nous explorons vos valeurs, vos besoins, votre personnalité et vos talents pour construire ce projet."
     },
-    "parcours": {
-      "title": "Mon parcours",
-      "text": "De la recherche en biotechnologie à ma propre traversée de la recherche d'emploi, j'ai fait de cette expérience un métier : celui de conseillère en évolution professionnelle. « Chercheuse d'emploi professionnelle » un temps, j'accompagne aujourd'hui les personnes en quête de sens."
+    "pourquoi": {
+      "title": "Pourquoi faire un bilan de compétences ?",
+      "text": "C'est le projet que nous vous proposons : vous guider dans l'exploration de vos valeurs, de vos besoins, de votre personnalité et de vos talents, pour construire une vie professionnelle qui vous ressemble vraiment."
     },
-    "valeurs": {
-      "eyebrow": "Mes valeurs",
-      "title": "Comment j'accompagne",
-      "cards": [
+    "pourQui": {
+      "title": "À qui s'adresse-t-il ?",
+      "text": "À tous ! Il vous aide à mieux vous connaître et à tracer un chemin vers vos objectifs — bien-être au travail, rémunération, équilibre vie professionnelle / vie personnelle…"
+    },
+    "citation": {
+      "quote": "Il existe trois choses extrêmement dures en ce monde : le diamant, l'acier — et la connaissance de soi.",
+      "author": "Benjamin Franklin",
+      "paragraphs": [
+        "Dans un monde imprévisible et complexe, la connaissance de soi est ce qui vous permettra de prendre les bonnes décisions — dans votre vie professionnelle (métier, carrière, orientation) comme dans votre vie personnelle.",
+        "Le bilan de compétences est une approche globale pour mieux vous connaître, vous poser des questions que vous n'avez pas l'habitude de vous poser, et vous révéler à vous-même. C'est aussi une démarche qui vous re-donne confiance.",
+        "Ensemble, construisons votre projet réaliste et réalisable d'évolution professionnelle et personnelle."
+      ]
+    },
+    "pratique": {
+      "eyebrow": "En pratique",
+      "title": "Le cadre du bilan",
+      "items": [
         {
-          "title": "Bienveillance & humanité",
-          "text": "Chaque parcours est respecté, sans jugement."
+          "label": "Durée",
+          "value": "3 à 6 mois",
+          "detail": "En moyenne 135 jours"
         },
         {
-          "title": "Implication & adaptation",
-          "text": "Un accompagnement adapté à chaque situation."
+          "label": "Formules",
+          "value": "Essentielle, Essentielle+, Classique",
+          "detail": "Selon vos besoins"
         },
         {
-          "title": "Qualité & efficacité",
-          "text": "Prendre conscience de chaque étape franchie."
+          "label": "Financement",
+          "value": "Personnel, CPF, OPCO, Entreprise",
+          "detail": "Plusieurs solutions possibles"
+        },
+        {
+          "label": "Méthode",
+          "value": "Orientaction",
+          "detail": "Méthode reconnue, leader du bilan de compétences"
         }
       ]
     },
     "ctaBand": {
-      "title": "Faisons connaissance",
-      "text": "Le meilleur moyen de savoir si nous sommes faits pour travailler ensemble, c'est d'échanger."
+      "title": "Entretien d'information gratuit",
+      "text": "Réservez un premier échange, sans engagement, pour voir si le bilan de compétences est fait pour vous."
     }
   },
   "contact": {

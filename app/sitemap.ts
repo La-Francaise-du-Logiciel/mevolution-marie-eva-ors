@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { absoluteUrl } from "@/lib/seo";
 
-const PATHS = ["/", "/prestations", "/a-propos", "/contact"];
+const PATHS = ["/", "/coaching", "/bilan-de-competences", "/contact"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

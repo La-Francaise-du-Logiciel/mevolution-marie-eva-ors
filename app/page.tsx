@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { buildPageMetadata } from "@/lib/seo";
-import { JsonLd, breadcrumbSchema, faqSchema } from "@/lib/json-ld";
+import { JsonLd, breadcrumbSchema, faqSchema, personSchema } from "@/lib/json-ld";
+import { siteConfig } from "@/lib/site";
 import { CtaBand } from "@/components/brand/cta-band";
 import { HomeHero } from "@/components/sections/home/hero";
+import { About } from "@/components/sections/home/about";
 import { PourQui } from "@/components/sections/home/pour-qui";
 import { Accompagnements } from "@/components/sections/home/accompagnements";
 import { Methode } from "@/components/sections/home/methode";
@@ -31,6 +33,7 @@ export default async function HomePage() {
   return (
     <>
       <HomeHero />
+      <About />
       <PourQui />
       <Accompagnements />
       <Methode />
@@ -46,6 +49,13 @@ export default async function HomePage() {
       <HomeFaq />
 
       <JsonLd data={faqSchema(faqItems)} />
+      <JsonLd
+        data={personSchema({
+          name: siteConfig.founder,
+          jobTitle: t("about.jobTitle"),
+          description: t("meta.description"),
+        })}
+      />
       <JsonLd data={breadcrumbSchema([{ name: nav("home"), path: "/" }])} />
     </>
   );

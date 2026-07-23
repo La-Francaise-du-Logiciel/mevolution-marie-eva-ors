@@ -5,8 +5,8 @@
  */
 export const NAV = [
   { href: "/", key: "home" },
-  { href: "/prestations", key: "prestations" },
-  { href: "/a-propos", key: "about" },
+  { href: "/coaching", key: "coaching" },
+  { href: "/bilan-de-competences", key: "bilanCompetences" },
   { href: "/contact", key: "contact" },
 ] as const;
 

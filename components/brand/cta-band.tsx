@@ -15,7 +15,7 @@ type CtaBandProps = {
   location: string;
 };
 
-/** Bandeau CTA pleine largeur violet (accueil, prestations, à propos). */
+/** Bandeau CTA pleine largeur violet (fin de page). */
 export function CtaBand({
   title,
   text,

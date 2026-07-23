@@ -49,7 +49,7 @@ export function personSchema(opts: { name: string; jobTitle: string; description
     name: opts.name,
     jobTitle: opts.jobTitle,
     description: opts.description,
-    url: `${site}/a-propos`,
+    url: `${site}/#a-propos`,
     worksFor: { "@id": `${site}/#organization` },
     sameAs: [siteConfig.social.linkedin, siteConfig.social.instagram],
   };

@@ -85,9 +85,9 @@ Copier `.env.example` → `.env.local`.
 ```
 app/
 ├── layout.tsx                # <html lang="fr">, polices, providers, header/footer, JSON-LD
-├── page.tsx                  # Accueil
-├── prestations/page.tsx
-├── a-propos/page.tsx
+├── page.tsx                  # Accueil (inclut la section « À propos »)
+├── coaching/page.tsx
+├── bilan-de-competences/page.tsx
 ├── contact/page.tsx
 ├── not-found.tsx
 ├── opengraph-image.tsx       # Image OG (1200×630)
@@ -99,16 +99,27 @@ components/
 ├── ui/                       # Primitives (button, input, form, checkbox…)
 ├── brand/                    # Leaf, Eyebrow, Reveal, CtaBand, Container…
 ├── layout/                   # Header, Footer, MobileNav
-└── sections/                 # Sections par page (home/, prestations/, about/, contact/)
+└── sections/                 # Sections par page (home/, coaching/, bilan/, contact/)
 i18n/                         # request.ts (config next-intl, français)
 lib/                          # utils, site, seo, json-ld, schemas, analytics, rate-limit, fonts
 messages/                     # fr.json (toute la copie)
 public/                       # logo, favicon, assets de marque
 ```
 
+### Pages & navigation
+
+| Route                   | Contenu                                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `/`                     | Hero, **À propos** (portrait, parcours, valeurs), Pour qui ?, Les accompagnements, La méthode, Témoignages, CTA, FAQ   |
+| `/coaching`             | Coaching emploi : promesses, déroulement en 4 phases, modalités, histoire personnelle de Maréva Ors                    |
+| `/bilan-de-competences` | Bilan de compétences : pourquoi / à qui, citation, cadre pratique (durée, formules, financement, méthode Orientaction) |
+| `/contact`              | Formulaire + coordonnées                                                                                               |
+
+Le contenu de `/coaching` et `/bilan-de-competences` est repris du site officiel existant (Google Sites), adapté au ton et à la mise en page du design.
+
 ## Langue
 
-Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/prestations`, `/a-propos`, `/contact` (aucun préfixe `/fr`).
+Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/coaching`, `/bilan-de-competences`, `/contact` (aucun préfixe `/fr`).
 
 - Toute la copie vit dans `messages/fr.json`, gérée via next-intl en mode « sans i18n routing » (pratique pour centraliser et éditer les textes).
 - Pour rajouter une langue plus tard : réintroduire le routing i18n de next-intl (segment `[locale]` + middleware) et un fichier `messages/en.json`.

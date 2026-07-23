@@ -35,7 +35,7 @@ export function HomeHero() {
               </CalendlyLink>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-              <Link href="/prestations">{common("discoverServices")}</Link>
+              <Link href="#accompagnements">{common("discoverServices")}</Link>
             </Button>
           </div>
           <p className="text-mv-stone-2 mt-6 flex items-start gap-2 text-sm">
