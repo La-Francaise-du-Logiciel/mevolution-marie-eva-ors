@@ -27,7 +27,7 @@ export function PhotoPlaceholder({ tone = "green", label, className }: PhotoPlac
   return (
     <div
       className={cn(
-        "relative z-[1] flex aspect-[4/5] items-center justify-center rounded-[28px] border p-6 text-center",
+        "relative z-[1] flex aspect-[4/5] w-full items-center justify-center rounded-[28px] border p-6 text-center",
         t.shadow,
         className
       )}

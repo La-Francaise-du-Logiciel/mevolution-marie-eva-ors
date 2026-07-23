@@ -16,10 +16,10 @@ export function HomeHero() {
 
   return (
     <section>
-      <Container className="grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[1.02fr_.98fr] lg:gap-16 lg:pt-[76px] lg:pb-[84px]">
+      <Container className="grid items-center gap-10 py-12 md:grid-cols-[1.2fr_.8fr] md:gap-10 md:py-16 lg:grid-cols-[1.02fr_.98fr] lg:gap-16 lg:pt-[76px] lg:pb-[84px]">
         <Reveal>
           <Eyebrow className="mb-5">{t("eyebrow")}</Eyebrow>
-          <h1 className="font-serif text-[37px] leading-[1.08] font-medium tracking-[-0.01em] sm:text-[52px] lg:text-[64px] lg:leading-[1.06] lg:tracking-[-0.015em]">
+          <h1 className="font-serif text-[37px] leading-[1.08] font-medium tracking-[-0.01em] sm:text-[52px] md:text-[42px] md:leading-[1.12] lg:text-[64px] lg:leading-[1.06] lg:tracking-[-0.015em]">
             {t.rich("title", {
               em: (chunks) => <em className="text-mv-grape italic">{chunks}</em>,
             })}
@@ -44,7 +44,7 @@ export function HomeHero() {
           </p>
         </Reveal>
 
-        <Reveal delay={140} className="relative">
+        <Reveal delay={140} className="relative mx-auto w-full max-w-[400px] md:max-w-none">
           <Glow color="rgba(219,242,38,0.4)" size={260} className="-top-16 right-0 z-0" />
           <Glow
             color="rgba(136,72,154,0.3)"

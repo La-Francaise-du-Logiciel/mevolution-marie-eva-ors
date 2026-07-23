@@ -23,8 +23,8 @@ export function About() {
 
   return (
     <section id="a-propos" className="scroll-mt-20">
-      <Container className="grid items-center gap-10 pt-16 pb-16 md:pt-20 md:pb-20 lg:grid-cols-[.95fr_1.05fr] lg:gap-[60px]">
-        <Reveal className="order-1 lg:order-2">
+      <Container className="grid items-center gap-10 pt-16 pb-16 md:grid-cols-[.8fr_1.2fr] md:gap-10 md:pt-20 md:pb-20 lg:grid-cols-[.95fr_1.05fr] lg:gap-[60px]">
+        <Reveal className="order-1 md:order-2">
           <Eyebrow className="mb-5">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[30px] leading-[1.12] font-medium tracking-[-0.01em] sm:text-[38px] lg:text-[42px]">
             {t.rich("title", {
@@ -38,7 +38,10 @@ export function About() {
           </p>
         </Reveal>
 
-        <Reveal delay={140} className="relative order-2 lg:order-1">
+        <Reveal
+          delay={140}
+          className="relative order-2 mx-auto w-full max-w-[400px] md:order-1 md:max-w-none"
+        >
           <Glow color="rgba(136,72,154,0.32)" size={240} className="-top-14 -left-14 z-0" />
           <PhotoPlaceholder
             tone="violet"
