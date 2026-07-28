@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* =========================================================================
-   Mévolution — design tokens (Tailwind v4, CSS-first)
+   Mévolution : design tokens (Tailwind v4, CSS-first)
    Palette, typographie, rayons issus du handoff design.
    Utilitaires générés : bg-mv-grape, text-mv-forest, bg-mv-lime, etc.
    ========================================================================= */
@@ -119,7 +119,7 @@
   }
 
   /* Sur les sections à fond sombre (vert forêt, violet), la teinte de
-     sélection ci-dessus se voit à peine sur le texte clair — on la
+     sélection ci-dessus se voit à peine sur le texte clair, on la
      remplace par un contraste net (lime sur vert très foncé) pour que
      la sélection reste visible partout sur le site. */
   .bg-mv-forest ::selection,
@@ -131,7 +131,7 @@
 
   /* Certains navigateurs désactivent par défaut la sélection de texte à
      l'intérieur d'éléments interactifs (ex. <summary> du FAQ, <button>)
-     — et cette restriction se transmet aux enfants par héritage. On la
+     et cette restriction se transmet aux enfants par héritage. On la
      réautorise explicitement sur tout texte, quel que soit son parent. */
   h1,
   h2,
@@ -261,6 +261,36 @@ summary::-webkit-details-marker {
   animation: mv-appear 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
 }
 
+/* -------------------------------------------------------------------------
+   Survol : animation UNIQUE pour tous les boutons et toutes les cartes.
+   Même distance, même durée, même courbe partout : c'est la seule définition
+   du mouvement de survol du site. Ne jamais réintroduire de `hover:-translate-y-*`
+   ponctuel, sous peine de retrouver quatre amplitudes différentes.
+
+   Seule l'ombre s'adapte au contexte, via `--mv-lift-shadow` : une ombre verte
+   est invisible sur un fond vert foncé, et une ombre neutre est terne sous un
+   bouton violet. On la surcharge donc au cas par cas (`[--mv-lift-shadow:…]`),
+   sans jamais toucher au mouvement.
+   ------------------------------------------------------------------------- */
+.mv-lift {
+  --mv-lift-shadow: 0 28px 52px -34px rgba(8, 59, 53, 0.5);
+  transition-property: transform, box-shadow, border-color, background-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.mv-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mv-lift-shadow);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mv-lift {
+    transition-property: box-shadow, border-color, background-color, color;
+  }
+  .mv-lift:hover {
+    transform: none;
+  }
+}
+
 .animate-leaf-float {
   animation: mv-leaf-float 6s ease-in-out infinite;
 }
@@ -269,7 +299,7 @@ summary::-webkit-details-marker {
 }
 
 /* -------------------------------------------------------------------------
-   Halo discret derrière les visuels (photos hero / à propos) — remplace
+   Halo discret derrière les visuels (photos hero / à propos) : remplace
    les feuilles flottantes par une tache de couleur douce et floue,
    qui respire lentement.
    ------------------------------------------------------------------------- */
@@ -300,7 +330,7 @@ summary::-webkit-details-marker {
 /* -------------------------------------------------------------------------
    Carrousel de témoignages : on masque la barre de défilement native
    (les flèches et les puces assurent l'affordance), sans jamais désactiver
-   le défilement lui-même — doigt, molette et clavier restent opérants.
+   le défilement lui-même : doigt, molette et clavier restent opérants.
    ------------------------------------------------------------------------- */
 .mv-no-scrollbar {
   scrollbar-width: none; /* Firefox */

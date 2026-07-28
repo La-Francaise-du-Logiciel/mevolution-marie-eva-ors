@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { buildPageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbSchema } from "@/lib/json-ld";
-import { credentials, siteConfig } from "@/lib/site";
+import { credentials, siteConfig, siteCredits } from "@/lib/site";
 import { Reveal } from "@/components/brand/reveal";
 import { LegalPage } from "@/components/sections/legal/legal-page";
 
@@ -29,10 +29,12 @@ export default async function MentionsLegalesPage() {
       .replace("{site}", siteConfig.name)
       .replace("{founder}", siteConfig.founder)
       .replace("{email}", siteConfig.email)
-      .replace("{phone}", siteConfig.phoneDisplay),
+      .replace("{phone}", siteConfig.phoneDisplay)
+      .replace("{credits}", siteCredits.name)
+      .replace("{creditsEmail}", siteCredits.email),
   }));
 
-  // Informations légales obligatoires — affichées uniquement lorsqu'elles sont
+  // Informations légales obligatoires : affichées uniquement lorsqu'elles sont
   // renseignées dans `lib/site.ts` (jamais inventées).
   const identity = [
     { label: t("labels.legalForm"), value: credentials.legalForm },

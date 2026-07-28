@@ -23,7 +23,10 @@ type Item = {
  *
  * Défilement natif avec `scroll-snap` : il fonctionne au doigt, à la molette et
  * au clavier même sans JavaScript. Les boutons et les puces ne font que piloter
- * ce défilement — ils n'en sont jamais la condition.
+ * ce défilement, ils n'en sont jamais la condition.
+ *
+ * La pagination raisonne en « pages » et non en cartes : le nombre de puces
+ * dépend du nombre de cartes qui tiennent à l'écran (1 en mobile, 3 en desktop).
  */
 export function Temoignages() {
   const t = useTranslations("home.temoignages");
@@ -31,33 +34,49 @@ export function Temoignages() {
 
   const trackRef = useRef<HTMLUListElement>(null);
   const [active, setActive] = useState(0);
+  const [pageCount, setPageCount] = useState(items.length);
   const [bounds, setBounds] = useState({ start: true, end: false });
 
-  /** Recalcule la carte active et l'état des flèches à partir du défilement réel. */
+  /** Nombre de cartes entièrement visibles, mesuré sur la mise en page réelle. */
+  const measurePerView = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 1;
+    const cards = Array.from(track.children) as HTMLElement[];
+    if (cards.length === 0) return 1;
+    const stride =
+      cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
+    if (stride <= 0) return 1;
+    const gap = stride - cards[0].offsetWidth;
+    // +0.05 : tolérance d'arrondi sous-pixel (sinon 2.999… donnerait 2 cartes).
+    return Math.max(1, Math.floor((track.clientWidth + gap) / stride + 0.05));
+  }, []);
+
+  /** Recalcule la page active, le nombre de pages et l'état des flèches. */
   const sync = useCallback(() => {
     const track = trackRef.current;
     if (!track) return;
     const cards = Array.from(track.children) as HTMLElement[];
     if (cards.length === 0) return;
 
-    const center = track.scrollLeft + track.clientWidth / 2;
+    const perView = measurePerView();
+    const pages = Math.ceil(cards.length / perView);
+    const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+
+    // Première carte visible (alignement `snap-start`) → page correspondante.
     let closest = 0;
     let min = Infinity;
     cards.forEach((card, index) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const distance = Math.abs(cardCenter - center);
+      const distance = Math.abs(card.offsetLeft - track.offsetLeft - track.scrollLeft);
       if (distance < min) {
         min = distance;
         closest = index;
       }
     });
 
-    setActive(closest);
-    setBounds({
-      start: track.scrollLeft <= 4,
-      end: track.scrollLeft >= track.scrollWidth - track.clientWidth - 4,
-    });
-  }, []);
+    setPageCount(pages);
+    setActive(atEnd ? pages - 1 : Math.min(Math.floor(closest / perView), pages - 1));
+    setBounds({ start: track.scrollLeft <= 4, end: atEnd });
+  }, [measurePerView]);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -71,25 +90,29 @@ export function Temoignages() {
     };
   }, [sync]);
 
-  const scrollToCard = useCallback((index: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const card = track.children[index] as HTMLElement | undefined;
-    if (!card) return;
-    const prefersReduced =
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    track.scrollTo({
-      left: card.offsetLeft - track.offsetLeft,
-      behavior: prefersReduced ? "auto" : "smooth",
-    });
-  }, []);
+  const scrollToPage = useCallback(
+    (page: number) => {
+      const track = trackRef.current;
+      if (!track) return;
+      const index = Math.min(page * measurePerView(), items.length - 1);
+      const card = track.children[index] as HTMLElement | undefined;
+      if (!card) return;
+      const prefersReduced =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      track.scrollTo({
+        left: card.offsetLeft - track.offsetLeft,
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+    },
+    [items.length, measurePerView]
+  );
 
   const step = useCallback(
     (direction: -1 | 1) => {
-      scrollToCard(Math.min(Math.max(active + direction, 0), items.length - 1));
+      scrollToPage(Math.min(Math.max(active + direction, 0), pageCount - 1));
     },
-    [active, items.length, scrollToCard]
+    [active, pageCount, scrollToPage]
   );
 
   return (
@@ -107,15 +130,16 @@ export function Temoignages() {
               </p>
             </div>
 
-            {/* Flèches — masquées au lecteur d'écran : le carrousel reste
-                entièrement navigable au clavier via la liste elle-même. */}
-            <div className="flex flex-none gap-2.5">
+            {/* Flèches : desktop uniquement (en mobile, le geste de balayage suffit).
+                Masquées au lecteur d'écran : le carrousel reste entièrement
+                navigable au clavier via la liste elle-même. */}
+            <div className="hidden flex-none gap-2.5 md:flex">
               <button
                 type="button"
                 onClick={() => step(-1)}
                 disabled={bounds.start}
                 aria-label={t("prev")}
-                className="border-mv-line hover:border-mv-grape hover:text-mv-grape focus-visible:ring-ring focus-visible:ring-offset-mv-cream text-mv-ink inline-flex size-12 items-center justify-center rounded-full border bg-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-35"
+                className="border-mv-line hover:border-mv-grape hover:text-mv-grape focus-visible:ring-ring focus-visible:ring-offset-mv-cream text-mv-ink mv-lift inline-flex size-12 items-center justify-center rounded-full border bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-35"
               >
                 <ArrowLeft className="size-5" aria-hidden="true" />
               </button>
@@ -124,7 +148,7 @@ export function Temoignages() {
                 onClick={() => step(1)}
                 disabled={bounds.end}
                 aria-label={t("next")}
-                className="border-mv-line hover:border-mv-grape hover:text-mv-grape focus-visible:ring-ring focus-visible:ring-offset-mv-cream text-mv-ink inline-flex size-12 items-center justify-center rounded-full border bg-white transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-35"
+                className="border-mv-line hover:border-mv-grape hover:text-mv-grape focus-visible:ring-ring focus-visible:ring-offset-mv-cream text-mv-ink mv-lift inline-flex size-12 items-center justify-center rounded-full border bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-35"
               >
                 <ArrowRight className="size-5" aria-hidden="true" />
               </button>
@@ -138,14 +162,26 @@ export function Temoignages() {
             // `tabIndex` : la zone défilante doit être atteignable au clavier (WCAG 2.1.1).
             tabIndex={0}
             aria-label={t("carouselLabel")}
-            className="mv-no-scrollbar focus-visible:ring-ring flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 focus-visible:ring-2 focus-visible:outline-none"
+            /*
+              `overflow-x-auto` force le navigateur à calculer `overflow-y: auto` : la
+              piste rogne donc tout ce qui dépasse verticalement, et tranchait net
+              l'ombre portée des cartes au survol.
+
+              La marge interne fait partie de la zone de rognage : c'est elle qui donne
+              à l'ombre la place de s'étaler. 56 px en bas, car le flou de 52 px du
+              `--mv-lift-shadow` laisse une traîne mesurée jusqu'à ~60 px sous la carte
+              survolée ; 8 px en haut, la carte se soulevant de 4 px. Les marges
+              négatives reprennent exactement l'espace ajouté : l'encombrement de la
+              piste dans la page est identique à avant (8 px sous les cartes).
+            */
+            className="mv-no-scrollbar focus-visible:ring-ring -mt-2 -mb-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pt-2 pb-14 focus-visible:ring-2 focus-visible:outline-none"
           >
             {items.map((item, index) => (
               <li
                 key={index}
                 className="w-[86%] flex-none snap-start sm:w-[62%] lg:w-[calc((100%-2.5rem)/3)]"
               >
-                <figure className="border-mv-line hover:border-mv-line-strong flex h-full flex-col rounded-[22px] border bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)]">
+                <figure className="border-mv-line hover:border-mv-line-strong mv-lift flex h-full flex-col rounded-[22px] border bg-white p-7">
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <Stars rating={item.rating} label={t("ratingLabel", { rating: item.rating })} />
                     <Quote
@@ -182,11 +218,11 @@ export function Temoignages() {
         <Reveal>
           <div className="mt-7 flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              {items.map((_, index) => (
+              {Array.from({ length: pageCount }, (_, index) => (
                 <button
                   key={index}
                   type="button"
-                  onClick={() => scrollToCard(index)}
+                  onClick={() => scrollToPage(index)}
                   aria-label={t("goTo", { index: index + 1 })}
                   aria-current={index === active ? "true" : undefined}
                   className={cn(

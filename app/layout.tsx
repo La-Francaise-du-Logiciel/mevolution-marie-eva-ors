@@ -8,7 +8,6 @@ import { getSiteUrl, siteConfig } from "@/lib/site";
 import { JsonLd, organizationSchema, webSiteSchema } from "@/lib/json-ld";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { StickyCta } from "@/components/brand/sticky-cta";
 import { Toaster } from "@/components/ui/sonner";
 import { PostHogProvider } from "@/app/providers";
 
@@ -71,9 +70,21 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html
       lang="fr"
       className={`${mulish.variable} ${newsreader.variable}`}
+      // Signale à Next.js que le smooth-scroll CSS est volontaire : le routeur le
+      // désactive le temps d'une navigation, qui atterrit donc bien en haut de page.
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="font-sans antialiased">
+        {/* Un rafraîchissement (F5) repart systématiquement du haut de la page :
+            on neutralise la restauration de scroll du navigateur pour ce seul cas,
+            sans toucher au comportement précédent/suivant. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(performance.getEntriesByType('navigation')[0]?.type==='reload'){history.scrollRestoration='manual';window.scrollTo(0,0);addEventListener('pageshow',function(){window.scrollTo(0,0)},{once:true})}}catch(e){}",
+          }}
+        />
         <a
           href="#main"
           className="focus:bg-mv-grape sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:px-5 focus:py-3 focus:font-bold focus:text-white"
@@ -90,8 +101,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               </main>
               <Footer />
             </div>
-            {/* CTA permanent en mobile — le header desktop porte déjà le sien. */}
-            <StickyCta />
             <Toaster />
           </PostHogProvider>
         </NextIntlClientProvider>

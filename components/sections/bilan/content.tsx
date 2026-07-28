@@ -5,7 +5,7 @@ import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 
-/** Pourquoi faire un bilan / à qui il s'adresse — deux blocs côte à côte. */
+/** Pourquoi faire un bilan / à qui il s'adresse : deux blocs côte à côte. */
 export function Pourquoi() {
   const t = useTranslations("bilan");
 
@@ -29,25 +29,31 @@ export function Pourquoi() {
   );
 }
 
-/** Citation Benjamin Franklin + paragraphes explicatifs. */
+/**
+ * Citation Benjamin Franklin + paragraphes explicatifs.
+ *
+ * Fond violet pastel et non vert : cette section précède immédiatement le pied
+ * de page, lui-même vert foncé, et deux verts qui se touchaient formaient un seul
+ * bloc sombre, sans respiration entre le contenu et le footer.
+ */
 export function Citation() {
   const t = useTranslations("bilan.citation");
   const paragraphs = t.raw("paragraphs") as string[];
 
   return (
-    <section className="bg-mv-forest">
+    <section className="bg-mv-pastel-violet">
       <Container className="py-16 md:py-20 lg:py-[80px]">
         <Reveal className="mx-auto max-w-[760px] text-center">
-          <span className="mb-5 block font-serif text-[56px] leading-[.5] text-white/25">“</span>
-          <p className="mb-3 font-serif text-[24px] leading-[1.3] font-medium text-white sm:text-[28px]">
+          <span className="text-mv-grape/30 mb-5 block font-serif text-[56px] leading-[.5]">“</span>
+          <p className="text-mv-ink mb-3 font-serif text-[24px] leading-[1.3] font-medium sm:text-[28px]">
             {t("quote")}
           </p>
-          <p className="mb-8 text-[14px] font-bold tracking-[0.08em] text-white/60 uppercase">
+          <p className="text-mv-grape mb-8 text-[14px] font-bold tracking-[0.08em] uppercase">
             {t("author")}
           </p>
           <div className="mx-auto flex max-w-[620px] flex-col gap-5 text-left">
             {paragraphs.map((p, index) => (
-              <p key={index} className="text-[16px] leading-[1.75] text-white/85">
+              <p key={index} className="text-mv-stone text-[16px] leading-[1.75]">
                 {p}
               </p>
             ))}
@@ -79,7 +85,7 @@ export function Pratique() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
-              <div className="border-mv-line hover:border-mv-line-strong h-full rounded-[20px] border bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)]">
+              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-6">
                 <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
                   {item.label}
                 </div>
@@ -97,7 +103,7 @@ export function Pratique() {
 }
 
 /**
- * Confidentialité vis-à-vis de l'employeur — objection n°1 du bilan de compétences,
+ * Confidentialité vis-à-vis de l'employeur : objection n°1 du bilan de compétences,
  * absente du site jusqu'ici (audit §3.3).
  */
 export function Confidentialite() {

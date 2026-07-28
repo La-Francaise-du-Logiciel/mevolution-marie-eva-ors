@@ -42,7 +42,7 @@ function SuccessCard() {
       <CalendlyLink
         location="form-success"
         aria-label={common("ctaAria")}
-        className="bg-mv-lime text-mv-forest-deep mt-3 inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold transition-transform duration-300 hover:-translate-y-0.5"
+        className="bg-mv-lime text-mv-forest-deep mv-lift mt-3 inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-[15px] font-bold [--mv-lift-shadow:0_22px_38px_-20px_rgba(8,59,53,0.55)]"
       >
         {common("ctaBook")}
         <ArrowRight className="size-[17px]" aria-hidden="true" />

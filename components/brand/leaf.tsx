@@ -12,7 +12,7 @@ type LeafProps = {
 };
 
 /**
- * Motif « feuille » — signature de marque.
+ * Motif « feuille » : signature de marque.
  * Losange arrondi asymétrique (border-radius 0 100% 0 100% + rotate 45°).
  */
 export function Leaf({ size = 14, className, float, style }: LeafProps) {

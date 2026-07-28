@@ -18,7 +18,7 @@ const ICON = [
   { badge: "bg-mv-pastel-green", leaf: "bg-mv-forest" },
 ];
 
-/** Section « À propos » — intégrée à l'accueil (portrait, mission, histoire, valeurs). */
+/** Section « À propos » : intégrée à l'accueil (portrait, mission, histoire, valeurs). */
 export function About() {
   const t = useTranslations("home.about");
   const mission = useTranslations("home.mission");
@@ -41,7 +41,7 @@ export function About() {
             })}
           </p>
 
-          {/* Mission — énoncée explicitement et à un emplacement stratégique (audit §4.2). */}
+          {/* Mission : énoncée explicitement et à un emplacement stratégique (audit §4.2). */}
           <div className="border-mv-grape/30 mt-7 max-w-[520px] border-l-[3px] pl-5">
             <p className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.16em] uppercase">
               {mission("eyebrow")}
@@ -70,7 +70,7 @@ export function About() {
         </Reveal>
       </Container>
 
-      {/* Extrait de l'histoire personnelle — le différenciateur n°1, remonté sur l'accueil
+      {/* Extrait de l'histoire personnelle : le différenciateur n°1, remonté sur l'accueil
           (audit §3.5 et P1 #11). Le récit complet reste sur /coaching#mon-histoire. */}
       <Container className="pb-16 md:pb-20">
         <Reveal>
@@ -120,7 +120,7 @@ export function About() {
         <div className="grid gap-5 md:grid-cols-3">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
-              <div className="border-mv-line hover:border-mv-line-strong h-full rounded-[20px] border bg-white p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)]">
+              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-8">
                 <div className="mb-4 flex items-center gap-3">
                   <div
                     className={`inline-flex size-12 shrink-0 items-center justify-center rounded-[14px] ${ICON[index % ICON.length].badge}`}

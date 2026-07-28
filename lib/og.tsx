@@ -67,7 +67,7 @@ export function renderOgImage({ title, subtitle }: { title: string; subtitle: st
         fontFamily: "sans-serif",
       }}
     >
-      {/* Feuilles décoratives — placées hors de la zone du portrait pour
+      {/* Feuilles décoratives : placées hors de la zone du portrait pour
           ne pas être rognées par le cadre. */}
       <div style={{ position: "absolute", top: 52, left: 74, display: "flex" }}>
         <Leaf size={54} color="rgba(219,242,38,0.85)" />
@@ -147,7 +147,7 @@ export function renderOgImage({ title, subtitle }: { title: string; subtitle: st
         </div>
       </div>
 
-      {/* Portrait — cadre 4:5 cohérent avec le reste du site */}
+      {/* Portrait : cadre 4:5 cohérent avec le reste du site */}
       {portrait && (
         <div
           style={{

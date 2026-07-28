@@ -22,7 +22,7 @@ export function HomeFaq() {
           <p className="text-mv-stone mt-4 text-[15.5px] leading-[1.7]">
             {t("lead")}{" "}
             <Link
-              href="/contact#formulaire"
+              href="/contact"
               className="text-mv-grape hover:text-mv-grape-dark font-bold underline underline-offset-4 transition-colors"
             >
               Contact

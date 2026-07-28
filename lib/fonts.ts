@@ -1,6 +1,6 @@
 import { Newsreader, Mulish } from "next/font/google";
 
-/** Titres — serif éditoriale, avec italique pour les mots accentués. */
+/** Titres : serif éditoriale, avec italique pour les mots accentués. */
 export const newsreader = Newsreader({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -9,7 +9,7 @@ export const newsreader = Newsreader({
   display: "swap",
 });
 
-/** Corps / UI — sans-serif. */
+/** Corps / UI : sans-serif. */
 export const mulish = Mulish({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],

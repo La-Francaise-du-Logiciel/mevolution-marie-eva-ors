@@ -12,7 +12,7 @@ type RevealProps = {
 };
 
 /**
- * Révèle un bloc au scroll (opacity + translateY) — **visible par défaut**.
+ * Révèle un bloc au scroll (opacity + translateY), **visible par défaut**.
  *
  * L'animation se déclenche pile au moment où l'utilisateur scrolle jusqu'au bloc,
  * jamais hors écran :

@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 import { cn } from "@/lib/utils";
 import { NavLink } from "./nav-link";
 
@@ -81,14 +81,10 @@ export function MobileNav({ nav }: { nav: readonly NavItem[] }) {
 
           <div className="mt-auto pt-8">
             <Button asChild variant="primary" size="block">
-              <CalendlyLink
-                location="mobile-menu"
-                onClick={() => setOpen(false)}
-                aria-label={t("cta")}
-              >
+              <Link href="/contact" onClick={() => setOpen(false)}>
                 {t("cta")}
                 <ArrowRight className="size-[18px]" />
-              </CalendlyLink>
+              </Link>
             </Button>
           </div>
         </Dialog.Content>

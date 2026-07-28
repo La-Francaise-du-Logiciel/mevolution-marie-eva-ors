@@ -9,7 +9,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/brand/container";
 import { Button } from "@/components/ui/button";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 import { cn } from "@/lib/utils";
 import { MobileNav } from "./mobile-nav";
 import { NavLink } from "./nav-link";
@@ -18,7 +17,6 @@ import { NAV } from "./nav-items";
 /** En-tête sticky : ombre au scroll, nav active, CTA. */
 export function Header() {
   const t = useTranslations("nav");
-  const common = useTranslations("common");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
@@ -44,8 +42,8 @@ export function Header() {
             width={225}
             height={90}
             priority
-            // Logo agrandi (demande cliente) — `w-auto` conserve le ratio 225×90.
-            className="h-[36px] w-auto lg:h-11"
+            // Logo agrandi (demande cliente). `w-auto` conserve le ratio 225×90.
+            className="h-[46px] w-auto lg:h-[58px]"
             unoptimized
           />
         </Link>
@@ -77,11 +75,11 @@ export function Header() {
               privant de CTA persistant la majorité du trafic). Libellé court tant que
               la place manque, complet à partir de xl. */}
           <Button asChild variant="primary" size="sm">
-            <CalendlyLink location="header" aria-label={common("ctaAria")}>
+            <Link href="/contact">
               <span className="xl:hidden">{t("ctaShort")}</span>
               <span className="hidden xl:inline">{t("cta")}</span>
               <ArrowRight className="size-4" aria-hidden="true" />
-            </CalendlyLink>
+            </Link>
           </Button>
           <MobileNav nav={NAV} />
         </div>

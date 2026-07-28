@@ -49,7 +49,7 @@ export function Accompagnements() {
         <div className="grid gap-6 lg:grid-cols-2">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 110} className="h-full">
-              <div className="flex h-full flex-col rounded-[24px] bg-white p-8 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_34px_60px_-34px_rgba(0,0,0,0.5)] lg:p-9">
+              <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-8 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] lg:p-9">
                 <div className="mb-5 flex items-center gap-4">
                   <span
                     className={`inline-flex size-[52px] shrink-0 items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}

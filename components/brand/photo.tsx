@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 type PhotoProps = {
   /** Chemin public de l'image (ex. "/photos/mareva-portrait.jpg"). `null` → cadre de marque. */
   src: string | null;
-  /** Texte alternatif — décrit la personne et le contexte (SEO + accessibilité). */
+  /** Texte alternatif : décrit la personne et le contexte (SEO + accessibilité). */
   alt: string;
   tone?: "green" | "violet";
   /** `true` pour l'image du hero (LCP) : préchargée, jamais en lazy. */

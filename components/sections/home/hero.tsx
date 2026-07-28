@@ -17,8 +17,14 @@ export function HomeHero() {
   const reassurance = common.raw("reassuranceItems") as string[];
 
   return (
-    <section>
-      <Container className="grid items-center gap-10 py-12 md:grid-cols-[1.2fr_.8fr] md:gap-10 md:py-16 lg:grid-cols-[1.02fr_.98fr] lg:gap-16 lg:pt-[76px] lg:pb-[84px]">
+    // `flex-1` : en desktop, le hero absorbe la hauteur laissée libre par le
+    // conteneur pleine hauteur de `app/page.tsx`, ce qui pose le bandeau de
+    // confiance exactement sur le bas de l'écran. Le contenu reste centré.
+    <section className="flex flex-1 items-center">
+      {/* En desktop la respiration verticale ne vient plus d'un padding fixe mais de
+          l'espace libre réparti par `items-center` : c'est ce qui permet au hero de
+          s'ajuster à la hauteur d'écran sans jamais pousser le bandeau sous le pli. */}
+      <Container className="grid items-center gap-10 py-12 md:grid-cols-[1.2fr_.8fr] md:gap-10 md:py-16 lg:grid-cols-[1.02fr_.98fr] lg:gap-16 lg:py-6">
         <Reveal>
           <Eyebrow className="mb-5">{t("eyebrow")}</Eyebrow>
           <h1 className="font-serif text-[37px] leading-[1.08] font-medium tracking-[-0.01em] sm:text-[52px] md:text-[42px] md:leading-[1.12] lg:text-[64px] lg:leading-[1.06] lg:tracking-[-0.015em]">

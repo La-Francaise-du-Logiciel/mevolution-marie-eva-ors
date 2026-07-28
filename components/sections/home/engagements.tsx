@@ -9,7 +9,7 @@ type Item = { title: string; text: string };
 
 const ICONS = [Lock, Clock, Unlock, HeartHandshake];
 
-/** « Mes engagements » — réassurance explicite avant l'appel à l'action (audit §7.6). */
+/** « Mes engagements » : réassurance explicite avant l'appel à l'action (audit §7.6). */
 export function Engagements() {
   const t = useTranslations("home.engagements");
   const items = t.raw("items") as Item[];
@@ -30,7 +30,7 @@ export function Engagements() {
             return (
               <li key={index}>
                 <Reveal delay={index * 80} className="h-full">
-                  <div className="border-mv-line hover:border-mv-line-strong h-full rounded-[20px] border bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)]">
+                  <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-6">
                     <span className="bg-mv-pastel-green text-mv-forest mb-4 inline-flex size-11 items-center justify-center rounded-[13px]">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>

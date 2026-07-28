@@ -31,7 +31,7 @@ export function PourQui() {
               {/* Carte entièrement cliquable : plus d'impasse en fin de section (audit §6.3). */}
               <Link
                 href={card.href}
-                className="border-mv-line hover:border-mv-line-strong focus-visible:ring-ring focus-visible:ring-offset-mv-cream flex h-full flex-col rounded-[20px] border bg-white p-7 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                className="border-mv-line hover:border-mv-line-strong focus-visible:ring-ring focus-visible:ring-offset-mv-cream mv-lift flex h-full flex-col rounded-[20px] border bg-white p-7 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 <p className="text-mv-ink-soft text-[17px] leading-[1.55] font-semibold">
                   {card.text}

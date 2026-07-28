@@ -3,8 +3,8 @@
  * Module neutre (pas de "use client") pour être importable
  * depuis des composants serveur comme client.
  *
- * `key`    : libellé complet — footer et menu mobile (ancrage interne riche pour le SEO).
- * `navKey` : libellé court — header desktop, où la place est comptée.
+ * `key`    : libellé complet, pour le footer et le menu mobile (ancrage interne riche pour le SEO).
+ * `navKey` : libellé court, pour le header desktop, où la place est comptée.
  */
 export const NAV = [
   { href: "/", key: "home", navKey: "home" },

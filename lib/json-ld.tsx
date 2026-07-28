@@ -100,7 +100,7 @@ export function personSchema(opts: {
 }
 
 /**
- * Fiche d'un accompagnement (audit §8.6) — absente jusqu'ici, alors que ce sont
+ * Fiche d'un accompagnement (audit §8.6), absente jusqu'ici, alors que ce sont
  * les deux pages qui portent les requêtes commerciales du site.
  */
 export function serviceSchema(opts: {

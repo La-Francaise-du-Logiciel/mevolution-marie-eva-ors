@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -5,12 +6,11 @@ import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 import { Button } from "@/components/ui/button";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 
 type Row = { label: string; coaching: string; bilan: string };
 
 /**
- * « Coaching ou bilan ? » — lève l'objection n°1 des visiteurs qui ne savent pas
+ * « Coaching ou bilan ? » : lève l'objection n°1 des visiteurs qui ne savent pas
  * choisir entre les deux offres (audit §3.3 et P1 #19).
  *
  * Rendu en vraie `<table>` : lisible au lecteur d'écran et indexable, avec
@@ -18,7 +18,6 @@ type Row = { label: string; coaching: string; bilan: string };
  */
 export function Comparaison() {
   const t = useTranslations("home.comparaison");
-  const common = useTranslations("common");
   const rows = t.raw("rows") as Row[];
   const columns = t.raw("columns") as string[];
 
@@ -100,10 +99,10 @@ export function Comparaison() {
               {t("footnote")}
             </p>
             <Button asChild variant="primary" size="lg" className="w-full sm:w-auto">
-              <CalendlyLink location="comparaison" aria-label={common("ctaAria")}>
+              <Link href="/contact">
                 {t("cta")}
                 <ArrowRight className="size-[18px]" />
-              </CalendlyLink>
+              </Link>
             </Button>
           </div>
         </Reveal>

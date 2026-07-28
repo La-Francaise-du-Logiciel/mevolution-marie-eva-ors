@@ -19,8 +19,11 @@ export function Promesses() {
           <h2 className="font-serif text-[28px] leading-[1.12] font-medium sm:text-[34px] lg:text-[36px]">
             {t("title")}
           </h2>
+          {/* Espaces insécables : en typographie française les guillemets ne se
+              séparent jamais du texte qu'ils encadrent : le « » ne peut donc plus
+              se retrouver seul sur la dernière ligne. */}
           <p className="text-mv-grape mt-6 font-serif text-[22px] leading-snug italic lg:text-[24px]">
-            « {t("quote")} »
+            {`« ${t("quote")} »`}
           </p>
         </Reveal>
         <Reveal delay={100}>
@@ -65,7 +68,7 @@ export function Phases() {
         <div className="grid gap-5 md:grid-cols-2">
           {items.map((phase, index) => (
             <Reveal key={index} delay={index * 100} className="h-full">
-              <div className="flex h-full gap-5 rounded-[22px] bg-white p-7 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-[0_34px_60px_-34px_rgba(0,0,0,0.5)]">
+              <div className="mv-lift flex h-full gap-5 rounded-[22px] bg-white p-7 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)]">
                 <span
                   className={`inline-flex size-10 flex-none items-center justify-center rounded-full font-serif text-[17px] text-white ${colors[index % colors.length]}`}
                 >
@@ -95,7 +98,7 @@ export function Modalites() {
     <section>
       <Container className="pt-16 pb-16 md:pt-20 md:pb-20">
         <Reveal>
-          <div className="border-mv-line hover:border-mv-line-strong rounded-[28px] border bg-white p-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_52px_-34px_rgba(8,59,53,0.5)] md:p-12 lg:p-[52px]">
+          <div className="border-mv-line hover:border-mv-line-strong mv-lift rounded-[28px] border bg-white p-8 md:p-12 lg:p-[52px]">
             <h2 className="mb-8 font-serif text-[26px] font-medium sm:text-[30px] lg:text-[34px]">
               {t("title")}
             </h2>
@@ -110,8 +113,10 @@ export function Modalites() {
               ))}
             </div>
 
-            {/* Transparence tarifaire — l'objection n°1 du site (audit §3.3). */}
-            <div className="bg-mv-pastel-violet/70 mt-9 flex items-start gap-4 rounded-[18px] p-6 md:mt-10 md:p-7">
+            {/* Transparence tarifaire : l'objection n°1 du site (audit §3.3).
+                En mobile l'icône passe au-dessus du texte : côte à côte, la colonne
+                de texte devenait trop étroite. */}
+            <div className="bg-mv-pastel-violet/70 mt-9 flex flex-col items-start gap-4 rounded-[18px] p-6 sm:flex-row md:mt-10 md:p-7">
               <span className="bg-mv-grape/12 text-mv-grape inline-flex size-11 flex-none items-center justify-center rounded-[13px]">
                 <Wallet className="size-5" aria-hidden="true" />
               </span>
@@ -135,7 +140,7 @@ export function Modalites() {
 type Paragraph = { year: string; text: string; quote?: string };
 
 /**
- * Récit personnel de Maréva Ors — le différenciateur n°1 du site (audit §3.5).
+ * Récit personnel de Maréva Ors : le différenciateur n°1 du site (audit §3.5).
  * Présenté en frise chronologique : les dates étaient déjà dans le texte,
  * les exposer casse le mur de paragraphes et rend la section scannable.
  */

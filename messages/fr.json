@@ -12,7 +12,7 @@
     "closeMenu": "Fermer le menu",
     "menuTitle": "Menu",
     "skipToContent": "Aller au contenu",
-    "logoAlt": "Mévolution — Consulting & Coaching, accueil"
+    "logoAlt": "Mévolution Consulting & Coaching, accueil"
   },
   "common": {
     "cta": "Entretien découverte gratuit",
@@ -39,24 +39,20 @@
     "area": "Strasbourg · Haguenau · Saverne · et à distance",
     "reviews": "Plus de {count} avis clients publiés"
   },
-  "stickyCta": {
-    "label": "Réserver — c'est gratuit",
-    "call": "Appeler"
-  },
   "home": {
     "meta": {
-      "title": "Coaching emploi & bilan de compétences — Strasbourg, Saverne",
+      "title": "Coaching emploi & bilan de compétences : Strasbourg, Saverne",
       "description": "Maréva Ors, conseillère en évolution professionnelle en Alsace. Coaching emploi et bilan de compétences à Strasbourg, Haguenau, Saverne ou à distance. Premier entretien d'1 heure, gratuit et sans engagement."
     },
     "hero": {
       "eyebrow": "Coaching emploi & bilan de compétences · Strasbourg · Haguenau · Saverne",
       "title": "De la galère à l'embauche, vous n'êtes <em>plus seul·e</em>.",
-      "lead": "Recherche d'emploi qui s'enlise, reconversion qui fait peur, travail qui n'a plus de sens ? Je suis Maréva Ors, conseillère en évolution professionnelle en Alsace — et je suis passée par là avant vous.",
+      "lead": "Recherche d'emploi qui s'enlise, reconversion qui fait peur, travail qui n'a plus de sens ? Je suis Maréva Ors, conseillère en évolution professionnelle en Alsace, et je suis passée par là avant vous.",
       "photoCaption": "Maréva Ors · Mévolution"
     },
     "mission": {
       "eyebrow": "Ma mission",
-      "text": "Rétablir l'égalité des chances face à l'emploi. Nous ne sommes pas tous armés de la même façon pour chercher du travail : mon métier, c'est de combler cet écart — <strong>avec vous, jamais à votre place</strong>."
+      "text": "Rétablir l'égalité des chances face à l'emploi. Nous ne sommes pas tous armés de la même façon pour chercher du travail : mon métier, c'est de combler cet écart, <strong>avec vous, jamais à votre place</strong>."
     },
     "about": {
       "eyebrow": "À propos",
@@ -64,7 +60,7 @@
       "lead": "Je suis <strong>Maréva Ors</strong>, conseillère en évolution professionnelle. J'accompagne celles et ceux qui cherchent à donner un nouveau sens à leur vie professionnelle, à Strasbourg, Haguenau, Saverne et partout en France à distance.",
       "jobTitle": "Conseillère en évolution professionnelle",
       "storyTeaser": {
-        "quote": "En 2018, j'ai fait un burn-out. En 2020, j'ai enfin accepté d'être accompagnée — et j'ai compris que j'avais perdu deux ans à vouloir m'en sortir seule.",
+        "quote": "En 2018, j'ai fait un burn-out. En 2020, j'ai enfin accepté d'être accompagnée, et j'ai compris que j'avais perdu deux ans à vouloir m'en sortir seule.",
         "text": "C'est précisément pour ça que je fais ce métier aujourd'hui. Je sais ce que c'est, l'angoisse du dimanche soir, les candidatures sans réponse, et les remarques de l'entourage qui finissent par vous isoler.",
         "link": "Lire mon parcours complet"
       },
@@ -82,7 +78,7 @@
           },
           {
             "title": "Implication & adaptation",
-            "text": "Je m'adapte à votre rythme et à votre situation — pas l'inverse. Aucun parcours n'est standardisé."
+            "text": "Je m'adapte à votre rythme et à votre situation, pas l'inverse. Aucun parcours n'est standardisé."
           },
           {
             "title": "Qualité & efficacité",
@@ -116,7 +112,7 @@
     "accompagnements": {
       "eyebrow": "Les accompagnements",
       "title": "Deux façons d'avancer avec moi",
-      "lead": "En présentiel à Strasbourg, Haguenau, Saverne et dans tout le Bas-Rhin — ou à distance, partout en France.",
+      "lead": "En présentiel à Strasbourg, Haguenau, Saverne et dans tout le Bas-Rhin, ou à distance, partout en France.",
       "labels": {
         "forWhom": "Pour qui ?",
         "howItWorks": "Comment ça se déroule",
@@ -127,7 +123,7 @@
           "title": "Coaching emploi",
           "text": "Un accompagnement étape par étape, « de la galère à l'embauche » : retrouver une stratégie de recherche, valoriser vos candidatures, préparer vos entretiens et regagner en confiance.",
           "forWhom": "Vous êtes en recherche d'emploi et vous voulez être soutenu·e et outillé·e pour aboutir.",
-          "howItWorks": "Des séances individuelles régulières (45 min à 1 h 30), avec un suivi personnalisé entre les rendez-vous — vous n'attendez jamais la séance suivante pour être débloqué·e.",
+          "howItWorks": "Des séances individuelles régulières (45 min à 1 h 30), avec un suivi personnalisé entre les rendez-vous : vous n'attendez jamais la séance suivante pour être débloqué·e.",
           "result": "Une stratégie de recherche que vous savez appliquer seul·e, des candidatures qui vous ressemblent, et une synthèse écrite de votre accompagnement.",
           "href": "/coaching"
         },
@@ -177,15 +173,15 @@
       "title": "Un cheminement en trois temps",
       "steps": [
         {
-          "title": "Le diagnostic — clarifier",
+          "title": "Le diagnostic : clarifier",
           "text": "On fait le point sur votre parcours, vos compétences et ce qui compte vraiment pour vous."
         },
         {
-          "title": "L'exploration — ouvrir le champ",
+          "title": "L'exploration : ouvrir le champ",
           "text": "On identifie des pistes concrètes et on les confronte au réel du marché de l'emploi en Alsace."
         },
         {
-          "title": "Le plan d'action — avancer",
+          "title": "Le plan d'action : avancer",
           "text": "Candidatures, réseau, formation : vous repartez avec un plan écrit, étape par étape. Plus de « je ne sais pas par où commencer » le lundi matin."
         }
       ]
@@ -204,7 +200,7 @@
         },
         {
           "title": "Sans engagement",
-          "text": "Le premier entretien d'1 heure est gratuit. À la fin, vous décidez — et un « non merci » ne me posera aucun problème."
+          "text": "Le premier entretien d'1 heure est gratuit. À la fin, vous décidez, et un « non merci » ne me posera aucun problème."
         },
         {
           "title": "Un accompagnement, pas un catalogue",
@@ -257,12 +253,8 @@
       "ratingLabel": "Note de {rating} sur 5",
       "prev": "Avis précédent",
       "next": "Avis suivant",
-      "goTo": "Aller à l'avis {index}",
+      "goTo": "Aller à la page {index}",
       "carouselLabel": "Témoignages clients"
-    },
-    "ctaBand": {
-      "title": "Prêt·e à faire le premier pas ?",
-      "text": "Réservez votre premier entretien téléphonique d'1 heure, gratuit et sans engagement."
     },
     "faq": {
       "eyebrow": "Questions fréquentes",
@@ -271,11 +263,11 @@
       "items": [
         {
           "q": "Le premier entretien est-il vraiment gratuit ?",
-          "a": "Oui. Il dure 1 heure, par téléphone ou en visioconférence, et il est entièrement gratuit et sans engagement. On fait connaissance, vous m'exposez votre situation, je vous explique comment je travaille — et à la fin, vous décidez librement s'il y a une suite."
+          "a": "Oui. Il dure 1 heure, par téléphone ou en visioconférence, et il est entièrement gratuit et sans engagement. On fait connaissance, vous m'exposez votre situation, je vous explique comment je travaille. À la fin, vous décidez librement s'il y a une suite."
         },
         {
           "q": "Combien coûte un coaching emploi ?",
-          "a": "Le coaching emploi fait l'objet d'un devis personnalisé, avec un tarif inclusif qui tient compte de votre situation. Concrètement : le montant est établi après le premier entretien, une fois que nous savons ce dont vous avez réellement besoin — et il est adapté à vos moyens. Aucun engagement n'est pris avant que vous ayez le devis sous les yeux."
+          "a": "Le coaching emploi fait l'objet d'un devis personnalisé, avec un tarif inclusif qui tient compte de votre situation. Concrètement : le montant est établi après le premier entretien, une fois que nous savons ce dont vous avez réellement besoin, et il est adapté à vos moyens. Aucun engagement n'est pris avant que vous ayez le devis sous les yeux."
         },
         {
           "q": "Combien coûte un bilan de compétences ?",
@@ -283,15 +275,15 @@
         },
         {
           "q": "Le bilan de compétences est-il finançable par le CPF ?",
-          "a": "Oui. Réalisé en partenariat avec Orientaction, le bilan de compétences est mobilisable via votre Compte Personnel de Formation. D'autres solutions existent selon votre situation : financement par votre OPCO, par votre employeur, ou en fonds propres. Je vous accompagne dans le montage du dossier — c'est souvent l'étape qui décourage, et c'est justement là que je peux vous aider."
+          "a": "Oui. Réalisé en partenariat avec Orientaction, le bilan de compétences est mobilisable via votre Compte Personnel de Formation. D'autres solutions existent selon votre situation : financement par votre OPCO, par votre employeur, ou en fonds propres. Je vous accompagne dans le montage du dossier : c'est souvent l'étape qui décourage, et c'est justement là que je peux vous aider."
         },
         {
           "q": "Quelle est la différence entre le coaching emploi et le bilan de compétences ?",
-          "a": "Le coaching emploi s'adresse à vous si vous savez déjà quel poste viser : c'est la recherche elle-même qui bloque. Le bilan de compétences s'adresse à vous si vous ne savez plus quelle direction prendre : il sert justement à définir le projet. Si vous hésitez, le premier entretien est là pour ça — on regarde ensemble, gratuitement."
+          "a": "Le coaching emploi s'adresse à vous si vous savez déjà quel poste viser : c'est la recherche elle-même qui bloque. Le bilan de compétences s'adresse à vous si vous ne savez plus quelle direction prendre : il sert justement à définir le projet. Si vous hésitez, le premier entretien est là pour ça : on regarde ensemble, gratuitement."
         },
         {
           "q": "Mon employeur sera-t-il informé de ma démarche ?",
-          "a": "Non. Votre bilan de compétences est strictement confidentiel. Votre employeur n'en est informé que si vous choisissez de le solliciter pour le financement — et même dans ce cas, il n'a accès ni au contenu des séances, ni aux conclusions. Le document de synthèse vous appartient : vous seul·e décidez de le partager ou non."
+          "a": "Non. Votre bilan de compétences est strictement confidentiel. Votre employeur n'en est informé que si vous choisissez de le solliciter pour le financement, et même dans ce cas, il n'a accès ni au contenu des séances, ni aux conclusions. Le document de synthèse vous appartient : vous seul·e décidez de le partager ou non."
         },
         {
           "q": "Combien de temps dure un accompagnement ?",
@@ -303,7 +295,7 @@
         },
         {
           "q": "En présentiel ou à distance ?",
-          "a": "Les deux. En présentiel, j'interviens sur la zone Saverne – Haguenau – Strasbourg et dans le Bas-Rhin, avec possibilité de visite à domicile. À distance, par téléphone ou en visioconférence, partout en France. Vous choisissez ce qui est le plus pratique et le plus confortable pour vous."
+          "a": "Les deux. En présentiel, j'interviens sur la zone Saverne, Haguenau, Strasbourg et dans le Bas-Rhin, avec possibilité de visite à domicile. À distance, par téléphone ou en visioconférence, partout en France. Vous choisissez ce qui est le plus pratique et le plus confortable pour vous."
         },
         {
           "q": "Dans quel délai puis-je commencer ?",
@@ -311,7 +303,7 @@
         },
         {
           "q": "Et si l'accompagnement ne me convient pas ?",
-          "a": "Vous n'êtes engagé·e à rien avant d'avoir reçu et accepté un devis. Et si en cours de route la relation ne vous convient pas, dites-le-moi : nous ajustons, ou nous arrêtons. Un accompagnement contraint ne sert à personne — surtout pas à vous."
+          "a": "Vous n'êtes engagé·e à rien avant d'avoir reçu et accepté un devis. Et si en cours de route la relation ne vous convient pas, dites-le-moi : nous ajustons, ou nous arrêtons. Un accompagnement contraint ne sert à personne, surtout pas à vous."
         },
         {
           "q": "Faut-il être demandeur d'emploi pour être accompagné·e ?",
@@ -328,14 +320,14 @@
     "hero": {
       "eyebrow": "Coaching emploi · Strasbourg · Haguenau · Saverne",
       "title": "Coaching emploi : de la galère à <em>l'embauche</em>.",
-      "lead": "Une période de recherche d'emploi ou de remise en question professionnelle expose souvent à l'épuisement. Être accompagné·e permet d'en réduire les risques — et d'avancer avec une vraie partenaire à vos côtés, en Alsace ou à distance."
+      "lead": "Une période de recherche d'emploi ou de remise en question professionnelle expose souvent à l'épuisement. Être accompagné·e permet d'en réduire les risques, et d'avancer avec une vraie partenaire à vos côtés, en Alsace ou à distance."
     },
     "promesses": {
       "eyebrow": "Ce que je vous propose",
       "title": "Un accompagnement centré sur vous",
       "items": [
         "<strong>Rompre la solitude et l'isolement</strong> : je reste à votre disposition entre les séances et vous garantis une écoute bienveillante, sans jugement.",
-        "<strong>Reprendre confiance en vous</strong> : nos entretiens sont centrés sur vous, pour mieux vous connaître et clarifier vos motivations — parce qu'on ne convainc pas un recruteur quand on ne se convainc plus soi-même.",
+        "<strong>Reprendre confiance en vous</strong> : nos entretiens sont centrés sur vous, pour mieux vous connaître et clarifier vos motivations, parce qu'on ne convainc pas un recruteur quand on ne se convainc plus soi-même.",
         "<strong>Déterminer vos objectifs professionnels</strong>, en fonction de votre personnalité et de vos besoins réels, pas d'un modèle tout fait.",
         "<strong>Rendre vos démarches plus efficaces</strong> : des techniques de recherche d'emploi adaptées à votre situation, pour arrêter d'envoyer des candidatures dans le vide.",
         "<strong>Un accompagnement sur-mesure</strong> : je peux réaliser vos démarches avec vous, pas à pas, jusqu'à ce que vous sachiez les faire seul·e."
@@ -347,12 +339,12 @@
       "title": "Un parcours en quatre phases",
       "items": [
         {
-          "title": "Entretien découverte — gratuit et sans engagement",
+          "title": "Entretien découverte : gratuit et sans engagement",
           "text": "1 heure d'échange pour faire connaissance : vous présentez votre situation et vos attentes, je vous présente mes services, et vous obtenez les premières réponses à vos questions."
         },
         {
           "title": "Entretien de diagnostic",
-          "text": "Un échange approfondi pour identifier vos objectifs, vos besoins, vos atouts et vos freins, afin d'établir ensemble un plan d'action — et un devis clair."
+          "text": "Un échange approfondi pour identifier vos objectifs, vos besoins, vos atouts et vos freins, afin d'établir ensemble un plan d'action et un devis clair."
         },
         {
           "title": "Mise en action",
@@ -369,7 +361,7 @@
       "items": [
         {
           "title": "Présentiel",
-          "text": "Des rencontres en présentiel (lieu à convenir) sur la zone Saverne – Haguenau – Strasbourg et dans le Bas-Rhin, avec possibilité de visite à domicile et d'élargissement selon les situations."
+          "text": "Des rencontres en présentiel (lieu à convenir) sur la zone Saverne, Haguenau, Strasbourg et dans le Bas-Rhin, avec possibilité de visite à domicile et d'élargissement selon les situations."
         },
         {
           "title": "Distanciel",
@@ -377,7 +369,7 @@
         },
         {
           "title": "Main dans la main",
-          "text": "Les démarches de recherche d'emploi passent aujourd'hui largement par le numérique — et nous ne sommes pas tous égaux face aux nouvelles technologies. Je peux les réaliser avec vous, à votre domicile et sur votre matériel, pour rétablir l'égalité des chances."
+          "text": "Les démarches de recherche d'emploi passent aujourd'hui largement par le numérique, et nous ne sommes pas tous égaux face aux nouvelles technologies. Je peux les réaliser avec vous, à votre domicile et sur votre matériel, pour rétablir l'égalité des chances."
         }
       ],
       "tarif": {
@@ -408,7 +400,7 @@
         },
         {
           "year": "2016",
-          "text": "J'ai accepté un poste d'assistante technique pour sortir de cette première galère — et rentrer dans le cadre."
+          "text": "J'ai accepté un poste d'assistante technique pour sortir de cette première galère, et rentrer dans le cadre."
         },
         {
           "year": "2018",
@@ -430,37 +422,37 @@
           "text": "J'ai entrepris une reconversion, et décroché un poste de conseillère emploi auprès des entreprises, puis conseillère en insertion professionnelle."
         }
       ],
-      "closing": "Aujourd'hui, je m'épanouis dans ce métier — en vous accompagnant pour surmonter ces galères et trouver, vous aussi, votre épanouissement professionnel."
+      "closing": "Aujourd'hui, je m'épanouis dans ce métier, en vous accompagnant pour surmonter ces galères et trouver, vous aussi, votre épanouissement professionnel."
     },
     "crossLink": {
       "title": "Et si c'était plutôt un bilan de compétences ?",
-      "text": "Si vous ne savez pas encore quel poste viser, c'est peut-être le bilan de compétences qu'il vous faut — il sert justement à définir le projet.",
+      "text": "Si vous ne savez pas encore quel poste viser, c'est peut-être le bilan de compétences qu'il vous faut : il sert justement à définir le projet.",
       "link": "Découvrir le bilan de compétences"
     }
   },
   "bilan": {
     "meta": {
       "title": "Bilan de compétences CPF à Strasbourg & Saverne",
-      "description": "Bilan de compétences mobilisable via le CPF, méthode Orientaction, avec Maréva Ors. Faites le point et construisez un projet réaliste — à Strasbourg, Haguenau, Saverne ou à distance. Entretien d'information gratuit d'1 h."
+      "description": "Bilan de compétences mobilisable via le CPF, méthode Orientaction, avec Maréva Ors. Faites le point et construisez un projet réaliste, à Strasbourg, Haguenau, Saverne ou à distance. Entretien d'information gratuit d'1 h."
     },
     "hero": {
       "eyebrow": "Bilan de compétences · Strasbourg · Haguenau · Saverne",
       "title": "Le <em>bilan de compétences</em> pour enfin savoir où vous allez.",
-      "lead": "Imaginez une vie professionnelle épanouissante, une vie qui résonne avec qui vous êtes vraiment. Ensemble, nous explorons vos valeurs, vos besoins, votre personnalité et vos talents pour construire ce projet — en Alsace ou à distance."
+      "lead": "Imaginez une vie professionnelle épanouissante, une vie qui résonne avec qui vous êtes vraiment. Ensemble, nous explorons vos valeurs, vos besoins, votre personnalité et vos talents pour construire ce projet, en Alsace ou à distance."
     },
     "pourquoi": {
       "title": "Pourquoi faire un bilan de compétences ?",
-      "text": "Parce qu'on ne construit rien de solide sur une intuition floue. Le bilan vous guide dans l'exploration de vos valeurs, de vos besoins, de votre personnalité et de vos talents, pour bâtir une vie professionnelle qui vous ressemble vraiment — et un projet que vous pourrez défendre devant un recruteur, un financeur ou votre entourage."
+      "text": "Parce qu'on ne construit rien de solide sur une intuition floue. Le bilan vous guide dans l'exploration de vos valeurs, de vos besoins, de votre personnalité et de vos talents, pour bâtir une vie professionnelle qui vous ressemble vraiment, et un projet que vous pourrez défendre devant un recruteur, un financeur ou votre entourage."
     },
     "pourQui": {
       "title": "À qui s'adresse-t-il ?",
-      "text": "À tous : en poste, en recherche d'emploi, en reconversion ou en reprise d'activité. Il vous aide à mieux vous connaître et à tracer un chemin vers vos objectifs — bien-être au travail, rémunération, équilibre vie professionnelle / vie personnelle. Et il reste strictement confidentiel : votre employeur n'en saura rien."
+      "text": "À tous : en poste, en recherche d'emploi, en reconversion ou en reprise d'activité. Il vous aide à mieux vous connaître et à tracer un chemin vers vos objectifs : bien-être au travail, rémunération, équilibre vie professionnelle / vie personnelle. Et il reste strictement confidentiel : votre employeur n'en saura rien."
     },
     "citation": {
-      "quote": "Il existe trois choses extrêmement dures en ce monde : le diamant, l'acier — et la connaissance de soi.",
+      "quote": "Il existe trois choses extrêmement dures en ce monde : le diamant, l'acier et la connaissance de soi.",
       "author": "Benjamin Franklin",
       "paragraphs": [
-        "Dans un monde imprévisible et complexe, la connaissance de soi est ce qui vous permettra de prendre les bonnes décisions — dans votre vie professionnelle (métier, carrière, orientation) comme dans votre vie personnelle.",
+        "Dans un monde imprévisible et complexe, la connaissance de soi est ce qui vous permettra de prendre les bonnes décisions, dans votre vie professionnelle (métier, carrière, orientation) comme dans votre vie personnelle.",
         "Le bilan de compétences est une approche globale pour mieux vous connaître, vous poser des questions que vous n'avez pas l'habitude de vous poser, et vous révéler à vous-même. C'est aussi une démarche qui vous re-donne confiance.",
         "Ensemble, construisons votre projet réaliste et réalisable d'évolution professionnelle et personnelle."
       ]
@@ -478,7 +470,7 @@
         {
           "label": "Formules",
           "value": "Essentielle, Essentielle+, Classique",
-          "detail": "Elles diffèrent par le nombre d'heures et la profondeur des outils utilisés — on choisit ensemble"
+          "detail": "Elles diffèrent par le nombre d'heures et la profondeur des outils utilisés : on choisit ensemble"
         },
         {
           "label": "Financement",
@@ -494,22 +486,18 @@
     },
     "confidentialite": {
       "title": "Votre bilan reste strictement confidentiel",
-      "text": "Votre employeur n'est informé que si vous choisissez de le solliciter pour le financement — et même dans ce cas, il n'a accès ni au contenu des séances, ni aux conclusions. Le document de synthèse vous appartient : vous seul·e décidez de le partager, ou non."
-    },
-    "ctaBand": {
-      "title": "Entretien d'information gratuit",
-      "text": "Réservez un premier échange d'1 heure, sans engagement, pour voir si le bilan de compétences est fait pour vous."
+      "text": "Votre employeur n'est informé que si vous choisissez de le solliciter pour le financement, et même dans ce cas, il n'a accès ni au contenu des séances, ni aux conclusions. Le document de synthèse vous appartient : vous seul·e décidez de le partager, ou non."
     }
   },
   "contact": {
     "meta": {
-      "title": "Contact — Réserver un entretien gratuit d'1 heure",
+      "title": "Contact : réserver un entretien gratuit d'1 heure",
       "description": "Réservez votre entretien découverte gratuit d'1 heure avec Maréva Ors, ou écrivez-moi. Coaching emploi et bilan de compétences à Strasbourg, Haguenau, Saverne et à distance. Réponse sous 24 h ouvrées."
     },
     "hero": {
       "eyebrow": "Contact",
       "title": "Parlons de <em>votre projet</em>.",
-      "lead": "Le plus simple : réservez un premier entretien téléphonique d'1 heure, gratuit et sans engagement. Vous pouvez aussi m'écrire directement — je réponds sous 24 h ouvrées."
+      "lead": "Le plus simple : réservez un premier entretien téléphonique d'1 heure, gratuit et sans engagement. Vous pouvez aussi m'écrire directement : je réponds sous 24 h ouvrées."
     },
     "calendlyCard": {
       "title": "Entretien découverte gratuit",
@@ -520,7 +508,7 @@
       "items": [
         "Vous choisissez un créneau qui vous arrange.",
         "Je vous appelle à l'heure convenue, pour 1 heure d'échange.",
-        "On décide ensemble s'il y a une suite — sans aucune pression."
+        "On décide ensemble s'il y a une suite, sans aucune pression."
       ]
     },
     "emailLabel": "Email",
@@ -547,10 +535,10 @@
     ],
     "message": "Votre message",
     "messagePlaceholder": "Où en êtes-vous ? Qu'aimeriez-vous changer ?",
-    "consent": "J'accepte que mes informations soient utilisées pour être recontacté·e. Elles restent confidentielles et ne sont jamais partagées — voir la <link>politique de confidentialité</link>.",
+    "consent": "J'accepte que mes informations soient utilisées pour être recontacté·e. Elles restent confidentielles et ne sont jamais partagées. Voir la <link>politique de confidentialité</link>.",
     "submit": "Envoyer mon message",
     "submitting": "Envoi en cours…",
-    "secure": "Envoi sécurisé — vos données ne sont jamais partagées.",
+    "secure": "Envoi sécurisé : vos données ne sont jamais partagées.",
     "responseTime": "Je réponds sous 24 h ouvrées.",
     "optional": "optionnel",
     "required": "obligatoire",
@@ -575,7 +563,7 @@
     "mentions": {
       "meta": {
         "title": "Mentions légales",
-        "description": "Mentions légales du site Mévolution — Consulting & Coaching, Maréva Ors, conseillère en évolution professionnelle."
+        "description": "Mentions légales du site Mévolution Consulting & Coaching, Maréva Ors, conseillère en évolution professionnelle."
       },
       "title": "Mentions légales",
       "lead": "Informations légales relatives au site {site}.",
@@ -587,11 +575,15 @@
         },
         {
           "title": "Contact",
-          "body": "Email : {email} — Téléphone : {phone}"
+          "body": "Email : {email}. Téléphone : {phone}"
         },
         {
           "title": "Hébergement",
-          "body": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — vercel.com"
+          "body": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis (vercel.com)."
+        },
+        {
+          "title": "Conception et réalisation",
+          "body": "Site conçu et développé par {credits}. Contact technique : {creditsEmail}."
         },
         {
           "title": "Propriété intellectuelle",
@@ -614,7 +606,7 @@
     "privacy": {
       "meta": {
         "title": "Politique de confidentialité",
-        "description": "Comment vos données personnelles sont collectées, utilisées et protégées sur le site Mévolution — Consulting & Coaching."
+        "description": "Comment vos données personnelles sont collectées, utilisées et protégées sur le site Mévolution Consulting & Coaching."
       },
       "title": "Politique de confidentialité",
       "lead": "Cette page explique quelles données sont collectées sur ce site, pourquoi, et quels sont vos droits.",
@@ -622,7 +614,7 @@
       "sections": [
         {
           "title": "Responsable du traitement",
-          "body": "{founder} — {email}. C'est à cette adresse que vous pouvez exercer l'ensemble de vos droits décrits ci-dessous."
+          "body": "{founder} ({email}). C'est à cette adresse que vous pouvez exercer l'ensemble de vos droits décrits ci-dessous."
         },
         {
           "title": "Quelles données sont collectées",
@@ -660,20 +652,21 @@
     }
   },
   "footer": {
-    "tagline": "Rétablir l'égalité des chances face à l'emploi — avec vous, jamais à votre place.",
+    "tagline": "Rétablir l'égalité des chances face à l'emploi : avec vous, jamais à votre place.",
     "navTitle": "Navigation",
     "followTitle": "Suivez-moi",
     "contactTitle": "Contact",
     "areaTitle": "Zone d'intervention",
-    "areaValue": "Strasbourg · Haguenau · Saverne · Bas-Rhin — et à distance partout en France",
+    "areaValue": "Strasbourg · Haguenau · Saverne · Bas-Rhin, et à distance partout en France",
     "ctaTitle": "Un premier pas ?",
     "ctaText": "1 heure d'échange, gratuite et sans engagement.",
     "linkedin": "LinkedIn",
     "instagram": "Instagram",
     "facebook": "Facebook",
-    "rights": "© {year} Mévolution — Consulting & Coaching. Tous droits réservés.",
+    "rights": "© {year} Mévolution Consulting & Coaching. Tous droits réservés.",
     "legal": "Mentions légales",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "credits": "Site réalisé par"
   },
   "notFound": {
     "title": "Page introuvable",

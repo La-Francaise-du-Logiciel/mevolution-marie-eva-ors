@@ -1,6 +1,6 @@
-# Mévolution — Consulting & Coaching
+# Mévolution Consulting & Coaching
 
-Site vitrine de **Mévolution — Consulting & Coaching**, l'activité de **Maréva Ors**, conseillère en évolution professionnelle (coaching emploi + bilan de compétences).
+Site vitrine de **Mévolution Consulting & Coaching**, l'activité de **Maréva Ors**, conseillère en évolution professionnelle (coaching emploi + bilan de compétences).
 
 Le site présente l'offre, la personne, et convertit vers un **entretien découverte gratuit d'1 heure** (Calendly) ou un formulaire de contact.
 
@@ -93,7 +93,7 @@ app/
 ├── mentions-legales/page.tsx
 ├── politique-de-confidentialite/page.tsx
 ├── not-found.tsx
-├── opengraph-image.tsx       # Image OG (1200×630) — une par route
+├── opengraph-image.tsx       # Image OG (1200×630), une par route
 ├── api/contact/route.ts      # Endpoint formulaire (Resend + rate limiting)
 ├── globals.css               # Tokens Tailwind v4 + base + animations
 ├── manifest.ts / robots.ts / sitemap.ts
@@ -173,25 +173,25 @@ Tout est piloté par `lib/site.ts` : **une valeur à `null` n'est simplement pas
 
 ### Bloquant
 
-- [ ] **Photos** — déposer les fichiers dans `public/photos/` (cadrage 4:5, min. 800×1000)
+- [ ] **Photos** : déposer les fichiers dans `public/photos/` (cadrage 4:5, min. 800×1000)
       puis renseigner `photos.heroPortrait`, `photos.aboutPortrait`, `photos.aboutSecondary`.
       Tant que c'est `null`, le composant `Photo` affiche le cadre de marque.
-- [ ] **Durée Calendly** — le site annonce un entretien d'**1 heure** ; l'événement Calendly
+- [ ] **Durée Calendly** : le site annonce un entretien d'**1 heure** ; l'événement Calendly
       est encore configuré sur 30 min (slug `…-30min`). Passer la durée à 60 min dans Calendly,
       puis reporter la nouvelle URL dans `siteConfig.calendlyUrl`.
-- [ ] **Témoignages** — les 5 avis affichés sont tronqués (texte fourni avec « … »).
+- [ ] **Témoignages** : les 5 avis affichés sont tronqués (texte fourni avec « … »).
       Récupérer les textes complets dans `messages/fr.json → home.temoignages.items`.
-- [ ] **Mentions légales** — renseigner `credentials.siret`, `legalForm`, `postalAddress`
+- [ ] **Mentions légales** : renseigner `credentials.siret`, `legalForm`, `postalAddress`
       (obligatoires, art. 6 LCEN). Un encart « en cours de collecte » s'affiche en attendant.
 
 ### Recommandé
 
-- [ ] **Qualiopi / NDA** — `credentials.qualiopi`, `credentials.nda` (affiche le bandeau
+- [ ] **Qualiopi / NDA** : `credentials.qualiopi`, `credentials.nda` (affiche le bandeau
       de confiance + `hasCredential` en JSON-LD).
-- [ ] **Chiffres clés** — `keyFigures.peopleSupported`, `since`, `rating`.
+- [ ] **Chiffres clés** : `keyFigures.peopleSupported`, `since`, `rating`.
       ⚠️ Chiffres vérifiables uniquement.
-- [ ] **Facebook** — `siteConfig.social.facebook` (le lien n'apparaît pas tant qu'il vaut `null`).
-- [ ] **`NEXT_PUBLIC_SITE_URL`** — domaine de production réel. **Le build échoue
+- [ ] **Facebook** : `siteConfig.social.facebook` (le lien n'apparaît pas tant qu'il vaut `null`).
+- [ ] **`NEXT_PUBLIC_SITE_URL`** : domaine de production réel. **Le build échoue
       volontairement sans cette variable** en production (sinon canonicals/OG/sitemap
       pointeraient vers `localhost`).
 

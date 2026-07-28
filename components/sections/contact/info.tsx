@@ -15,7 +15,7 @@ export function ContactInfo() {
       <CalendlyLink
         location="contact-card"
         aria-label={common("ctaAria")}
-        className="bg-mv-grape flex items-center gap-[18px] rounded-[22px] p-6 text-white shadow-[0_20px_38px_-18px_rgba(136,72,154,0.9)] transition-transform duration-300 hover:-translate-y-1"
+        className="bg-mv-grape mv-lift flex items-center gap-[18px] rounded-[22px] p-6 text-white shadow-[0_20px_38px_-18px_rgba(136,72,154,0.9)] [--mv-lift-shadow:0_26px_44px_-16px_rgba(136,72,154,0.9)]"
       >
         <span className="inline-flex size-[54px] flex-none items-center justify-center rounded-[15px] bg-white/20">
           <Calendar className="size-6" aria-hidden="true" />
@@ -26,7 +26,7 @@ export function ContactInfo() {
         </span>
       </CalendlyLink>
 
-      {/* « Ce qui se passe ensuite » — lève l'anxiété du premier contact (audit §3.3). */}
+      {/* « Ce qui se passe ensuite » : lève l'anxiété du premier contact (audit §3.3). */}
       <div className="border-mv-line rounded-[18px] border bg-white p-[22px]">
         <h2 className="text-mv-forest mb-3 text-[11px] font-extrabold tracking-[0.12em] uppercase">
           {t("nextSteps.title")}
@@ -47,7 +47,7 @@ export function ContactInfo() {
 
       <a
         href={`mailto:${siteConfig.email}`}
-        className="border-mv-line hover:border-mv-line-strong flex items-center gap-4 rounded-[18px] border bg-white p-[22px] transition-[transform,border-color] duration-300 hover:-translate-y-0.5"
+        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[22px]"
       >
         <span className="bg-mv-pastel-violet text-mv-grape inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
           <Mail className="size-5" aria-hidden="true" />
@@ -62,7 +62,7 @@ export function ContactInfo() {
 
       <a
         href={siteConfig.phoneHref}
-        className="border-mv-line hover:border-mv-line-strong flex items-center gap-4 rounded-[18px] border bg-white p-[22px] transition-[transform,border-color] duration-300 hover:-translate-y-0.5"
+        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[22px]"
       >
         <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
           <Phone className="size-5" aria-hidden="true" />
@@ -75,7 +75,7 @@ export function ContactInfo() {
         </span>
       </a>
 
-      {/* Zone d'intervention — information locale rendue visible, plutôt qu'enterrée
+      {/* Zone d'intervention : information locale rendue visible, plutôt qu'enterrée
           dans un paragraphe d'une page secondaire (audit §8.2). */}
       <div className="border-mv-line flex items-start gap-4 rounded-[18px] border bg-white p-[22px]">
         <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
@@ -106,6 +106,18 @@ export function ContactInfo() {
         >
           {footer("instagram")}
         </a>
+        {/* Facebook n'apparaît que si l'URL est renseignée dans `lib/site.ts`
+            (même règle que le footer : jamais de lien mort). */}
+        {siteConfig.social.facebook && (
+          <a
+            href={siteConfig.social.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-mv-line hover:border-mv-grape hover:text-mv-grape flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold transition-colors"
+          >
+            {footer("facebook")}
+          </a>
+        )}
       </div>
     </div>
   );

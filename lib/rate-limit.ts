@@ -1,6 +1,6 @@
 /**
  * Rate limiting en mémoire (fenêtre fixe), par instance.
- * Protection basique du formulaire — pour de la production à fort trafic,
+ * Protection basique du formulaire. Pour de la production à fort trafic,
  * préférer un store partagé (Upstash Redis, Vercel KV…).
  */
 type Entry = { count: number; resetAt: number };

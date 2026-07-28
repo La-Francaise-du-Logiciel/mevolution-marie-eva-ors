@@ -1,6 +1,6 @@
 import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og";
 
-export const alt = "Coaching emploi — Mévolution";
+export const alt = "Coaching emploi · Mévolution";
 export const size = OG_SIZE;
 export const contentType = OG_CONTENT_TYPE;
 
