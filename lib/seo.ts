@@ -13,17 +13,20 @@ type BuildMetadataArgs = {
   description: string;
   /** Titre déjà complet (ne pas appliquer le template « … · Mévolution »). */
   absoluteTitle?: boolean;
+  /** Exclut la page de l'index (pages légales) tout en laissant suivre les liens. */
+  noIndex?: boolean;
 };
 
 /**
  * Métadonnées par page : title/description, canonical, Open Graph et Twitter.
- * L'image OG est fournie par app/opengraph-image.
+ * L'image OG est fournie par `opengraph-image` (globale ou propre à la route).
  */
 export function buildPageMetadata({
   path,
   title,
   description,
   absoluteTitle = false,
+  noIndex = false,
 }: BuildMetadataArgs): Metadata {
   const url = absoluteUrl(path);
 
@@ -42,5 +45,6 @@ export function buildPageMetadata({
       title,
       description,
     },
+    ...(noIndex ? { robots: { index: false, follow: true } } : {}),
   };
 }
