@@ -49,9 +49,11 @@ export function Accompagnements() {
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 110} className="h-full">
               <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-6 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:p-8 lg:p-9">
-                {/* Mobile : pastille au-dessus du titre, même disposition que le
-                    bloc « Tarifs » de la page Coaching. Côte à côte dès `sm`. */}
-                <div className="mb-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                {/* Pastille et titre restent sur une même ligne à toutes les largeurs :
+                    empilés, la pastille se retrouve orpheline au-dessus d'un titre court.
+                    Le bloc « Tarifs » de la page Coaching s'empile, lui, parce que son
+                    icône accompagne un paragraphe entier, pas un simple titre. */}
+                <div className="mb-5 flex items-center gap-4">
                   <span
                     className={`inline-flex size-[52px] shrink-0 items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}
                   >
