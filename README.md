@@ -2,7 +2,7 @@
 
 Site vitrine de **Mévolution — Consulting & Coaching**, l'activité de **Maréva Ors**, conseillère en évolution professionnelle (coaching emploi + bilan de compétences).
 
-Le site présente l'offre, la personne, et convertit vers un **entretien découverte gratuit de 30 min** (Calendly) ou un formulaire de contact.
+Le site présente l'offre, la personne, et convertit vers un **entretien découverte gratuit d'1 heure** (Calendly) ou un formulaire de contact.
 
 ## Sommaire
 
@@ -16,7 +16,7 @@ Le site présente l'offre, la personne, et convertit vers un **entretien découv
 - [SEO](#seo)
 - [Intégrations](#intégrations)
 - [Déploiement](#déploiement)
-- [À remplacer avant la mise en ligne](#à-remplacer-avant-la-mise-en-ligne)
+- [À compléter avant la mise en ligne](#à-compléter-avant-la-mise-en-ligne)
 
 ## Stack technique
 
@@ -84,13 +84,16 @@ Copier `.env.example` → `.env.local`.
 
 ```
 app/
-├── layout.tsx                # <html lang="fr">, polices, providers, header/footer, JSON-LD
-├── page.tsx                  # Accueil (inclut la section « À propos »)
+├── layout.tsx                # <html lang="fr">, polices, providers, header/footer, sticky CTA, JSON-LD
+├── page.tsx                  # Accueil
 ├── coaching/page.tsx
 ├── bilan-de-competences/page.tsx
+├── a-propos/page.tsx
 ├── contact/page.tsx
+├── mentions-legales/page.tsx
+├── politique-de-confidentialite/page.tsx
 ├── not-found.tsx
-├── opengraph-image.tsx       # Image OG (1200×630)
+├── opengraph-image.tsx       # Image OG (1200×630) — une par route
 ├── api/contact/route.ts      # Endpoint formulaire (Resend + rate limiting)
 ├── globals.css               # Tokens Tailwind v4 + base + animations
 ├── manifest.ts / robots.ts / sitemap.ts
@@ -99,27 +102,30 @@ components/
 ├── ui/                       # Primitives (button, input, form, checkbox…)
 ├── brand/                    # Leaf, Eyebrow, Reveal, CtaBand, Container…
 ├── layout/                   # Header, Footer, MobileNav
-└── sections/                 # Sections par page (home/, coaching/, bilan/, contact/)
+└── sections/                 # Sections par page (home/, coaching/, bilan/, about/, contact/, legal/)
 i18n/                         # request.ts (config next-intl, français)
-lib/                          # utils, site, seo, json-ld, schemas, analytics, rate-limit, fonts
+lib/                          # utils, site, seo, json-ld, og, schemas, analytics, rate-limit, fonts
 messages/                     # fr.json (toute la copie)
 public/                       # logo, favicon, assets de marque
 ```
 
 ### Pages & navigation
 
-| Route                   | Contenu                                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `/`                     | Hero, **À propos** (portrait, parcours, valeurs), Pour qui ?, Les accompagnements, La méthode, Témoignages, CTA, FAQ   |
-| `/coaching`             | Coaching emploi : promesses, déroulement en 4 phases, modalités, histoire personnelle de Maréva Ors                    |
-| `/bilan-de-competences` | Bilan de compétences : pourquoi / à qui, citation, cadre pratique (durée, formules, financement, méthode Orientaction) |
-| `/contact`              | Formulaire + coordonnées                                                                                               |
+| Route                           | Contenu                                                                                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                             | Hero, bandeau de confiance, Pour qui ?, Accompagnements, Coaching ou bilan ?, À propos + mission, Méthode, Engagements, Témoignages, FAQ, CTA |
+| `/coaching`                     | Coaching emploi : promesses, 4 phases, modalités + tarif, histoire (frise), passerelle vers le bilan                                          |
+| `/bilan-de-competences`         | Bilan de compétences : pourquoi / à qui, cadre pratique, confidentialité, citation, passerelle vers le coaching                               |
+| `/a-propos`                     | Mission, parcours & expertise, cadre professionnel (page E-E-A-T)                                                                             |
+| `/contact`                      | Calendly, « ce qui se passe ensuite », coordonnées, zone d'intervention, formulaire                                                           |
+| `/mentions-legales`             | Mentions légales (`noindex`)                                                                                                                  |
+| `/politique-de-confidentialite` | Politique de confidentialité RGPD (`noindex`)                                                                                                 |
 
 Le contenu de `/coaching` et `/bilan-de-competences` est repris du site officiel existant (Google Sites), adapté au ton et à la mise en page du design.
 
 ## Langue
 
-Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/coaching`, `/bilan-de-competences`, `/contact` (aucun préfixe `/fr`).
+Site **100 % français**, sans routing de langue : les pages vivent à la racine (aucun préfixe `/fr`).
 
 - Toute la copie vit dans `messages/fr.json`, gérée via next-intl en mode « sans i18n routing » (pratique pour centraliser et éditer les textes).
 - Pour rajouter une langue plus tard : réintroduire le routing i18n de next-intl (segment `[locale]` + middleware) et un fichier `messages/en.json`.
@@ -127,9 +133,10 @@ Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/c
 ## SEO
 
 - `generateMetadata` par page : title, description, canonical, OG, Twitter cards.
-- **JSON-LD** : `ProfessionalService`, `WebSite`, `Person` (à propos), `FAQPage` (accueil), `BreadcrumbList`.
+- **JSON-LD** : `ProfessionalService` (avec `areaServed` local : Strasbourg, Haguenau, Saverne, Bas-Rhin…),
+  `WebSite`, `Person`, `Service` + `Offer` (pages services), `FAQPage` (accueil + pages services), `BreadcrumbList`.
 - `sitemap.xml`, `robots.txt`, `manifest.webmanifest`, favicon SVG.
-- Image Open Graph générée dynamiquement (`opengraph-image.tsx`).
+- Image Open Graph générée dynamiquement, **déclinée par page** (`lib/og.tsx` + `opengraph-image.tsx` par route).
 - Rendu statique (SSG) : toutes les pages sont pré-générées en HTML.
 
 ## Intégrations
@@ -143,7 +150,11 @@ Site **100 % français**, sans routing de langue : les pages vivent sur `/`, `/c
 ### PostHog (analytics)
 
 - Renseigner `NEXT_PUBLIC_POSTHOG_KEY` (+ `NEXT_PUBLIC_POSTHOG_HOST`).
-- Pages vues suivies à chaque navigation ; événements personnalisés : `cta_calendly_click`, `contact_form_submitted`, `contact_form_error`.
+- Pages vues suivies à chaque navigation ; événements personnalisés : `cta_calendly_click`
+  (avec la propriété `location` : `hero`, `header`, `sticky-mobile`, `footer`, `comparaison`…),
+  `contact_form_submitted`, `contact_form_error`.
+- ⚠️ La **réservation Calendly effective** n'est pas encore suivie (redirection externe) :
+  on mesure les clics, pas les rendez-vous pris. Cf. audit §5.2.
 
 ## Déploiement
 
@@ -155,16 +166,34 @@ Optimisé pour **Vercel** :
 
 Fonctionne sur toute plateforme supportant Next.js (build Node standard).
 
-## À remplacer avant la mise en ligne
+## À compléter avant la mise en ligne
 
-Le design est haute-fidélité mais certains contenus sont des **placeholders** (cf. handoff design) :
+Tout est piloté par `lib/site.ts` : **une valeur à `null` n'est simplement pas affichée**
+(aucune donnée n'est inventée). Renseigner la constante suffit à activer le bloc correspondant.
 
-- [ ] **Photos** : portrait de Maréva + séances (cadrage 4:5) → remplacer les `PhotoPlaceholder`.
-- [ ] **Témoignages** : textes réels à recueillir (section « Témoignages » de l'accueil).
-- [ ] **Pages légales** : Mentions légales & Politique de confidentialité (liens `#` dans le footer).
-- [ ] **Liens réseaux** : confirmer LinkedIn / Instagram (`orsmareva`) ; ajouter Facebook (`#`).
-- [ ] **Images OG 1200×630** définitives (sinon l'image générée par défaut est utilisée).
-- [ ] **`NEXT_PUBLIC_SITE_URL`** : domaine de production réel.
+### Bloquant
+
+- [ ] **Photos** — déposer les fichiers dans `public/photos/` (cadrage 4:5, min. 800×1000)
+      puis renseigner `photos.heroPortrait`, `photos.aboutPortrait`, `photos.aboutSecondary`.
+      Tant que c'est `null`, le composant `Photo` affiche le cadre de marque.
+- [ ] **Durée Calendly** — le site annonce un entretien d'**1 heure** ; l'événement Calendly
+      est encore configuré sur 30 min (slug `…-30min`). Passer la durée à 60 min dans Calendly,
+      puis reporter la nouvelle URL dans `siteConfig.calendlyUrl`.
+- [ ] **Témoignages** — les 5 avis affichés sont tronqués (texte fourni avec « … »).
+      Récupérer les textes complets dans `messages/fr.json → home.temoignages.items`.
+- [ ] **Mentions légales** — renseigner `credentials.siret`, `legalForm`, `postalAddress`
+      (obligatoires, art. 6 LCEN). Un encart « en cours de collecte » s'affiche en attendant.
+
+### Recommandé
+
+- [ ] **Qualiopi / NDA** — `credentials.qualiopi`, `credentials.nda` (affiche le bandeau
+      de confiance + `hasCredential` en JSON-LD).
+- [ ] **Chiffres clés** — `keyFigures.peopleSupported`, `since`, `rating`.
+      ⚠️ Chiffres vérifiables uniquement.
+- [ ] **Facebook** — `siteConfig.social.facebook` (le lien n'apparaît pas tant qu'il vaut `null`).
+- [ ] **`NEXT_PUBLIC_SITE_URL`** — domaine de production réel. **Le build échoue
+      volontairement sans cette variable** en production (sinon canonicals/OG/sitemap
+      pointeraient vers `localhost`).
 
 ---
 
