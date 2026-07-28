@@ -7,7 +7,6 @@ import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 import { Glow } from "@/components/brand/glow";
 import { Photo } from "@/components/brand/photo";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
 import { photos } from "@/lib/site";
 
@@ -37,10 +36,10 @@ export function HomeHero() {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button asChild variant="primary" size="lg" className="w-full sm:w-auto">
-              <CalendlyLink location="hero" aria-label={common("ctaAria")}>
+              <Link href="/contact">
                 {common("ctaBook")}
                 <ArrowRight className="size-[18px]" />
-              </CalendlyLink>
+              </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
               <Link href="#accompagnements">{common("discoverServices")}</Link>

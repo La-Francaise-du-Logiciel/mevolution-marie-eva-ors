@@ -4,6 +4,15 @@ import { useTranslations } from "next-intl";
 import { siteConfig } from "@/lib/site";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 
+/** Réseaux sociaux affichés, dans l'ordre. Une URL absente retire l'entrée. */
+const socials = (
+  [
+    { key: "linkedin", href: siteConfig.social.linkedin },
+    { key: "instagram", href: siteConfig.social.instagram },
+    { key: "facebook", href: siteConfig.social.facebook },
+  ] as { key: string; href: string | null }[]
+).filter((social): social is { key: string; href: string } => Boolean(social.href));
+
 export function ContactInfo() {
   const t = useTranslations("contact");
   const common = useTranslations("common");
@@ -89,35 +98,23 @@ export function ContactInfo() {
         </span>
       </div>
 
-      <div className="flex gap-3">
-        <a
-          href={siteConfig.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border-mv-line hover:border-mv-grape hover:text-mv-grape flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold transition-colors"
-        >
-          {footer("linkedin")}
-        </a>
-        <a
-          href={siteConfig.social.instagram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border-mv-line hover:border-mv-grape hover:text-mv-grape flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold transition-colors"
-        >
-          {footer("instagram")}
-        </a>
-        {/* Facebook n'apparaît que si l'URL est renseignée dans `lib/site.ts`
-            (même règle que le footer : jamais de lien mort). */}
-        {siteConfig.social.facebook && (
+      {/* Un réseau n'apparaît que si son URL est renseignée dans `lib/site.ts`
+          (même règle que le footer : jamais de lien mort). */}
+      <div className="flex flex-wrap gap-3">
+        {socials.map((social) => (
           <a
-            href={siteConfig.social.facebook}
+            key={social.key}
+            href={social.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="border-mv-line hover:border-mv-grape hover:text-mv-grape flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold transition-colors"
+            /* `min-w-[6rem]` : trois boutons tiennent sur une ligne dès 360 px de
+               large, et repassent à la ligne en dessous plutôt que de comprimer
+               le libellé. */
+            className="border-mv-line hover:border-mv-grape hover:text-mv-grape mv-lift min-w-[6rem] flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold"
           >
-            {footer("facebook")}
+            {footer(social.key)}
           </a>
-        )}
+        ))}
       </div>
     </div>
   );

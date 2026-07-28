@@ -34,25 +34,40 @@ export async function Footer() {
         </div>
       </Container>
 
-      <Container className="pt-12 pb-10 md:pt-14">
-        {/* Marque : logo agrandi et centré sur toute la largeur, textes en dessous
-            (nouvelle disposition demandée par la cliente). */}
-        <div className="flex flex-col items-center text-center">
+      <Container className="pt-7 pb-10 md:pt-8">
+        {/*
+          Marque. Mobile : logo et textes empilés, centrés.
+          Tablette et desktop : logo à gauche, textes justifiés à sa droite.
+
+          Les coupures de ligne sont imposées (balise `<saut>` dans messages/fr.json)
+          plutôt que laissées au navigateur : un retour naturel dépend des métriques
+          de la police, donc du moment où elle finit de charger. Le `<br>` est masqué
+          en mobile, où le texte est centré et se replie librement.
+        */}
+        <div className="flex flex-col items-center gap-5 text-center md:flex-row md:items-center md:gap-10 md:text-left">
           <Image
             src="/assets/logo-dark.svg"
             alt={t("nav.logoAlt")}
             width={225}
             height={90}
-            className="h-[64px] w-auto brightness-0 invert md:h-[72px]"
+            className="h-[72px] w-auto flex-none brightness-0 invert md:h-[88px]"
             unoptimized
           />
-          <p className="mt-5 max-w-[440px] text-[15px] leading-relaxed text-white/60">
-            {t("footer.tagline")}
-          </p>
-          <p className="mt-4 flex max-w-[480px] items-start justify-center gap-2.5 text-[13.5px] leading-relaxed text-white/50">
-            <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-            <span>{t("footer.areaValue")}</span>
-          </p>
+          <div>
+            <p className="mx-auto max-w-[440px] text-[15px] leading-relaxed text-white/60 md:mx-0 md:max-w-none md:text-justify">
+              {t.rich("footer.tagline", {
+                saut: () => <br className="hidden md:inline" />,
+              })}
+            </p>
+            <p className="mx-auto mt-4 flex max-w-[480px] items-start justify-center gap-2.5 text-[13.5px] leading-relaxed text-white/50 md:mx-0 md:mt-3.5 md:max-w-none md:justify-start">
+              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+              <span className="md:text-justify">
+                {t.rich("footer.areaValue", {
+                  saut: () => <br className="hidden md:inline" />,
+                })}
+              </span>
+            </p>
+          </div>
         </div>
 
         {/* Colonnes : empilées en mobile, alignées sur une ligne dès `sm`. */}

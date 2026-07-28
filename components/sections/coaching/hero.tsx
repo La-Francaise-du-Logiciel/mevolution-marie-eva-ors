@@ -1,8 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import Link from "next/link";
+
 import { CenteredHero } from "@/components/sections/centered-hero";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
 
 export function CoachingHero() {
@@ -18,10 +19,10 @@ export function CoachingHero() {
       lead={t("lead")}
     >
       <Button asChild variant="primary" size="lg">
-        <CalendlyLink location="coaching-hero" aria-label={common("ctaAria")}>
+        <Link href="/contact">
           {common("cta")}
           <ArrowRight className="size-[18px]" />
-        </CalendlyLink>
+        </Link>
       </Button>
     </CenteredHero>
   );

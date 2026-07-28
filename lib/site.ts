@@ -27,8 +27,12 @@ export const siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/in/orsmareva",
     instagram: "https://www.instagram.com/orsmareva",
-    /** ⚠️ À renseigner par la cliente. `null` = le lien n'est pas affiché. */
-    facebook: null as string | null,
+    /**
+     * `null` = le lien n'est pas affiché (footer et page Contact).
+     * Le « é » est encodé en %C3%A9 : une URL doit être en ASCII pour être
+     * transmise telle quelle par tous les clients et outils d'analyse.
+     */
+    facebook: "https://www.facebook.com/p/M%C3%A9volution-61578683169872/" as string | null,
   },
 } as const;
 

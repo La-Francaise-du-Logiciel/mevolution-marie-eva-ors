@@ -68,7 +68,9 @@ export function Phases() {
         <div className="grid gap-5 md:grid-cols-2">
           {items.map((phase, index) => (
             <Reveal key={index} delay={index * 100} className="h-full">
-              <div className="mv-lift flex h-full gap-5 rounded-[22px] bg-white p-7 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)]">
+              {/* Mobile : pastille au-dessus du texte, même disposition que le
+                  bloc « Tarifs » ci-dessous. Côte à côte à partir de `sm`. */}
+              <div className="mv-lift flex h-full flex-col items-start gap-4 rounded-[22px] bg-white p-6 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:flex-row sm:gap-5 sm:p-7">
                 <span
                   className={`inline-flex size-10 flex-none items-center justify-center rounded-full font-serif text-[17px] text-white ${colors[index % colors.length]}`}
                 >

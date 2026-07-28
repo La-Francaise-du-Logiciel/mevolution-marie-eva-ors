@@ -652,12 +652,12 @@
     }
   },
   "footer": {
-    "tagline": "Rétablir l'égalité des chances face à l'emploi : avec vous, jamais à votre place.",
+    "tagline": "Rétablir l'égalité des chances face à l'emploi : <saut></saut>avec vous, jamais à votre place.",
     "navTitle": "Navigation",
     "followTitle": "Suivez-moi",
     "contactTitle": "Contact",
     "areaTitle": "Zone d'intervention",
-    "areaValue": "Strasbourg · Haguenau · Saverne · Bas-Rhin, et à distance partout en France",
+    "areaValue": "Strasbourg · Haguenau · Saverne · Bas-Rhin, <saut></saut>et à distance partout en France",
     "ctaTitle": "Un premier pas ?",
     "ctaText": "1 heure d'échange, gratuite et sans engagement.",
     "linkedin": "LinkedIn",

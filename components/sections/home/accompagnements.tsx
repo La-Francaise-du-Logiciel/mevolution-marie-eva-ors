@@ -6,7 +6,6 @@ import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 import { Leaf } from "@/components/brand/leaf";
-import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
 
 type Card = {
@@ -49,8 +48,10 @@ export function Accompagnements() {
         <div className="grid gap-6 lg:grid-cols-2">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 110} className="h-full">
-              <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-8 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] lg:p-9">
-                <div className="mb-5 flex items-center gap-4">
+              <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-6 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:p-8 lg:p-9">
+                {/* Mobile : pastille au-dessus du titre, même disposition que le
+                    bloc « Tarifs » de la page Coaching. Côte à côte dès `sm`. */}
+                <div className="mb-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                   <span
                     className={`inline-flex size-[52px] shrink-0 items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}
                   >
@@ -95,14 +96,13 @@ export function Accompagnements() {
             d'intention. Auparavant il fallait scroller 4 sections de plus (audit §5.2 P3). */}
         <Reveal delay={120}>
           <div className="mt-10 text-center">
-            <CalendlyLink
-              location="accompagnements-mid"
-              aria-label={common("ctaAria")}
+            <Link
+              href="/contact"
               className="text-mv-lime inline-flex items-center gap-2 text-[16px] font-bold underline-offset-4 transition-opacity hover:opacity-80 md:text-[17px]"
             >
               {t("midCta")}
               <ArrowRight className="size-[18px]" aria-hidden="true" />
-            </CalendlyLink>
+            </Link>
           </div>
         </Reveal>
       </Container>
