@@ -6,13 +6,15 @@ import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 import { Glow } from "@/components/brand/glow";
-import { PhotoPlaceholder } from "@/components/brand/photo-placeholder";
+import { Photo } from "@/components/brand/photo";
 import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
+import { photos } from "@/lib/site";
 
 export function HomeHero() {
   const t = useTranslations("home.hero");
   const common = useTranslations("common");
+  const reassurance = common.raw("reassuranceItems") as string[];
 
   return (
     <section>
@@ -30,7 +32,7 @@ export function HomeHero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Button asChild variant="primary" size="lg" className="w-full sm:w-auto">
               <CalendlyLink location="hero" aria-label={common("ctaAria")}>
-                {common("cta")}
+                {common("ctaBook")}
                 <ArrowRight className="size-[18px]" />
               </CalendlyLink>
             </Button>
@@ -38,10 +40,18 @@ export function HomeHero() {
               <Link href="#accompagnements">{common("discoverServices")}</Link>
             </Button>
           </div>
-          <p className="text-mv-stone-2 mt-6 flex items-start gap-2 text-sm">
-            <Check className="text-mv-forest mt-0.5 size-4 shrink-0" strokeWidth={3} />
-            <span>{common("reassurance")}</span>
-          </p>
+          <ul className="mt-6 flex flex-col gap-2">
+            {reassurance.map((item, index) => (
+              <li key={index} className="text-mv-stone-2 flex items-start gap-2 text-sm">
+                <Check
+                  className="text-mv-forest mt-0.5 size-4 shrink-0"
+                  strokeWidth={3}
+                  aria-hidden="true"
+                />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
 
         <Reveal delay={140} className="relative mx-auto w-full max-w-[400px] md:max-w-none">
@@ -52,7 +62,15 @@ export function HomeHero() {
             delay={3}
             className="-bottom-20 -left-10 z-0"
           />
-          <PhotoPlaceholder tone="green" label={common("photoPortrait")} className="mv-appear" />
+          <Photo
+            src={photos.heroPortrait}
+            alt={common("photoHeroAlt")}
+            tone="green"
+            priority
+            sizes="(max-width: 768px) 90vw, (max-width: 1180px) 45vw, 520px"
+            pendingLabel={common("photoPending")}
+            className="mv-appear"
+          />
         </Reveal>
       </Container>
     </section>
