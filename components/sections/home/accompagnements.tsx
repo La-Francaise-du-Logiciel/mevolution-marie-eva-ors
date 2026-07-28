@@ -6,6 +6,7 @@ import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
 import { Reveal } from "@/components/brand/reveal";
 import { Leaf } from "@/components/brand/leaf";
+import { CalendlyLink } from "@/components/brand/calendly-link";
 import { Button } from "@/components/ui/button";
 
 type Card = {
@@ -13,6 +14,7 @@ type Card = {
   text: string;
   forWhom: string;
   howItWorks: string;
+  result: string;
   href: string;
 };
 
@@ -27,6 +29,7 @@ export function Accompagnements() {
   const cards = t.raw("cards") as Card[];
   const forWhomLabel = t("labels.forWhom");
   const howItWorksLabel = t("labels.howItWorks");
+  const resultLabel = t("labels.result");
 
   return (
     <section id="accompagnements" className="bg-mv-forest scroll-mt-20">
@@ -38,6 +41,9 @@ export function Accompagnements() {
           <h2 className="max-w-[620px] font-serif text-[30px] leading-[1.12] font-medium text-white sm:text-[38px] lg:text-[42px]">
             {t("title")}
           </h2>
+          <p className="mt-3.5 max-w-[620px] text-[16px] leading-relaxed text-white/80 md:text-lg">
+            {t("lead")}
+          </p>
         </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-2">
@@ -64,7 +70,15 @@ export function Accompagnements() {
                 <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
                   {howItWorksLabel}
                 </div>
-                <p className="text-mv-stone text-[15px] leading-[1.6]">{card.howItWorks}</p>
+                <p className="text-mv-stone mb-5 text-[15px] leading-[1.6]">{card.howItWorks}</p>
+
+                {/* Bénéfice concret plutôt que description de process (audit §3.2). */}
+                <div className="text-mv-grape mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                  {resultLabel}
+                </div>
+                <p className="text-mv-ink-soft text-[15px] leading-[1.6] font-semibold">
+                  {card.result}
+                </p>
 
                 <Button asChild variant="link" size="none" className="mt-auto self-start pt-6">
                   <Link href={card.href}>
@@ -76,6 +90,21 @@ export function Accompagnements() {
             </Reveal>
           ))}
         </div>
+
+        {/* CTA intermédiaire : le visiteur vient de comprendre l'offre, c'est le pic
+            d'intention. Auparavant il fallait scroller 4 sections de plus (audit §5.2 P3). */}
+        <Reveal delay={120}>
+          <div className="mt-10 text-center">
+            <CalendlyLink
+              location="accompagnements-mid"
+              aria-label={common("ctaAria")}
+              className="text-mv-lime inline-flex items-center gap-2 text-[16px] font-bold underline-offset-4 transition-opacity hover:opacity-80 md:text-[17px]"
+            >
+              {t("midCta")}
+              <ArrowRight className="size-[18px]" aria-hidden="true" />
+            </CalendlyLink>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
