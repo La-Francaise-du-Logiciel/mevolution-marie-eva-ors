@@ -18,6 +18,7 @@ import { NAV } from "./nav-items";
 /** En-tête sticky : ombre au scroll, nav active, CTA. */
 export function Header() {
   const t = useTranslations("nav");
+  const common = useTranslations("common");
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
@@ -43,12 +44,13 @@ export function Header() {
             width={225}
             height={90}
             priority
-            className="h-[30px] w-auto lg:h-9"
+            // Logo agrandi (demande cliente) — `w-auto` conserve le ratio 225×90.
+            className="h-[36px] w-auto lg:h-11"
             unoptimized
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex xl:gap-1">
           {NAV.map((item) => {
             const active = pathname === item.href;
             return (
@@ -57,13 +59,13 @@ export function Header() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative px-4 py-[9px] text-[15px] font-bold transition-colors",
+                  "relative px-3 py-[9px] text-[15px] font-bold transition-colors xl:px-4",
                   active ? "text-mv-ink" : "text-mv-ink hover:text-mv-grape"
                 )}
               >
-                {t(item.key)}
+                {t(item.navKey)}
                 {active && (
-                  <span className="bg-mv-grape absolute inset-x-4 bottom-px h-[2.5px] rounded-full" />
+                  <span className="bg-mv-grape absolute inset-x-3 bottom-px h-[2.5px] rounded-full xl:inset-x-4" />
                 )}
               </NavLink>
             );
@@ -71,10 +73,14 @@ export function Header() {
         </nav>
 
         <div className="flex flex-none items-center gap-2 lg:gap-3">
-          <Button asChild variant="primary" size="sm" className="hidden lg:inline-flex">
-            <CalendlyLink location="header" aria-label={t("cta")}>
-              {t("cta")}
-              <ArrowRight className="size-4" />
+          {/* CTA permanent, mobile ET desktop (audit P0 #7 : il était masqué sous 1024px,
+              privant de CTA persistant la majorité du trafic). Libellé court tant que
+              la place manque, complet à partir de xl. */}
+          <Button asChild variant="primary" size="sm">
+            <CalendlyLink location="header" aria-label={common("ctaAria")}>
+              <span className="xl:hidden">{t("ctaShort")}</span>
+              <span className="hidden xl:inline">{t("cta")}</span>
+              <ArrowRight className="size-4" aria-hidden="true" />
             </CalendlyLink>
           </Button>
           <MobileNav nav={NAV} />

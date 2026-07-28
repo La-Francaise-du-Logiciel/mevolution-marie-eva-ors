@@ -8,6 +8,7 @@ import { getSiteUrl, siteConfig } from "@/lib/site";
 import { JsonLd, organizationSchema, webSiteSchema } from "@/lib/json-ld";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { StickyCta } from "@/components/brand/sticky-cta";
 import { Toaster } from "@/components/ui/sonner";
 import { PostHogProvider } from "@/app/providers";
 
@@ -89,6 +90,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               </main>
               <Footer />
             </div>
+            {/* CTA permanent en mobile — le header desktop porte déjà le sien. */}
+            <StickyCta />
             <Toaster />
           </PostHogProvider>
         </NextIntlClientProvider>
