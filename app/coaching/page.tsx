@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 import { buildPageMetadata } from "@/lib/seo";
-import { JsonLd, breadcrumbSchema } from "@/lib/json-ld";
-import { CtaBand } from "@/components/brand/cta-band";
+import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/json-ld";
+import { CrossLink } from "@/components/brand/cross-link";
 import { CoachingHero } from "@/components/sections/coaching/hero";
 import { Promesses, Phases, Modalites, Histoire } from "@/components/sections/coaching/content";
 
@@ -16,26 +16,40 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
+/** Questions de la FAQ d'accueil qui concernent directement le coaching emploi. */
+const COACHING_FAQ_INDEXES = [0, 1, 4, 6, 7, 8, 10];
+
 export default async function CoachingPage() {
   const t = await getTranslations("coaching");
-  const common = await getTranslations("common");
   const nav = await getTranslations("nav");
+  const faq = await getTranslations("home.faq");
+  const allFaq = faq.raw("items") as { q: string; a: string }[];
+  const pageFaq = COACHING_FAQ_INDEXES.map((index) => allFaq[index]).filter(Boolean);
 
   return (
     <>
       <CoachingHero />
       <Promesses />
       <Phases />
+
       <Modalites />
       <Histoire />
-      <CtaBand
-        title={t("ctaBand.title")}
-        text={t("ctaBand.text")}
-        ctaLabel={common("cta")}
-        ctaAria={common("ctaAria")}
-        location="coaching-band"
+      <CrossLink
+        title={t("crossLink.title")}
+        text={t("crossLink.text")}
+        link={t("crossLink.link")}
+        href="/bilan-de-competences"
       />
 
+      <JsonLd
+        data={serviceSchema({
+          name: "Coaching emploi",
+          description: t("meta.description"),
+          path: "/coaching",
+          serviceType: "Coaching emploi et accompagnement à la recherche d'emploi",
+        })}
+      />
+      <JsonLd data={faqSchema(pageFaq)} />
       <JsonLd
         data={breadcrumbSchema([
           { name: nav("home"), path: "/" },

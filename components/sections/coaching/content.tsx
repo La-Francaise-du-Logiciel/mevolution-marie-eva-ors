@@ -1,3 +1,4 @@
+import { Wallet } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/brand/container";
@@ -24,11 +25,13 @@ export function Promesses() {
         </Reveal>
         <Reveal delay={100}>
           <ul className="flex flex-col gap-5">
-            {items.map((item, index) => (
+            {items.map((_, index) => (
               <li key={index} className="flex items-start gap-3">
                 <Leaf size={14} className="bg-mv-grape mt-1.5 flex-none" />
                 <span className="text-mv-stone text-[16px] leading-[1.6] md:text-[17px]">
-                  {item}
+                  {t.rich(`items.${index}`, {
+                    strong: (chunks) => <strong className="text-mv-ink font-bold">{chunks}</strong>,
+                  })}
                 </span>
               </li>
             ))}
@@ -106,6 +109,22 @@ export function Modalites() {
                 </div>
               ))}
             </div>
+
+            {/* Transparence tarifaire — l'objection n°1 du site (audit §3.3). */}
+            <div className="bg-mv-pastel-violet/70 mt-9 flex items-start gap-4 rounded-[18px] p-6 md:mt-10 md:p-7">
+              <span className="bg-mv-grape/12 text-mv-grape inline-flex size-11 flex-none items-center justify-center rounded-[13px]">
+                <Wallet className="size-5" aria-hidden="true" />
+              </span>
+              <div>
+                <h3 className="text-mv-grape mb-1.5 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                  {t("tarif.label")}
+                </h3>
+                <p className="text-mv-ink text-[17px] leading-[1.45] font-bold md:text-[18px]">
+                  {t("tarif.title")}
+                </p>
+                <p className="text-mv-stone mt-2 text-[15.5px] leading-[1.65]">{t("tarif.text")}</p>
+              </div>
+            </div>
           </div>
         </Reveal>
       </Container>
@@ -113,39 +132,59 @@ export function Modalites() {
   );
 }
 
-type Paragraph = { text: string; quote?: string };
+type Paragraph = { year: string; text: string; quote?: string };
 
-/** Récit personnel de Maréva Ors — expérience de chercheuse d'emploi. */
+/**
+ * Récit personnel de Maréva Ors — le différenciateur n°1 du site (audit §3.5).
+ * Présenté en frise chronologique : les dates étaient déjà dans le texte,
+ * les exposer casse le mur de paragraphes et rend la section scannable.
+ */
 export function Histoire() {
   const t = useTranslations("coaching.histoire");
   const paragraphs = t.raw("paragraphs") as Paragraph[];
 
   return (
-    <section>
+    <section id="mon-histoire" className="scroll-mt-20">
       <Container className="pt-6 pb-16 md:pb-20">
-        <Reveal className="mb-8 max-w-[640px]">
+        <Reveal className="mb-9 max-w-[640px]">
           <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[26px] leading-[1.12] font-medium sm:text-[32px] lg:text-[34px]">
             {t("title")}
           </h2>
+          <p className="text-mv-stone mt-3.5 text-[16px] leading-[1.7] md:text-[17px]">
+            {t("lead")}
+          </p>
         </Reveal>
 
-        <Reveal delay={80} className="max-w-[720px]">
-          <div className="flex flex-col gap-5">
+        <Reveal delay={80} className="max-w-[760px]">
+          <ol className="relative flex flex-col gap-8 pl-8 sm:pl-11">
+            {/* Filet vertical de la frise */}
+            <span
+              aria-hidden="true"
+              className="absolute top-2 bottom-2 left-[7px] w-px bg-[#e0d8c9] sm:left-[9px]"
+            />
             {paragraphs.map((p, index) => (
-              <div key={index}>
+              <li key={index} className="relative">
+                <span
+                  aria-hidden="true"
+                  className="bg-mv-grape absolute top-[7px] -left-8 size-[15px] rounded-full shadow-[0_0_0_5px_#f7f4ee] sm:-left-11 sm:size-[19px]"
+                />
+                <p className="text-mv-forest mb-1.5 text-[12px] font-extrabold tracking-[0.14em] uppercase">
+                  {p.year}
+                </p>
                 <p className="text-mv-stone text-[16px] leading-[1.75] md:text-[17px]">{p.text}</p>
                 {p.quote && (
-                  <p className="text-mv-grape border-mv-line mt-2 border-l-2 pl-4 text-[15px] leading-snug italic">
+                  <p className="text-mv-grape border-mv-line mt-2.5 border-l-2 pl-4 text-[15px] leading-snug italic">
                     {p.quote}
                   </p>
                 )}
-              </div>
+              </li>
             ))}
-            <p className="text-mv-ink mt-2 text-[17px] leading-[1.7] font-semibold md:text-[18px]">
-              {t("closing")}
-            </p>
-          </div>
+          </ol>
+
+          <p className="text-mv-ink mt-9 text-[17px] leading-[1.7] font-semibold md:text-[18px]">
+            {t("closing")}
+          </p>
         </Reveal>
       </Container>
     </section>

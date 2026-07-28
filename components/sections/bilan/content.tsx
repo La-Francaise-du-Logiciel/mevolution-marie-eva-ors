@@ -1,3 +1,4 @@
+import { ShieldCheck } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/brand/container";
@@ -72,6 +73,7 @@ export function Pratique() {
           <h2 className="font-serif text-[28px] leading-[1.12] font-medium sm:text-[34px] lg:text-[36px]">
             {t("title")}
           </h2>
+          <p className="text-mv-stone mt-3.5 text-[16px] leading-relaxed md:text-lg">{t("lead")}</p>
         </Reveal>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -89,6 +91,34 @@ export function Pratique() {
             </Reveal>
           ))}
         </div>
+      </Container>
+    </section>
+  );
+}
+
+/**
+ * Confidentialité vis-à-vis de l'employeur — objection n°1 du bilan de compétences,
+ * absente du site jusqu'ici (audit §3.3).
+ */
+export function Confidentialite() {
+  const t = useTranslations("bilan.confidentialite");
+
+  return (
+    <section>
+      <Container className="pb-16 md:pb-20">
+        <Reveal>
+          <div className="border-mv-line flex flex-col gap-5 rounded-[24px] border bg-white p-8 md:flex-row md:items-start md:gap-7 md:p-10">
+            <span className="bg-mv-pastel-green text-mv-forest inline-flex size-14 flex-none items-center justify-center rounded-[16px]">
+              <ShieldCheck className="size-6" aria-hidden="true" />
+            </span>
+            <div className="max-w-[680px]">
+              <h2 className="mb-2.5 font-serif text-[24px] leading-[1.2] font-medium sm:text-[27px]">
+                {t("title")}
+              </h2>
+              <p className="text-mv-stone text-[16px] leading-[1.7]">{t("text")}</p>
+            </div>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
