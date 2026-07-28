@@ -1,4 +1,4 @@
-import { Calendar, Mail, Phone } from "lucide-react";
+import { Calendar, Check, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { siteConfig } from "@/lib/site";
@@ -8,6 +8,7 @@ export function ContactInfo() {
   const t = useTranslations("contact");
   const common = useTranslations("common");
   const footer = useTranslations("footer");
+  const nextSteps = t.raw("nextSteps.items") as string[];
 
   return (
     <div className="flex flex-col gap-4">
@@ -17,7 +18,7 @@ export function ContactInfo() {
         className="bg-mv-grape flex items-center gap-[18px] rounded-[22px] p-6 text-white shadow-[0_20px_38px_-18px_rgba(136,72,154,0.9)] transition-transform duration-300 hover:-translate-y-1"
       >
         <span className="inline-flex size-[54px] flex-none items-center justify-center rounded-[15px] bg-white/20">
-          <Calendar className="size-6" />
+          <Calendar className="size-6" aria-hidden="true" />
         </span>
         <span>
           <span className="block text-[19px] font-extrabold">{t("calendlyCard.title")}</span>
@@ -25,12 +26,31 @@ export function ContactInfo() {
         </span>
       </CalendlyLink>
 
+      {/* « Ce qui se passe ensuite » — lève l'anxiété du premier contact (audit §3.3). */}
+      <div className="border-mv-line rounded-[18px] border bg-white p-[22px]">
+        <h2 className="text-mv-forest mb-3 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+          {t("nextSteps.title")}
+        </h2>
+        <ol className="flex flex-col gap-2.5">
+          {nextSteps.map((step, index) => (
+            <li key={index} className="flex items-start gap-2.5">
+              <Check
+                className="text-mv-forest mt-0.5 size-4 shrink-0"
+                strokeWidth={3}
+                aria-hidden="true"
+              />
+              <span className="text-mv-stone text-[15px] leading-[1.55]">{step}</span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
       <a
         href={`mailto:${siteConfig.email}`}
         className="border-mv-line hover:border-mv-line-strong flex items-center gap-4 rounded-[18px] border bg-white p-[22px] transition-[transform,border-color] duration-300 hover:-translate-y-0.5"
       >
         <span className="bg-mv-pastel-violet text-mv-grape inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
-          <Mail className="size-5" />
+          <Mail className="size-5" aria-hidden="true" />
         </span>
         <span className="min-w-0">
           <span className="text-mv-stone-3 block text-[12px] font-semibold">{t("emailLabel")}</span>
@@ -45,7 +65,7 @@ export function ContactInfo() {
         className="border-mv-line hover:border-mv-line-strong flex items-center gap-4 rounded-[18px] border bg-white p-[22px] transition-[transform,border-color] duration-300 hover:-translate-y-0.5"
       >
         <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
-          <Phone className="size-5" />
+          <Phone className="size-5" aria-hidden="true" />
         </span>
         <span>
           <span className="text-mv-stone-3 block text-[12px] font-semibold">{t("phoneLabel")}</span>
@@ -54,6 +74,20 @@ export function ContactInfo() {
           </span>
         </span>
       </a>
+
+      {/* Zone d'intervention — information locale rendue visible, plutôt qu'enterrée
+          dans un paragraphe d'une page secondaire (audit §8.2). */}
+      <div className="border-mv-line flex items-start gap-4 rounded-[18px] border bg-white p-[22px]">
+        <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
+          <MapPin className="size-5" aria-hidden="true" />
+        </span>
+        <span>
+          <span className="text-mv-stone-3 block text-[12px] font-semibold">{t("areaLabel")}</span>
+          <span className="text-mv-ink-soft block text-[15px] leading-[1.5] font-semibold">
+            {t("areaValue")}
+          </span>
+        </span>
+      </div>
 
       <div className="flex gap-3">
         <a

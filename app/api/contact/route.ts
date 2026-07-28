@@ -25,6 +25,7 @@ function buildHtml(fields: {
   name: string;
   email: string;
   phone?: string;
+  situation?: string;
   message: string;
 }): string {
   const row = (label: string, value: string) =>
@@ -44,6 +45,7 @@ function buildHtml(fields: {
           ${row("Nom", escapeHtml(fields.name))}
           ${row("Email", escapeHtml(fields.email))}
           ${fields.phone ? row("Téléphone", escapeHtml(fields.phone)) : ""}
+          ${fields.situation ? row("Situation", escapeHtml(fields.situation)) : ""}
           ${row("Message", escapeHtml(fields.message).replace(/\n/g, "<br>"))}
         </table>
       </td></tr>
@@ -81,7 +83,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ status: "error", message: "Validation failed." }, { status: 400 });
   }
 
-  const { name, email, phone, message } = parsed.data;
+  const { name, email, phone, situation, message } = parsed.data;
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
@@ -101,6 +103,7 @@ export async function POST(req: Request) {
     `Nom : ${name}`,
     `Email : ${email}`,
     phone ? `Téléphone : ${phone}` : null,
+    situation ? `Situation : ${situation}` : null,
     "",
     message,
   ]
@@ -113,7 +116,7 @@ export async function POST(req: Request) {
       to,
       replyTo: email,
       subject: `Nouveau message — ${name}`,
-      html: buildHtml({ name, email, phone, message }),
+      html: buildHtml({ name, email, phone, situation, message }),
       text,
     });
     if (error) throw error;

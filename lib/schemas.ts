@@ -16,6 +16,8 @@ export function createContactSchema(m: ContactErrorMessages) {
     name: z.string().trim().min(1, m.name).max(120),
     email: z.string().trim().min(1, m.email).regex(EMAIL_RE, m.email).max(200),
     phone: z.string().trim().max(40).optional(),
+    /** Qualification du lead (optionnelle) : situation professionnelle déclarée. */
+    situation: z.string().trim().max(80).optional(),
     message: z.string().trim().min(1, m.message).min(10, m.messageShort).max(4000),
     consent: z.boolean().refine((value) => value === true, { message: m.consent }),
     // Honeypot anti-spam : doit rester vide (rempli uniquement par les bots).
