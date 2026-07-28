@@ -116,17 +116,23 @@ export function Modalites() {
               ))}
             </div>
 
-            {/* Transparence tarifaire : l'objection n°1 du site (audit §3.3).
-                En mobile l'icône passe au-dessus du texte : côte à côte, la colonne
-                de texte devenait trop étroite. */}
-            <div className="bg-mv-pastel-violet/70 mt-9 flex flex-col items-start gap-4 rounded-[18px] p-6 sm:flex-row md:mt-10 md:p-7">
-              <span className="bg-mv-grape/12 text-mv-grape inline-flex size-11 flex-none items-center justify-center rounded-[13px]">
+            {/*
+              Transparence tarifaire : l'objection n°1 du site (audit §3.3).
+
+              Grille en deux colonnes. En mobile, l'icône se place à côté du libellé
+              « Tarifs » et le texte passe dessous sur toute la largeur : l'icône n'est
+              pas orpheline au-dessus du bloc, et la colonne de texte n'est pas rétrécie
+              par l'icône. Dès `sm`, l'icône s'étend sur les deux rangées et l'on
+              retrouve la disposition d'origine, icône à gauche du bloc entier.
+            */}
+            <div className="bg-mv-pastel-violet/70 mt-9 grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[18px] p-6 sm:items-start sm:gap-x-5 sm:gap-y-1.5 md:mt-10 md:p-7">
+              <span className="bg-mv-grape/12 text-mv-grape inline-flex size-11 flex-none items-center justify-center rounded-[13px] sm:row-span-2">
                 <Wallet className="size-5" aria-hidden="true" />
               </span>
-              <div>
-                <h3 className="text-mv-grape mb-1.5 text-[11px] font-extrabold tracking-[0.12em] uppercase">
-                  {t("tarif.label")}
-                </h3>
+              <h3 className="text-mv-grape text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                {t("tarif.label")}
+              </h3>
+              <div className="col-span-2 sm:col-span-1">
                 <p className="text-mv-ink text-[17px] leading-[1.45] font-bold md:text-[18px]">
                   {t("tarif.title")}
                 </p>

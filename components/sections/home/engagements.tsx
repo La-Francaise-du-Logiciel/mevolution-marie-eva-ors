@@ -30,12 +30,21 @@ export function Engagements() {
             return (
               <li key={index}>
                 <Reveal delay={index * 80} className="h-full">
-                  <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-6">
-                    <span className="bg-mv-pastel-green text-mv-forest mb-4 inline-flex size-11 items-center justify-center rounded-[13px]">
+                  {/*
+                    Grille plutôt que simple empilement : en mobile la carte occupe
+                    toute la largeur, l'icône se place donc à côté du titre et le texte
+                    passe dessous sur toute la largeur. Dès `sm` la grille repasse à une
+                    colonne et retrouve l'empilement d'origine, qui convient aux cartes
+                    étroites (2 colonnes en `sm`, 4 en `lg`).
+                  */}
+                  <div className="border-mv-line hover:border-mv-line-strong mv-lift grid h-full grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[20px] border bg-white p-6 sm:grid-cols-1 sm:gap-y-2">
+                    <span className="bg-mv-pastel-green text-mv-forest inline-flex size-11 items-center justify-center rounded-[13px] sm:mb-2">
                       <Icon className="size-5" aria-hidden="true" />
                     </span>
-                    <h3 className="mb-2 text-[17px] font-bold">{item.title}</h3>
-                    <p className="text-mv-stone text-[15px] leading-[1.6]">{item.text}</p>
+                    <h3 className="text-[17px] font-bold">{item.title}</h3>
+                    <p className="text-mv-stone col-span-2 text-[15px] leading-[1.6] sm:col-span-1">
+                      {item.text}
+                    </p>
                   </div>
                 </Reveal>
               </li>

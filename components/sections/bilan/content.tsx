@@ -113,16 +113,22 @@ export function Confidentialite() {
     <section>
       <Container className="pb-16 md:pb-20">
         <Reveal>
-          <div className="border-mv-line flex flex-col gap-5 rounded-[24px] border bg-white p-8 md:flex-row md:items-start md:gap-7 md:p-10">
-            <span className="bg-mv-pastel-green text-mv-forest inline-flex size-14 flex-none items-center justify-center rounded-[16px]">
+          {/*
+            Grille en deux colonnes (même principe que le bloc « Tarifs » de la page
+            Coaching). En mobile, l'icône accompagne le titre sur une même ligne et le
+            paragraphe passe dessous sur toute la largeur. Dès `md`, l'icône s'étend sur
+            les deux rangées : on retrouve le bandeau d'origine, icône à gauche du bloc.
+          */}
+          <div className="border-mv-line grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[24px] border bg-white p-6 sm:p-8 md:items-start md:gap-x-7 md:gap-y-2.5 md:p-10">
+            <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[16px] sm:size-14 md:row-span-2">
               <ShieldCheck className="size-6" aria-hidden="true" />
             </span>
-            <div className="max-w-[680px]">
-              <h2 className="mb-2.5 font-serif text-[24px] leading-[1.2] font-medium sm:text-[27px]">
-                {t("title")}
-              </h2>
-              <p className="text-mv-stone text-[16px] leading-[1.7]">{t("text")}</p>
-            </div>
+            <h2 className="font-serif text-[24px] leading-[1.2] font-medium sm:text-[27px]">
+              {t("title")}
+            </h2>
+            <p className="text-mv-stone col-span-2 max-w-[680px] text-[16px] leading-[1.7] md:col-span-1">
+              {t("text")}
+            </p>
           </div>
         </Reveal>
       </Container>
