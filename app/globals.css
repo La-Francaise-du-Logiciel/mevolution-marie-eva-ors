@@ -297,6 +297,19 @@ summary::-webkit-details-marker {
   }
 }
 
+/* -------------------------------------------------------------------------
+   Carrousel de témoignages : on masque la barre de défilement native
+   (les flèches et les puces assurent l'affordance), sans jamais désactiver
+   le défilement lui-même — doigt, molette et clavier restent opérants.
+   ------------------------------------------------------------------------- */
+.mv-no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Edge historique */
+}
+.mv-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 .mv-menu-overlay[data-state="open"] {
   animation: mv-fade-in 0.25s ease both;
 }
