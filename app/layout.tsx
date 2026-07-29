@@ -85,13 +85,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
               "try{if(performance.getEntriesByType('navigation')[0]?.type==='reload'){history.scrollRestoration='manual';window.scrollTo(0,0);addEventListener('pageshow',function(){window.scrollTo(0,0)},{once:true})}}catch(e){}",
           }}
         />
-        <a
-          href="#main"
-          className="focus:bg-mv-grape sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:rounded-full focus:px-5 focus:py-3 focus:font-bold focus:text-white"
-        >
-          {nav("skipToContent")}
-        </a>
-
         <NextIntlClientProvider locale="fr" messages={messages}>
           <PostHogProvider>
             <div className="flex min-h-dvh flex-col">
