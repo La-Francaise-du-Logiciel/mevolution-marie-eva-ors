@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { Container } from "@/components/brand/container";
@@ -8,7 +8,7 @@ import { siteConfig, siteCredits } from "@/lib/site";
 import { NavLink } from "./nav-link";
 import { NAV } from "./nav-items";
 
-/** Pied de page commun (vert très foncé) : marque centrée, puis 3 colonnes → empilé en mobile. */
+/** Pied de page commun (vert très foncé) : marque puis navigation compacte et coordonnées. */
 export async function Footer() {
   const t = await getTranslations();
   const year = new Date().getFullYear();
@@ -16,7 +16,7 @@ export async function Footer() {
   return (
     <footer className="bg-mv-forest-deep text-white">
       {/* Dernier appel à l'action : le footer était purement navigationnel (audit §5.2). */}
-      <Container className="border-b border-white/10 py-10 md:py-12">
+      <Container className="border-b border-white/10 py-8 md:py-12">
         <div className="flex flex-col items-start gap-5 md:flex-row md:items-center md:justify-between md:gap-8">
           <div>
             <p className="font-serif text-[24px] leading-snug font-medium sm:text-[28px]">
@@ -34,44 +34,18 @@ export async function Footer() {
         </div>
       </Container>
 
-      <Container className="pt-7 pb-10 md:pt-8">
-        {/*
-          Marque. Mobile : logo et textes empilés, centrés.
-          Tablette et desktop : logo à gauche, textes justifiés à sa droite.
+      <Container className="pt-6 pb-8 md:pt-8 md:pb-10">
+        <Image
+          src="/assets/logo-dark.svg"
+          alt={t("nav.logoAlt")}
+          width={225}
+          height={90}
+          className="mx-auto h-[56px] w-auto brightness-0 invert md:mx-0 md:h-[72px]"
+          unoptimized
+        />
 
-          Les coupures de ligne sont imposées (balise `<saut>` dans messages/fr.json)
-          plutôt que laissées au navigateur : un retour naturel dépend des métriques
-          de la police, donc du moment où elle finit de charger. Le `<br>` est masqué
-          en mobile, où le texte est centré et se replie librement.
-        */}
-        <div className="flex flex-col items-center gap-5 text-center md:flex-row md:items-center md:gap-10 md:text-left">
-          <Image
-            src="/assets/logo-dark.svg"
-            alt={t("nav.logoAlt")}
-            width={225}
-            height={90}
-            className="h-[72px] w-auto flex-none brightness-0 invert md:h-[88px]"
-            unoptimized
-          />
-          <div>
-            <p className="mx-auto max-w-[440px] text-[15px] leading-relaxed text-white/60 md:mx-0 md:max-w-none md:text-justify">
-              {t.rich("footer.tagline", {
-                saut: () => <br className="hidden md:inline" />,
-              })}
-            </p>
-            <p className="mx-auto mt-4 flex max-w-[480px] items-start justify-center gap-2.5 text-[13.5px] leading-relaxed text-white/50 md:mx-0 md:mt-3.5 md:max-w-none md:justify-start">
-              <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-              <span className="md:text-justify">
-                {t.rich("footer.areaValue", {
-                  saut: () => <br className="hidden md:inline" />,
-                })}
-              </span>
-            </p>
-          </div>
-        </div>
-
-        {/* Colonnes : empilées en mobile, alignées sur une ligne dès `sm`. */}
-        <div className="mt-12 grid gap-10 sm:grid-cols-3">
+        {/* Deux colonnes compactes en mobile, puis trois colonnes dès `sm`. */}
+        <div className="mt-8 grid grid-cols-2 gap-7 sm:grid-cols-3 sm:gap-10 md:mt-10">
           {/* Navigation */}
           <div>
             <p className="text-mv-lime mb-4 text-[11px] font-extrabold tracking-[0.14em] uppercase">
@@ -128,7 +102,7 @@ export async function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <p className="text-mv-lime mb-4 text-[11px] font-extrabold tracking-[0.14em] uppercase">
               {t("footer.contactTitle")}
             </p>
@@ -151,7 +125,7 @@ export async function Footer() {
           </div>
         </div>
 
-        <div className="mt-11 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 sm:flex-row sm:items-center">
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-5 sm:mt-11 sm:flex-row sm:items-center sm:pt-6">
           <div className="flex flex-col gap-1">
             <p className="text-[13px] text-white/40">{t("footer.rights", { year })}</p>
             <p className="text-[13px] text-white/40">

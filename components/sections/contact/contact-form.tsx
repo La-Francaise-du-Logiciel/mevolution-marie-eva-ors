@@ -28,7 +28,7 @@ function SuccessCard() {
   const t = useTranslations("form.success");
   const common = useTranslations("common");
   return (
-    <div className="bg-mv-forest rounded-[26px] p-12 text-center md:p-16">
+    <div className="bg-mv-forest rounded-[26px] p-8 text-center md:p-16">
       <div className="bg-mv-lime text-mv-forest mx-auto mb-6 inline-flex size-[66px] items-center justify-center rounded-full">
         <Check className="size-8" strokeWidth={3} aria-hidden="true" />
       </div>
@@ -108,9 +108,11 @@ export function ContactForm() {
         id="formulaire"
         onSubmit={form.handleSubmit(onSubmit)}
         noValidate
-        className="border-mv-line rounded-[26px] border bg-white p-7 shadow-[0_24px_46px_-34px_rgba(0,91,82,0.4)] md:p-9"
+        className="border-mv-line rounded-[26px] border bg-white p-5 shadow-[0_24px_46px_-34px_rgba(0,91,82,0.4)] md:p-9"
       >
-        <h2 className="mb-6 font-serif text-[26px] font-medium md:text-[28px]">{t("title")}</h2>
+        <h2 className="mb-5 font-serif text-[26px] font-medium md:mb-6 md:text-[28px]">
+          {t("title")}
+        </h2>
 
         {/* Honeypot anti-spam (masqué visuellement) */}
         <div

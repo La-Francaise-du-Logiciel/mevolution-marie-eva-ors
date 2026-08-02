@@ -13,7 +13,7 @@ export function Promesses() {
 
   return (
     <section>
-      <Container className="grid gap-10 pt-6 pb-16 md:pb-20 lg:grid-cols-[.9fr_1.1fr] lg:gap-14">
+      <Container className="grid gap-7 pt-5 pb-12 md:gap-10 md:pt-6 md:pb-20 lg:grid-cols-[.9fr_1.1fr] lg:gap-14">
         <Reveal>
           <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[28px] leading-[1.12] font-medium sm:text-[34px] lg:text-[36px]">
@@ -22,12 +22,12 @@ export function Promesses() {
           {/* Espaces insécables : en typographie française les guillemets ne se
               séparent jamais du texte qu'ils encadrent : le « » ne peut donc plus
               se retrouver seul sur la dernière ligne. */}
-          <p className="text-mv-grape mt-6 font-serif text-[22px] leading-snug italic lg:text-[24px]">
+          <p className="text-mv-grape mt-5 font-serif text-[22px] leading-snug italic md:mt-6 lg:text-[24px]">
             {`« ${t("quote")} »`}
           </p>
         </Reveal>
         <Reveal delay={100}>
-          <ul className="flex flex-col gap-5">
+          <ul className="flex flex-col gap-4 md:gap-5">
             {items.map((_, index) => (
               <li key={index} className="flex items-start gap-3">
                 <Leaf size={14} className="bg-mv-grape mt-1.5 flex-none" />
@@ -55,8 +55,8 @@ export function Phases() {
 
   return (
     <section className="bg-mv-forest">
-      <Container className="py-16 md:py-20 lg:py-[88px]">
-        <Reveal className="mb-10 max-w-[640px] lg:mb-12">
+      <Container className="py-12 md:py-20 lg:py-[88px]">
+        <Reveal className="mb-8 max-w-[640px] md:mb-10 lg:mb-12">
           <Eyebrow tone="lime" className="mb-4">
             {t("eyebrow")}
           </Eyebrow>
@@ -65,13 +65,13 @@ export function Phases() {
           </h2>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2 md:gap-5">
           {items.map((phase, index) => (
             <Reveal key={index} delay={index * 100} className="h-full">
               {/* Numéro et titre sur une même ligne à toutes les largeurs (voir la
                   remarque dans home/accompagnements.tsx). Seule la marge interne
                   s'allège en mobile. */}
-              <div className="mv-lift flex h-full gap-4 rounded-[22px] bg-white p-6 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:gap-5 sm:p-7">
+              <div className="mv-lift flex h-full gap-4 rounded-[22px] bg-white p-5 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:gap-5 sm:p-7">
                 <span
                   className={`inline-flex size-10 flex-none items-center justify-center rounded-full font-serif text-[17px] text-white ${colors[index % colors.length]}`}
                 >
@@ -99,13 +99,13 @@ export function Modalites() {
 
   return (
     <section>
-      <Container className="pt-16 pb-16 md:pt-20 md:pb-20">
+      <Container className="py-12 md:py-20">
         <Reveal>
-          <div className="border-mv-line hover:border-mv-line-strong mv-lift rounded-[28px] border bg-white p-8 md:p-12 lg:p-[52px]">
-            <h2 className="mb-8 font-serif text-[26px] font-medium sm:text-[30px] lg:text-[34px]">
+          <div className="border-mv-line hover:border-mv-line-strong mv-lift rounded-[28px] border bg-white p-5 sm:p-8 md:p-12 lg:p-[52px]">
+            <h2 className="mb-6 font-serif text-[26px] font-medium sm:text-[30px] md:mb-8 lg:text-[34px]">
               {t("title")}
             </h2>
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3 md:gap-8">
               {items.map((item, index) => (
                 <div key={index}>
                   <h3 className="text-mv-forest mb-2 text-[13px] font-extrabold tracking-[0.08em] uppercase">
@@ -125,7 +125,7 @@ export function Modalites() {
               par l'icône. Dès `sm`, l'icône s'étend sur les deux rangées et l'on
               retrouve la disposition d'origine, icône à gauche du bloc entier.
             */}
-            <div className="bg-mv-pastel-violet/70 mt-9 grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[18px] p-6 sm:items-start sm:gap-x-5 sm:gap-y-1.5 md:mt-10 md:p-7">
+            <div className="bg-mv-pastel-violet/70 mt-7 grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[18px] p-5 sm:items-start sm:gap-x-5 sm:gap-y-1.5 md:mt-10 md:p-7">
               <span className="bg-mv-grape/12 text-mv-grape inline-flex size-11 flex-none items-center justify-center rounded-[13px] sm:row-span-2">
                 <Wallet className="size-5" aria-hidden="true" />
               </span>
@@ -140,65 +140,6 @@ export function Modalites() {
               </div>
             </div>
           </div>
-        </Reveal>
-      </Container>
-    </section>
-  );
-}
-
-type Paragraph = { year: string; text: string; quote?: string };
-
-/**
- * Récit personnel de Maréva Ors : le différenciateur n°1 du site (audit §3.5).
- * Présenté en frise chronologique : les dates étaient déjà dans le texte,
- * les exposer casse le mur de paragraphes et rend la section scannable.
- */
-export function Histoire() {
-  const t = useTranslations("coaching.histoire");
-  const paragraphs = t.raw("paragraphs") as Paragraph[];
-
-  return (
-    <section id="mon-histoire" className="scroll-mt-20">
-      <Container className="pt-6 pb-16 md:pb-20">
-        <Reveal className="mb-9 max-w-[640px]">
-          <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
-          <h2 className="font-serif text-[26px] leading-[1.12] font-medium sm:text-[32px] lg:text-[34px]">
-            {t("title")}
-          </h2>
-          <p className="text-mv-stone mt-3.5 text-[16px] leading-[1.7] md:text-[17px]">
-            {t("lead")}
-          </p>
-        </Reveal>
-
-        <Reveal delay={80} className="max-w-[760px]">
-          <ol className="relative flex flex-col gap-8 pl-8 sm:pl-11">
-            {/* Filet vertical de la frise */}
-            <span
-              aria-hidden="true"
-              className="absolute top-2 bottom-2 left-[7px] w-px bg-[#e0d8c9] sm:left-[9px]"
-            />
-            {paragraphs.map((p, index) => (
-              <li key={index} className="relative">
-                <span
-                  aria-hidden="true"
-                  className="bg-mv-grape absolute top-[7px] -left-8 size-[15px] rounded-full shadow-[0_0_0_5px_#f7f4ee] sm:-left-11 sm:size-[19px]"
-                />
-                <p className="text-mv-forest mb-1.5 text-[12px] font-extrabold tracking-[0.14em] uppercase">
-                  {p.year}
-                </p>
-                <p className="text-mv-stone text-[16px] leading-[1.75] md:text-[17px]">{p.text}</p>
-                {p.quote && (
-                  <p className="text-mv-grape border-mv-line mt-2.5 border-l-2 pl-4 text-[15px] leading-snug italic">
-                    {p.quote}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ol>
-
-          <p className="text-mv-ink mt-9 text-[17px] leading-[1.7] font-semibold md:text-[18px]">
-            {t("closing")}
-          </p>
         </Reveal>
       </Container>
     </section>

@@ -1,5 +1,3 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/brand/container";
@@ -27,7 +25,7 @@ export function About() {
 
   return (
     <section id="a-propos" className="scroll-mt-20">
-      <Container className="grid items-center gap-10 pt-16 pb-16 md:grid-cols-[.8fr_1.2fr] md:gap-10 md:pt-20 md:pb-20 lg:grid-cols-[.95fr_1.05fr] lg:gap-[60px]">
+      <Container className="grid items-center gap-7 py-12 md:grid-cols-[.8fr_1.2fr] md:gap-10 md:py-20 lg:grid-cols-[.95fr_1.05fr] lg:gap-[60px]">
         <Reveal className="order-1 md:order-2">
           <Eyebrow className="mb-5">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[30px] leading-[1.12] font-medium tracking-[-0.01em] sm:text-[38px] lg:text-[42px]">
@@ -56,7 +54,7 @@ export function About() {
 
         <Reveal
           delay={140}
-          className="relative order-2 mx-auto w-full max-w-[400px] md:order-1 md:max-w-none"
+          className="relative order-2 mx-auto w-full max-w-[320px] md:order-1 md:max-w-none"
         >
           <Glow color="rgba(136,72,154,0.32)" size={240} className="-top-14 -left-14 z-0" />
           <Photo
@@ -70,47 +68,8 @@ export function About() {
         </Reveal>
       </Container>
 
-      {/* Extrait de l'histoire personnelle : le différenciateur n°1, remonté sur l'accueil
-          (audit §3.5 et P1 #11). Le récit complet reste sur /coaching#mon-histoire. */}
-      <Container className="pb-16 md:pb-20">
-        <Reveal>
-          <div className="border-mv-line rounded-[24px] border bg-white p-8 md:p-10 lg:p-12">
-            <div className="grid gap-7 lg:grid-cols-[1.1fr_.9fr] lg:gap-12">
-              <blockquote className="text-mv-grape font-serif text-[22px] leading-[1.35] font-medium italic sm:text-[26px] lg:text-[28px]">
-                {t("storyTeaser.quote")}
-              </blockquote>
-              <div className="flex flex-col items-start">
-                <p className="text-mv-stone text-[16px] leading-[1.7] md:text-[17px]">
-                  {t("storyTeaser.text")}
-                </p>
-                <Link
-                  href="/coaching#mon-histoire"
-                  className="text-mv-grape hover:text-mv-grape-dark mt-5 inline-flex items-center gap-2 text-[15px] font-bold transition-colors"
-                >
-                  {t("storyTeaser.link")}
-                  <ArrowRight className="size-[17px]" aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </Container>
-
-      <Container className="grid items-start gap-8 pb-16 md:pb-20 lg:grid-cols-[.7fr_1.3fr] lg:gap-14">
-        <Reveal>
-          <h3 className="font-serif text-[24px] leading-[1.12] font-medium sm:text-[28px]">
-            {t("parcours.title")}
-          </h3>
-        </Reveal>
-        <Reveal delay={100}>
-          <p className="text-mv-stone max-w-[680px] text-[16px] leading-[1.75] md:text-lg">
-            {t("parcours.text")}
-          </p>
-        </Reveal>
-      </Container>
-
-      <Container className="pb-16 md:pb-20 lg:pb-[88px]">
-        <Reveal className="mb-10 max-w-[640px] lg:mb-11">
+      <Container className="pb-12 md:pb-20 lg:pb-[88px]">
+        <Reveal className="mb-7 max-w-[640px] md:mb-10 lg:mb-11">
           <Eyebrow className="mb-4">{t("valeurs.eyebrow")}</Eyebrow>
           <h3 className="font-serif text-[26px] leading-[1.12] font-medium sm:text-[32px] lg:text-[34px]">
             {t("valeurs.title")}
@@ -120,7 +79,7 @@ export function About() {
         <div className="grid gap-5 md:grid-cols-3">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
-              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-8">
+              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-5 md:p-8">
                 <div className="mb-4 flex items-center gap-3">
                   <div
                     className={`inline-flex size-12 shrink-0 items-center justify-center rounded-[14px] ${ICON[index % ICON.length].badge}`}

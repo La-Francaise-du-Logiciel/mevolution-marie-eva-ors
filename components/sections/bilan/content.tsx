@@ -10,7 +10,7 @@ export function Pourquoi() {
   const t = useTranslations("bilan");
 
   return (
-    <section>
+    <section className="hidden md:block">
       <Container className="grid gap-8 pt-6 pb-16 md:grid-cols-2 md:pb-20">
         <Reveal>
           <h2 className="mb-3 font-serif text-[24px] leading-[1.2] font-medium sm:text-[27px]">
@@ -42,7 +42,7 @@ export function Citation() {
 
   return (
     <section className="bg-mv-pastel-violet">
-      <Container className="py-16 md:py-20 lg:py-[80px]">
+      <Container className="py-12 md:py-20 lg:py-[80px]">
         <Reveal className="mx-auto max-w-[760px] text-center">
           <span className="text-mv-grape/30 mb-5 block font-serif text-[56px] leading-[.5]">“</span>
           <p className="text-mv-ink mb-3 font-serif text-[24px] leading-[1.3] font-medium sm:text-[28px]">
@@ -51,7 +51,7 @@ export function Citation() {
           <p className="text-mv-grape mb-8 text-[14px] font-bold tracking-[0.08em] uppercase">
             {t("author")}
           </p>
-          <div className="mx-auto flex max-w-[620px] flex-col gap-5 text-left">
+          <div className="mx-auto flex max-w-[620px] flex-col gap-4 text-left md:gap-5">
             {paragraphs.map((p, index) => (
               <p key={index} className="text-mv-stone text-[16px] leading-[1.75]">
                 {p}
@@ -73,8 +73,8 @@ export function Pratique() {
 
   return (
     <section>
-      <Container className="py-16 md:py-20 lg:py-[88px]">
-        <Reveal className="mb-10 max-w-[640px] lg:mb-12">
+      <Container className="py-12 md:py-20 lg:py-[88px]">
+        <Reveal className="mb-7 max-w-[640px] md:mb-10 lg:mb-12">
           <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[28px] leading-[1.12] font-medium sm:text-[34px] lg:text-[36px]">
             {t("title")}
@@ -82,10 +82,10 @@ export function Pratique() {
           <p className="text-mv-stone mt-3.5 text-[16px] leading-relaxed md:text-lg">{t("lead")}</p>
         </Reveal>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-4">
           {items.map((item, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
-              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-6">
+              <div className="border-mv-line hover:border-mv-line-strong mv-lift h-full rounded-[20px] border bg-white p-5 md:p-6">
                 <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
                   {item.label}
                 </div>
@@ -111,7 +111,7 @@ export function Confidentialite() {
 
   return (
     <section>
-      <Container className="pb-16 md:pb-20">
+      <Container className="pb-12 md:pb-20">
         <Reveal>
           {/*
             Grille en deux colonnes (même principe que le bloc « Tarifs » de la page
@@ -119,7 +119,7 @@ export function Confidentialite() {
             paragraphe passe dessous sur toute la largeur. Dès `md`, l'icône s'étend sur
             les deux rangées : on retrouve le bandeau d'origine, icône à gauche du bloc.
           */}
-          <div className="border-mv-line grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[24px] border bg-white p-6 sm:p-8 md:items-start md:gap-x-7 md:gap-y-2.5 md:p-10">
+          <div className="border-mv-line grid grid-cols-[auto_1fr] items-center gap-x-4 gap-y-3 rounded-[24px] border bg-white p-5 sm:p-8 md:items-start md:gap-x-7 md:gap-y-2.5 md:p-10">
             <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[16px] sm:size-14 md:row-span-2">
               <ShieldCheck className="size-6" aria-hidden="true" />
             </span>

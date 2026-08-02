@@ -13,30 +13,38 @@ const socials = (
   ] as { key: string; href: string | null }[]
 ).filter((social): social is { key: string; href: string } => Boolean(social.href));
 
-export function ContactInfo() {
+export function ContactBookingCard() {
   const t = useTranslations("contact");
   const common = useTranslations("common");
+
+  return (
+    <CalendlyLink
+      location="contact-card"
+      aria-label={common("ctaAria")}
+      className="bg-mv-grape mv-lift flex items-center gap-4 rounded-[22px] p-5 text-white shadow-[0_20px_38px_-18px_rgba(136,72,154,0.9)] [--mv-lift-shadow:0_26px_44px_-16px_rgba(136,72,154,0.9)] md:gap-[18px] md:p-6"
+    >
+      <span className="inline-flex size-[50px] flex-none items-center justify-center rounded-[15px] bg-white/20 md:size-[54px]">
+        <Calendar className="size-6" aria-hidden="true" />
+      </span>
+      <span>
+        <span className="block text-[18px] font-extrabold md:text-[19px]">
+          {t("calendlyCard.title")}
+        </span>
+        <span className="mt-0.5 block text-sm text-white/85">{t("calendlyCard.subtitle")}</span>
+      </span>
+    </CalendlyLink>
+  );
+}
+
+export function ContactDetails() {
+  const t = useTranslations("contact");
   const footer = useTranslations("footer");
   const nextSteps = t.raw("nextSteps.items") as string[];
 
   return (
     <div className="flex flex-col gap-4">
-      <CalendlyLink
-        location="contact-card"
-        aria-label={common("ctaAria")}
-        className="bg-mv-grape mv-lift flex items-center gap-[18px] rounded-[22px] p-6 text-white shadow-[0_20px_38px_-18px_rgba(136,72,154,0.9)] [--mv-lift-shadow:0_26px_44px_-16px_rgba(136,72,154,0.9)]"
-      >
-        <span className="inline-flex size-[54px] flex-none items-center justify-center rounded-[15px] bg-white/20">
-          <Calendar className="size-6" aria-hidden="true" />
-        </span>
-        <span>
-          <span className="block text-[19px] font-extrabold">{t("calendlyCard.title")}</span>
-          <span className="mt-0.5 block text-sm text-white/85">{t("calendlyCard.subtitle")}</span>
-        </span>
-      </CalendlyLink>
-
       {/* « Ce qui se passe ensuite » : lève l'anxiété du premier contact (audit §3.3). */}
-      <div className="border-mv-line rounded-[18px] border bg-white p-[22px]">
+      <div className="border-mv-line rounded-[18px] border bg-white p-[18px] md:p-[22px]">
         <h2 className="text-mv-forest mb-3 text-[11px] font-extrabold tracking-[0.12em] uppercase">
           {t("nextSteps.title")}
         </h2>
@@ -56,7 +64,7 @@ export function ContactInfo() {
 
       <a
         href={`mailto:${siteConfig.email}`}
-        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[22px]"
+        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[18px] md:p-[22px]"
       >
         <span className="bg-mv-pastel-violet text-mv-grape inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
           <Mail className="size-5" aria-hidden="true" />
@@ -71,7 +79,7 @@ export function ContactInfo() {
 
       <a
         href={siteConfig.phoneHref}
-        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[22px]"
+        className="border-mv-line hover:border-mv-line-strong mv-lift flex items-center gap-4 rounded-[18px] border bg-white p-[18px] md:p-[22px]"
       >
         <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
           <Phone className="size-5" aria-hidden="true" />
@@ -86,7 +94,7 @@ export function ContactInfo() {
 
       {/* Zone d'intervention : information locale rendue visible, plutôt qu'enterrée
           dans un paragraphe d'une page secondaire (audit §8.2). */}
-      <div className="border-mv-line flex items-start gap-4 rounded-[18px] border bg-white p-[22px]">
+      <div className="border-mv-line flex items-start gap-4 rounded-[18px] border bg-white p-[18px] md:p-[22px]">
         <span className="bg-mv-pastel-green text-mv-forest inline-flex size-12 flex-none items-center justify-center rounded-[14px]">
           <MapPin className="size-5" aria-hidden="true" />
         </span>
@@ -110,7 +118,7 @@ export function ContactInfo() {
             /* `min-w-[6rem]` : trois boutons tiennent sur une ligne dès 360 px de
                large, et repassent à la ligne en dessous plutôt que de comprimer
                le libellé. */
-            className="border-mv-line hover:border-mv-grape hover:text-mv-grape mv-lift min-w-[6rem] flex-1 rounded-2xl border bg-white py-[15px] text-center text-sm font-bold"
+            className="border-mv-line hover:border-mv-grape hover:text-mv-grape mv-lift min-w-[6rem] flex-1 rounded-2xl border bg-white py-[13px] text-center text-sm font-bold md:py-[15px]"
           >
             {footer(social.key)}
           </a>

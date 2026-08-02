@@ -20,9 +20,9 @@ type CrossLinkProps = {
 export function CrossLink({ title, text, link, href }: CrossLinkProps) {
   return (
     <section>
-      <Container className="pb-16 md:pb-20">
+      <Container className="pb-12 md:pb-20">
         <Reveal>
-          <div className="bg-mv-pastel-violet/70 border-mv-line rounded-[24px] border p-7 md:p-9">
+          <div className="bg-mv-pastel-violet/70 border-mv-line rounded-[24px] border p-5 md:p-9">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
               <div className="max-w-[640px]">
                 <h2 className="font-serif text-[22px] leading-[1.2] font-medium sm:text-[26px]">

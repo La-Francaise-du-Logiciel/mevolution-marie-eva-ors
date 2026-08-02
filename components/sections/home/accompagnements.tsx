@@ -32,8 +32,8 @@ export function Accompagnements() {
 
   return (
     <section id="accompagnements" className="bg-mv-forest scroll-mt-20">
-      <Container className="py-16 md:py-20 lg:py-[88px]">
-        <Reveal className="mb-10 lg:mb-12">
+      <Container className="py-12 md:py-20 lg:py-[88px]">
+        <Reveal className="mb-8 md:mb-10 lg:mb-12">
           <Eyebrow tone="lime" className="mb-4">
             {t("eyebrow")}
           </Eyebrow>
@@ -45,15 +45,15 @@ export function Accompagnements() {
           </p>
         </Reveal>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-4 md:gap-6 lg:grid-cols-2">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 110} className="h-full">
-              <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-6 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:p-8 lg:p-9">
+              <div className="mv-lift flex h-full flex-col rounded-[24px] bg-white p-5 [--mv-lift-shadow:0_34px_60px_-34px_rgba(0,0,0,0.5)] sm:p-8 lg:p-9">
                 {/* Pastille et titre restent sur une même ligne à toutes les largeurs :
                     empilés, la pastille se retrouve orpheline au-dessus d'un titre court.
                     Le bloc « Tarifs » de la page Coaching s'empile, lui, parce que son
                     icône accompagne un paragraphe entier, pas un simple titre. */}
-                <div className="mb-5 flex items-center gap-4">
+                <div className="mb-4 flex items-center gap-3.5 md:mb-5 md:gap-4">
                   <span
                     className={`inline-flex size-[52px] shrink-0 items-center justify-center rounded-[15px] ${ICON[index % ICON.length].badge}`}
                   >
@@ -63,27 +63,42 @@ export function Accompagnements() {
                     {card.title}
                   </h3>
                 </div>
-                <p className="text-mv-stone mb-6 text-[16px] leading-[1.6]">{card.text}</p>
+                <p className="text-mv-stone mb-5 text-[16px] leading-[1.6] md:mb-6">{card.text}</p>
 
-                <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                <div
+                  className={`text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase${index === 1 ? "hidden md:block" : ""}`}
+                >
                   {forWhomLabel}
                 </div>
-                <p className="text-mv-stone mb-5 text-[15px] leading-[1.6]">{card.forWhom}</p>
+                <p className="text-mv-stone mb-4 text-[15px] leading-[1.6] md:mb-5">
+                  {card.forWhom}
+                </p>
 
                 <div className="text-mv-forest mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
                   {howItWorksLabel}
                 </div>
-                <p className="text-mv-stone mb-5 text-[15px] leading-[1.6]">{card.howItWorks}</p>
-
-                {/* Bénéfice concret plutôt que description de process (audit §3.2). */}
-                <div className="text-mv-grape mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
-                  {resultLabel}
-                </div>
-                <p className="text-mv-ink-soft text-[15px] leading-[1.6] font-semibold">
-                  {card.result}
+                <p className="text-mv-stone text-[15px] leading-[1.6] md:mb-5">
+                  {t.rich(`cards.${index}.howItWorks`, {
+                    desktop: (chunks) => <span className="hidden md:inline">{chunks}</span>,
+                  })}
                 </p>
 
-                <Button asChild variant="link" size="none" className="mt-auto self-start pt-6">
+                {/* Bénéfice concret plutôt que description de process (audit §3.2). */}
+                <div className="hidden md:block">
+                  <div className="text-mv-grape mb-2 text-[11px] font-extrabold tracking-[0.12em] uppercase">
+                    {resultLabel}
+                  </div>
+                  <p className="text-mv-ink-soft text-[15px] leading-[1.6] font-semibold">
+                    {card.result}
+                  </p>
+                </div>
+
+                <Button
+                  asChild
+                  variant="link"
+                  size="none"
+                  className="mt-auto self-start pt-5 md:pt-6"
+                >
                   <Link href={card.href}>
                     {common("learnMore")}
                     <ArrowRight className="size-4" />
@@ -97,7 +112,7 @@ export function Accompagnements() {
         {/* CTA intermédiaire : le visiteur vient de comprendre l'offre, c'est le pic
             d'intention. Auparavant il fallait scroller 4 sections de plus (audit §5.2 P3). */}
         <Reveal delay={120}>
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center md:mt-10">
             <Link
               href="/contact"
               className="text-mv-lime inline-flex items-center gap-2 text-[16px] font-bold underline-offset-4 transition-opacity hover:opacity-80 md:text-[17px]"

@@ -5,7 +5,7 @@ import { buildPageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/json-ld";
 import { CrossLink } from "@/components/brand/cross-link";
 import { CoachingHero } from "@/components/sections/coaching/hero";
-import { Promesses, Phases, Modalites, Histoire } from "@/components/sections/coaching/content";
+import { Promesses, Phases, Modalites } from "@/components/sections/coaching/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("coaching.meta");
@@ -33,7 +33,6 @@ export default async function CoachingPage() {
       <Phases />
 
       <Modalites />
-      <Histoire />
       <CrossLink
         title={t("crossLink.title")}
         text={t("crossLink.text")}

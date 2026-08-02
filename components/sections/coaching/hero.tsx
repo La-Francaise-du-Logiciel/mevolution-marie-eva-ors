@@ -15,6 +15,7 @@ export function CoachingHero() {
       eyebrow={t("eyebrow")}
       title={t.rich("title", {
         em: (chunks) => <em className="text-mv-grape italic">{chunks}</em>,
+        mobileBreak: () => <br className="md:hidden" />,
       })}
       lead={t("lead")}
     >

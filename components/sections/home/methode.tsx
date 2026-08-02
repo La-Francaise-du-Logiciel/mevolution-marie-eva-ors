@@ -14,15 +14,15 @@ export function Methode() {
 
   return (
     <section>
-      <Container className="py-16 md:py-20 lg:py-[92px]">
-        <Reveal className="mx-auto mb-12 max-w-[640px] text-center lg:mb-14">
+      <Container className="py-12 md:py-20 lg:py-[92px]">
+        <Reveal className="mx-auto mb-8 max-w-[640px] text-center md:mb-12 lg:mb-14">
           <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[30px] leading-[1.12] font-medium sm:text-[38px] lg:text-[42px]">
             {t("title")}
           </h2>
         </Reveal>
 
-        <div className="relative grid gap-10 md:grid-cols-3 md:gap-8">
+        <div className="relative grid gap-7 md:grid-cols-3 md:gap-8">
           <div
             aria-hidden="true"
             className="absolute top-[26px] right-[16%] left-[16%] hidden h-0.5 md:block"

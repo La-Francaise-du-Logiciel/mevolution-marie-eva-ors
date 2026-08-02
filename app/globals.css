@@ -340,6 +340,23 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+/* Bandeau de confiance : deux copies identiques forment une boucle continue.
+   La copie visuelle est masquée aux technologies d'assistance dans le composant. */
+@keyframes mv-trust-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 47.999rem) {
+  .mv-trust-marquee {
+    animation: mv-trust-marquee 28s linear infinite;
+    will-change: transform;
+  }
+  .mv-trust-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
 .mv-menu-overlay[data-state="open"] {
   animation: mv-fade-in 0.25s ease both;
 }
@@ -368,5 +385,14 @@ summary::-webkit-details-marker {
   }
   html {
     scroll-behavior: auto;
+  }
+  .mv-trust-marquee {
+    animation: none !important;
+  }
+  .mv-trust-marquee-copy {
+    display: none;
+  }
+  .mv-trust-marquee-viewport {
+    overflow-x: auto;
   }
 }

@@ -6,7 +6,7 @@ import { JsonLd, breadcrumbSchema } from "@/lib/json-ld";
 import { Container } from "@/components/brand/container";
 import { Reveal } from "@/components/brand/reveal";
 import { ContactHero } from "@/components/sections/contact/hero";
-import { ContactInfo } from "@/components/sections/contact/info";
+import { ContactBookingCard, ContactDetails } from "@/components/sections/contact/info";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,12 +26,15 @@ export default async function ContactPage() {
       <ContactHero />
 
       <section>
-        <Container className="grid items-start gap-8 pt-6 pb-16 md:pb-20 lg:grid-cols-[.92fr_1.08fr]">
-          <Reveal>
-            <ContactInfo />
+        <Container className="grid items-start gap-4 pt-4 pb-12 md:gap-6 md:pt-6 md:pb-20 lg:grid-cols-[.92fr_1.08fr] lg:grid-rows-[auto_1fr] lg:gap-x-8 lg:gap-y-4">
+          <Reveal className="lg:col-start-1 lg:row-start-1">
+            <ContactBookingCard />
           </Reveal>
-          <Reveal delay={120}>
+          <Reveal delay={120} className="lg:col-start-2 lg:row-start-1 lg:row-end-3">
             <ContactForm />
+          </Reveal>
+          <Reveal delay={80} className="lg:col-start-1 lg:row-start-2">
+            <ContactDetails />
           </Reveal>
         </Container>
       </section>

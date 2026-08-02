@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Quote } from "lucide-react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { ArrowLeft, ArrowRight, Quote, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/brand/container";
@@ -17,6 +18,126 @@ type Item = {
   context: string;
   rating: number;
 };
+
+function ReviewCard({ item }: { item: Item }) {
+  const t = useTranslations("home.temoignages");
+  const quoteRef = useRef<HTMLQuoteElement>(null);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const quote = quoteRef.current;
+    if (!quote) return;
+
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const measure = () => {
+      const truncated = mobileQuery.matches && quote.scrollHeight > quote.clientHeight + 1;
+      setIsTruncated(truncated);
+      if (!mobileQuery.matches) setIsOpen(false);
+    };
+
+    measure();
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(quote);
+    mobileQuery.addEventListener("change", measure);
+
+    return () => {
+      resizeObserver.disconnect();
+      mobileQuery.removeEventListener("change", measure);
+    };
+  }, []);
+
+  return (
+    <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
+      <div className="relative h-full">
+        <figure className="border-mv-line hover:border-mv-line-strong mv-lift flex h-full flex-col rounded-[22px] border bg-white p-5 md:p-7">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <Stars rating={item.rating} label={t("ratingLabel", { rating: item.rating })} />
+            <Quote
+              className="text-mv-grape/25 size-7 shrink-0"
+              strokeWidth={2.4}
+              aria-hidden="true"
+            />
+          </div>
+
+          <blockquote
+            ref={quoteRef}
+            className="text-mv-ink-soft mb-5 line-clamp-6 text-[15.5px] leading-[1.6] whitespace-pre-line md:mb-6 md:line-clamp-none md:leading-[1.7]"
+          >
+            {item.quote}
+          </blockquote>
+
+          {isTruncated ? (
+            <span
+              aria-hidden="true"
+              className="text-mv-grape -mt-2 mb-4 text-[13px] font-bold underline underline-offset-4 md:hidden"
+            >
+              {t("readMore")}
+            </span>
+          ) : null}
+
+          <figcaption className="mt-auto flex items-center gap-3 border-t border-[#f0eae0] pt-5">
+            <span
+              aria-hidden="true"
+              className="bg-mv-pastel-violet text-mv-grape inline-flex size-10 flex-none items-center justify-center rounded-full font-serif text-[17px] font-medium"
+            >
+              {item.author.charAt(0)}
+            </span>
+            <span className="min-w-0">
+              <span className="text-mv-ink block text-[15px] font-bold">{item.author}</span>
+              <span className="text-mv-stone-2 block text-[12.5px]">
+                {item.context} · {item.date}
+              </span>
+            </span>
+          </figcaption>
+        </figure>
+
+        {isTruncated ? (
+          <Dialog.Trigger asChild>
+            <button
+              type="button"
+              aria-label={t("readFullReview", { author: item.author })}
+              className="focus-visible:ring-mv-grape absolute inset-0 z-10 cursor-pointer rounded-[22px] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none md:hidden"
+            />
+          </Dialog.Trigger>
+        ) : null}
+      </div>
+
+      <Dialog.Portal>
+        <Dialog.Overlay className="mv-menu-overlay fixed inset-0 z-[90] bg-[#0c332e]/55 backdrop-blur-sm md:hidden" />
+        <Dialog.Content className="border-mv-line fixed top-1/2 left-1/2 z-[100] max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[24px] border bg-white p-6 shadow-[0_30px_80px_-28px_rgba(12,51,46,0.75)] focus:outline-none md:hidden">
+          <div className="mb-5 pr-12">
+            <Dialog.Title className="font-serif text-[25px] leading-tight font-medium">
+              {t("fullReviewTitle", { author: item.author })}
+            </Dialog.Title>
+            <p className="text-mv-stone-2 mt-1 text-[13px]">
+              {item.context} · {item.date}
+            </p>
+            <div className="mt-3">
+              <Stars rating={item.rating} label={t("ratingLabel", { rating: item.rating })} />
+            </div>
+          </div>
+
+          <Dialog.Description asChild>
+            <blockquote className="text-mv-ink-soft border-mv-grape/25 border-l-[3px] pl-4 text-[16px] leading-[1.7] whitespace-pre-line">
+              {item.quote}
+            </blockquote>
+          </Dialog.Description>
+
+          <Dialog.Close asChild>
+            <button
+              type="button"
+              aria-label={t("closeReview")}
+              className="border-mv-line text-mv-ink hover:text-mv-grape focus-visible:ring-mv-grape absolute top-4 right-4 inline-flex size-11 items-center justify-center rounded-full border bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            >
+              <X className="size-5" aria-hidden="true" />
+            </button>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}
 
 /**
  * Carrousel de témoignages.
@@ -117,8 +238,8 @@ export function Temoignages() {
 
   return (
     <section id="temoignages" className="scroll-mt-20">
-      <Container className="pb-16 md:pb-20 lg:pb-[92px]">
-        <Reveal className="mb-9 lg:mb-10">
+      <Container className="pb-12 md:pb-20 lg:pb-[92px]">
+        <Reveal className="mb-7 md:mb-9 lg:mb-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-[640px]">
               <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
@@ -174,42 +295,14 @@ export function Temoignages() {
               négatives reprennent exactement l'espace ajouté : l'encombrement de la
               piste dans la page est identique à avant (8 px sous les cartes).
             */
-            className="mv-no-scrollbar focus-visible:ring-ring -mt-2 -mb-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pt-2 pb-14 focus-visible:ring-2 focus-visible:outline-none"
+            className="mv-no-scrollbar focus-visible:ring-ring -mt-2 -mb-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pt-2 pb-12 focus-visible:ring-2 focus-visible:outline-none md:-mb-12 md:gap-5 md:pb-14"
           >
             {items.map((item, index) => (
               <li
                 key={index}
                 className="w-[86%] flex-none snap-start sm:w-[62%] lg:w-[calc((100%-2.5rem)/3)]"
               >
-                <figure className="border-mv-line hover:border-mv-line-strong mv-lift flex h-full flex-col rounded-[22px] border bg-white p-7">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <Stars rating={item.rating} label={t("ratingLabel", { rating: item.rating })} />
-                    <Quote
-                      className="text-mv-grape/25 size-7 shrink-0"
-                      strokeWidth={2.4}
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <blockquote className="text-mv-ink-soft mb-6 text-[15.5px] leading-[1.7] whitespace-pre-line">
-                    {item.quote}
-                  </blockquote>
-
-                  <figcaption className="mt-auto flex items-center gap-3 border-t border-[#f0eae0] pt-5">
-                    <span
-                      aria-hidden="true"
-                      className="bg-mv-pastel-violet text-mv-grape inline-flex size-10 flex-none items-center justify-center rounded-full font-serif text-[17px] font-medium"
-                    >
-                      {item.author.charAt(0)}
-                    </span>
-                    <span className="min-w-0">
-                      <span className="text-mv-ink block text-[15px] font-bold">{item.author}</span>
-                      <span className="text-mv-stone-2 block text-[12.5px]">
-                        {item.context} · {item.date}
-                      </span>
-                    </span>
-                  </figcaption>
-                </figure>
+                <ReviewCard item={item} />
               </li>
             ))}
           </ul>

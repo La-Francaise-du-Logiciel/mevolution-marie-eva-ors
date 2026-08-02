@@ -14,8 +14,8 @@ export function PourQui() {
 
   return (
     <section id="pour-qui" className="scroll-mt-20">
-      <Container className="pt-6 pb-16 md:pb-20 lg:pb-[92px]">
-        <Reveal className="mb-10 max-w-[640px] lg:mb-11">
+      <Container className="pt-5 pb-12 md:pt-6 md:pb-20 lg:pb-[92px]">
+        <Reveal className="mb-7 max-w-[640px] md:mb-10 lg:mb-11">
           <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
           <h2 className="font-serif text-[30px] leading-[1.12] font-medium sm:text-[38px] lg:text-[42px]">
             {t("title")}
@@ -25,13 +25,13 @@ export function PourQui() {
           </p>
         </Reveal>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {cards.map((card, index) => (
             <Reveal key={index} delay={index * 90} className="h-full">
               {/* Carte entièrement cliquable : plus d'impasse en fin de section (audit §6.3). */}
               <Link
                 href={card.href}
-                className="border-mv-line hover:border-mv-line-strong focus-visible:ring-ring focus-visible:ring-offset-mv-cream mv-lift flex h-full flex-col rounded-[20px] border bg-white p-7 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                className="border-mv-line hover:border-mv-line-strong focus-visible:ring-ring focus-visible:ring-offset-mv-cream mv-lift flex h-full flex-col rounded-[20px] border bg-white p-5 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none md:p-7"
               >
                 <p className="text-mv-ink-soft text-[17px] leading-[1.55] font-semibold">
                   {card.text}
