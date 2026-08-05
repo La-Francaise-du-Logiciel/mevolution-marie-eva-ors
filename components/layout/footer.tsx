@@ -143,7 +143,7 @@ export async function Footer() {
             <p className="text-[13px] text-white/40">
               {t("footer.credits")}{" "}
               <a
-                href={`mailto:${siteCredits.email}`}
+                href={siteCredits.url}
                 className="text-white/60 transition-colors hover:text-white"
               >
                 {siteCredits.name}

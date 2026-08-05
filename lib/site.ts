@@ -42,6 +42,7 @@ export const siteConfig = {
  */
 export const siteCredits = {
   name: "La Française du Logiciel",
+  url: "https://francaisedulogiciel.fr",
   email: "contact@francaisedulogiciel.fr",
 } as const;
 
