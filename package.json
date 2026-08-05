@@ -2,6 +2,7 @@
   "name": "mevolution-consulting",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "npm@10.7.0",
   "description": "Site vitrine de Mévolution Consulting & Coaching (Maréva Ors). Next.js + Tailwind CSS + next-intl.",
   "scripts": {
     "dev": "next dev",
@@ -46,6 +47,6 @@
     "typescript": "^5.9"
   },
   "engines": {
-    "node": ">=20.9.0"
+    "node": "22"
   }
 }
