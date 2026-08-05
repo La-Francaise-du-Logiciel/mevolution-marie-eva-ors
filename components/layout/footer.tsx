@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { Container } from "@/components/brand/container";
+import { QualiopiCertification } from "@/components/brand/qualiopi-certification";
 import { siteConfig, siteCredits } from "@/lib/site";
 import { NavLink } from "./nav-link";
 import { NAV } from "./nav-items";
@@ -44,8 +45,8 @@ export async function Footer() {
           unoptimized
         />
 
-        {/* Deux colonnes compactes en mobile, puis trois colonnes dès `sm`. */}
-        <div className="mt-8 grid grid-cols-2 gap-7 sm:grid-cols-3 sm:gap-10 md:mt-10">
+        {/* La certification rejoint les informations du footer sans concurrencer la marque. */}
+        <div className="mt-8 grid grid-cols-2 gap-7 sm:grid-cols-3 sm:gap-10 md:mt-10 md:grid-cols-4">
           {/* Navigation */}
           <div>
             <p className="text-mv-lime mb-4 text-[11px] font-extrabold tracking-[0.14em] uppercase">
@@ -122,6 +123,17 @@ export async function Footer() {
                 {siteConfig.phoneDisplay}
               </a>
             </div>
+          </div>
+
+          {/* Certification */}
+          <div className="col-span-2 sm:col-span-3 md:col-span-1">
+            <p className="text-mv-lime mb-4 text-[11px] font-extrabold tracking-[0.14em] uppercase">
+              {t("footer.certificationTitle")}
+            </p>
+            <QualiopiCertification
+              compact
+              className="max-w-[190px] shadow-none sm:mx-auto md:mx-0"
+            />
           </div>
         </div>
 

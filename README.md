@@ -54,20 +54,22 @@ npm run dev
 
 Le site est disponible sur <http://localhost:3000>.
 
-> **Le formulaire de contact fonctionne sans clé Resend en développement** : le message n'est pas envoyé mais l'UI affiche l'état de succès (le message est loggé côté serveur).
+> **Le formulaire exige une configuration Resend valide** : sans clé ou expéditeur configuré, l'API renvoie une erreur et l'UI ne confirme jamais un envoi qui n'a pas eu lieu.
 
 ## Variables d'environnement
 
 Copier `.env.example` → `.env.local`.
 
-| Variable                   | Requis    | Description                                                             |
-| -------------------------- | --------- | ----------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`     | Prod      | URL de production, sans slash final (canonicals, OG, sitemap).          |
-| `RESEND_API_KEY`           | Prod      | Clé API Resend **serveur** (jamais exposée au client).                  |
-| `CONTACT_TO_EMAIL`         | Prod      | Adresse qui reçoit les messages du formulaire.                          |
-| `CONTACT_FROM_EMAIL`       | Prod      | Expéditeur (domaine vérifié dans Resend), ex. `Mévolution <contact@…>`. |
-| `NEXT_PUBLIC_POSTHOG_KEY`  | Optionnel | Clé projet PostHog. Sans elle, l'analytics est simplement désactivé.    |
-| `NEXT_PUBLIC_POSTHOG_HOST` | Optionnel | Hôte PostHog (par défaut `https://eu.i.posthog.com`).                   |
+| Variable                   | Requis    | Description                                                                    |
+| -------------------------- | --------- | ------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL`     | Prod      | URL de production, sans slash final (canonicals, OG, sitemap).                 |
+| `RESEND_API_KEY`           | Prod      | Clé API Resend **serveur** (jamais exposée au client).                         |
+| `CONTACT_TO_EMAIL`         | Prod      | Adresse qui reçoit les messages du formulaire.                                 |
+| `CONTACT_FROM_EMAIL`       | Prod      | Expéditeur (domaine vérifié dans Resend), ex. `Mévolution <contact@…>`.        |
+| `NEXT_PUBLIC_POSTHOG_KEY`  | Optionnel | Clé publique du projet PostHog Cloud EU. Sans elle, l'analytics est désactivé. |
+| `NEXT_PUBLIC_POSTHOG_HOST` | Optionnel | Hôte PostHog (par défaut `https://eu.i.posthog.com`).                          |
+
+La liste prête à recopier dans Scaleway se trouve dans [`PRODUCTION_ENV.md`](./PRODUCTION_ENV.md).
 
 ## Scripts
 
@@ -150,19 +152,24 @@ Site **100 % français**, sans routing de langue : les pages vivent à la racine
 ### PostHog (analytics)
 
 - Renseigner `NEXT_PUBLIC_POSTHOG_KEY` (+ `NEXT_PUBLIC_POSTHOG_HOST`).
+- Activer **Project Settings > Web analytics > Cookieless server hash mode** dans PostHog.
 - Pages vues suivies à chaque navigation ; événements personnalisés : `cta_calendly_click`
   (avec la propriété `location` : `hero`, `header`, `sticky-mobile`, `footer`, `comparaison`…),
   `contact_form_submitted`, `contact_form_error`.
+- Collecte sans cookies : `cookieless_mode: "always"`, sans cookie, `localStorage` ni
+  `sessionStorage`. Autocapture, paramètres d'URL, enregistrement des sessions, sondages,
+  feature flags et profils visiteurs sont désactivés.
 - ⚠️ La **réservation Calendly effective** n'est pas encore suivie (redirection externe) :
   on mesure les clics, pas les rendez-vous pris. Cf. audit §5.2.
 
 ## Déploiement
 
-Optimisé pour **Vercel** :
+Le site de production est hébergé sur **Scaleway Serverless Functions** en région Paris
+(`fr-par`) et servi sur <https://www.mevolution-consulting.fr>.
 
-1. Importer le repo dans Vercel.
-2. Renseigner les variables d'environnement (voir tableau).
-3. Déployer (`npm run build` est détecté automatiquement).
+1. Renseigner les variables Scaleway décrites dans [`PRODUCTION_ENV.md`](./PRODUCTION_ENV.md).
+2. Construire avec `npm run build`.
+3. Déployer la branche `main` via l'intégration Git du service Scaleway.
 
 Fonctionne sur toute plateforme supportant Next.js (build Node standard).
 
@@ -191,9 +198,9 @@ Tout est piloté par `lib/site.ts` : **une valeur à `null` n'est simplement pas
 - [ ] **Chiffres clés** : `keyFigures.peopleSupported`, `since`, `rating`.
       ⚠️ Chiffres vérifiables uniquement.
 - [ ] **Facebook** : `siteConfig.social.facebook` (le lien n'apparaît pas tant qu'il vaut `null`).
-- [ ] **`NEXT_PUBLIC_SITE_URL`** : domaine de production réel. **Le build échoue
-      volontairement sans cette variable** en production (sinon canonicals/OG/sitemap
-      pointeraient vers `localhost`).
+- [x] **`NEXT_PUBLIC_SITE_URL`** : configuré sur `https://www.mevolution-consulting.fr`.
+      **Le build échoue volontairement sans cette variable** en production (sinon
+      canonicals/OG/sitemap pointeraient vers `localhost`).
 
 ---
 

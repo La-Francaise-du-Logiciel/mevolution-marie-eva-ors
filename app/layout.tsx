@@ -48,8 +48,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: { card: "summary_large_image" },
     icons: {
-      icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-      shortcut: "/favicon.svg",
+      icon: [{ url: "/brand/favicon-mauve-64.png", sizes: "64x64", type: "image/png" }],
+      shortcut: "/brand/favicon-mauve-64.png",
       apple: "/brand/favicon-mauve-64.png",
     },
     manifest: "/manifest.webmanifest",

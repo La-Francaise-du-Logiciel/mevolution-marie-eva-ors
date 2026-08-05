@@ -32,6 +32,12 @@
     "photoAboutAlt": "Maréva Ors, fondatrice de Mévolution, en entretien d'accompagnement",
     "photoPending": "Photo à venir"
   },
+  "qualiopi": {
+    "logoAlt": "Qualiopi, processus certifié par la République française",
+    "statement": "La certification qualité a été délivrée au titre de la catégorie d’action suivante :",
+    "category": "Bilans de compétences",
+    "linkAria": "En savoir plus sur l’usage de la marque Qualiopi (nouvel onglet)"
+  },
   "trustBar": {
     "label": "Ils encadrent mon travail",
     "partner": "Bilan réalisé en partenariat avec {partner}",
@@ -397,6 +403,11 @@
       "title": "À qui s'adresse-t-il ?",
       "text": "À tous : en poste, en recherche d'emploi, en reconversion ou en reprise d'activité. Il vous aide à mieux vous connaître et à tracer un chemin vers vos objectifs : bien-être au travail, rémunération, équilibre vie professionnelle / vie personnelle. Et il reste strictement confidentiel : votre employeur n'en saura rien."
     },
+    "qualiopi": {
+      "eyebrow": "Démarche qualité",
+      "title": "Un processus certifié Qualiopi",
+      "text": "Cette certification atteste de la qualité du processus mis en œuvre pour votre bilan de compétences. Elle porte sur le cadre de l’accompagnement, son suivi et son amélioration continue."
+    },
     "citation": {
       "quote": "Il existe trois choses extrêmement dures en ce monde : le diamant, l'acier et la connaissance de soi.",
       "author": "Benjamin Franklin",
@@ -528,7 +539,7 @@
         },
         {
           "title": "Hébergement",
-          "body": "Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis (vercel.com)."
+          "body": "Le site est hébergé par Scaleway SAS, société par actions simplifiée au capital de 142 050 euros, immatriculée au RCS de Paris sous le numéro 433 115 904, dont le siège social est situé 8 rue de la Ville-l’Évêque, 75008 Paris, France (scaleway.com)."
         },
         {
           "title": "Conception et réalisation",
@@ -559,7 +570,7 @@
       },
       "title": "Politique de confidentialité",
       "lead": "Cette page explique quelles données sont collectées sur ce site, pourquoi, et quels sont vos droits.",
-      "updated": "Dernière mise à jour : juillet 2026",
+      "updated": "Dernière mise à jour : août 2026",
       "sections": [
         {
           "title": "Responsable du traitement",
@@ -567,7 +578,7 @@
         },
         {
           "title": "Quelles données sont collectées",
-          "body": "Uniquement celles que vous saisissez volontairement dans le formulaire de contact : votre nom, votre adresse email, éventuellement votre téléphone et votre situation professionnelle, ainsi que le contenu de votre message. Aucune donnée n'est collectée à votre insu."
+          "body": "Les informations que vous saisissez volontairement dans le formulaire de contact : votre nom, votre adresse email, éventuellement votre téléphone et votre situation professionnelle, ainsi que le contenu de votre message. Lorsque la mesure d’audience est activée, des données techniques de navigation sont également traitées : page consultée, site d’origine, type d’appareil et événements de conversion."
         },
         {
           "title": "Pourquoi elles sont collectées",
@@ -575,7 +586,7 @@
         },
         {
           "title": "Base légale",
-          "body": "Votre consentement, recueilli par la case à cocher du formulaire de contact. Vous pouvez le retirer à tout moment en écrivant à {email}."
+          "body": "Pour le formulaire de contact : votre consentement, recueilli par la case à cocher ; vous pouvez le retirer à tout moment en écrivant à {email}. Pour la mesure d’audience strictement limitée à l’amélioration du site : l’intérêt légitime de l’éditrice, avec une configuration sans cookie, sans stockage dans le navigateur et sans profil utilisateur."
         },
         {
           "title": "Combien de temps elles sont conservées",
@@ -583,11 +594,15 @@
         },
         {
           "title": "Qui y a accès",
-          "body": "{founder} uniquement. Les messages transitent par le service d'envoi d'emails Resend et sont hébergés par Vercel, tous deux agissant comme sous-traitants au sens du RGPD."
+          "body": "Sur le plan opérationnel, {founder} uniquement. Le formulaire est traité sur l’infrastructure d’hébergement Scaleway et les messages sont envoyés par le service Resend ; ces prestataires interviennent comme sous-traitants au sens du RGPD."
         },
         {
           "title": "Mesure d'audience",
-          "body": "Ce site utilise PostHog pour mesurer sa fréquentation (pages vues, clics sur les boutons de prise de rendez-vous), dans une configuration hébergée dans l'Union européenne. Ces données sont agrégées et ne servent qu'à améliorer le site."
+          "body": "Ce site utilise PostHog Cloud EU pour mesurer sa fréquentation (visites, pages vues, sources de trafic, appareils et clics de conversion). PostHog fonctionne ici en mode strictement sans cookie : aucune donnée n’est écrite dans les cookies, le stockage local ou le stockage de session du navigateur. Les paramètres d’URL, la capture automatique des éléments, l’enregistrement des sessions, les sondages et la création de profils visiteurs sont désactivés. Un identifiant technique pseudonymisé est généré côté PostHog avec un sel renouvelé quotidiennement ; il ne permet pas de suivre une personne d’un jour à l’autre."
+        },
+        {
+          "title": "Cookies",
+          "body": "Ce site ne dépose aucun cookie et n’utilise aucun autre stockage dans votre navigateur à des fins de mesure d’audience. Aucun bandeau de consentement aux cookies n’est donc affiché. Si une fonctionnalité nécessitant des cookies est ajoutée ultérieurement, cette politique et le mécanisme de consentement seront mis à jour avant son activation."
         },
         {
           "title": "Vos droits",
@@ -604,6 +619,7 @@
     "navTitle": "Navigation",
     "followTitle": "Suivez-moi",
     "contactTitle": "Contact",
+    "certificationTitle": "Certification",
     "ctaTitle": "Un premier pas ?",
     "ctaText": "1 heure d'échange, gratuite et sans engagement.",
     "linkedin": "LinkedIn",

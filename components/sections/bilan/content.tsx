@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 
 import { Container } from "@/components/brand/container";
 import { Eyebrow } from "@/components/brand/eyebrow";
+import { QualiopiCertification } from "@/components/brand/qualiopi-certification";
 import { Reveal } from "@/components/brand/reveal";
 
 /** Pourquoi faire un bilan / à qui il s'adresse : deux blocs côte à côte. */
@@ -23,6 +24,28 @@ export function Pourquoi() {
             {t("pourQui.title")}
           </h2>
           <p className="text-mv-stone text-[16px] leading-[1.7]">{t("pourQui.text")}</p>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+/** Certification du processus qualité, affichée avec sa catégorie officielle. */
+export function Qualiopi() {
+  const t = useTranslations("bilan.qualiopi");
+
+  return (
+    <section className="bg-mv-pastel-green/70">
+      <Container className="py-12 md:py-16 lg:py-[72px]">
+        <Reveal className="grid items-center gap-8 md:grid-cols-[1fr_auto] md:gap-12">
+          <div className="max-w-[620px]">
+            <Eyebrow className="mb-4">{t("eyebrow")}</Eyebrow>
+            <h2 className="font-serif text-[28px] leading-[1.12] font-medium sm:text-[34px] lg:text-[36px]">
+              {t("title")}
+            </h2>
+            <p className="text-mv-stone mt-4 text-[16px] leading-[1.7] md:text-lg">{t("text")}</p>
+          </div>
+          <QualiopiCertification eager className="justify-self-center md:justify-self-end" />
         </Reveal>
       </Container>
     </section>

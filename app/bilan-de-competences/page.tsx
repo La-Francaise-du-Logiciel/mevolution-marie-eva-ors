@@ -4,7 +4,13 @@ import { getTranslations } from "next-intl/server";
 import { buildPageMetadata } from "@/lib/seo";
 import { JsonLd, breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/json-ld";
 import { BilanHero } from "@/components/sections/bilan/hero";
-import { Pourquoi, Citation, Pratique, Confidentialite } from "@/components/sections/bilan/content";
+import {
+  Pourquoi,
+  Qualiopi,
+  Citation,
+  Pratique,
+  Confidentialite,
+} from "@/components/sections/bilan/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("bilan.meta");
@@ -29,6 +35,7 @@ export default async function BilanPage() {
     <>
       <BilanHero />
       <Pourquoi />
+      <Qualiopi />
       <Pratique />
       <Confidentialite />
       <Citation />

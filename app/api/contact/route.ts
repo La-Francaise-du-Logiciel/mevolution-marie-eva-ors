@@ -89,13 +89,15 @@ export async function POST(req: Request) {
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
   const from = process.env.CONTACT_FROM_EMAIL;
 
-  // Fallback dev : sans clé configurée, on n'envoie pas mais le formulaire réussit.
+  // Ne jamais confirmer un envoi qui n'a pas eu lieu : une configuration manquante
+  // doit rester visible côté client et dans les logs de déploiement.
   if (!apiKey || !from) {
-    console.warn("[contact] RESEND_API_KEY/CONTACT_FROM_EMAIL manquants : email non envoyé.", {
-      name,
-      email,
-    });
-    return NextResponse.json({ status: "ok", message: "Sent (dev)" });
+    const missing = [!apiKey && "RESEND_API_KEY", !from && "CONTACT_FROM_EMAIL"].filter(Boolean);
+    console.error(`[contact] Configuration Resend manquante : ${missing.join(", ")}.`);
+    return NextResponse.json(
+      { status: "error", message: "Email service unavailable." },
+      { status: 503 }
+    );
   }
 
   const resend = new Resend(apiKey);
