@@ -42,7 +42,7 @@ export const siteConfig = {
  */
 export const siteCredits = {
   name: "La Française du Logiciel",
-  email: "contact@la-francaise-du-logiciel.fr",
+  email: "contact@francaisedulogiciel.fr",
 } as const;
 
 /**

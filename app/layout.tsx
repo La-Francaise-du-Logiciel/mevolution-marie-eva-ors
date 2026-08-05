@@ -9,7 +9,6 @@ import { JsonLd, organizationSchema, webSiteSchema } from "@/lib/json-ld";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
-import { PostHogProvider } from "@/app/providers";
 
 import "./globals.css";
 
@@ -86,16 +85,14 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           }}
         />
         <NextIntlClientProvider locale="fr" messages={messages}>
-          <PostHogProvider>
-            <div className="flex min-h-dvh flex-col">
-              <Header />
-              <main id="main" className="flex-1">
-                {children}
-              </main>
-              <Footer />
-            </div>
-            <Toaster />
-          </PostHogProvider>
+          <div className="flex min-h-dvh flex-col">
+            <Header />
+            <main id="main" className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
+          <Toaster />
         </NextIntlClientProvider>
 
         <JsonLd data={organizationSchema(t("description"))} />
