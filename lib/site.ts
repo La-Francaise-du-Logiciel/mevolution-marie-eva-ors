@@ -25,7 +25,7 @@ export const siteConfig = {
   phoneHref: "tel:+33674081811",
   phoneE164: "+33674081811",
   social: {
-    linkedin: "https://www.linkedin.com/in/orsmareva",
+    linkedin: "https://www.linkedin.com/in/ors-marie-eva-5163b575/",
     instagram: "https://www.instagram.com/orsmareva",
     /**
      * `null` = le lien n'est pas affiché (footer et page Contact).
